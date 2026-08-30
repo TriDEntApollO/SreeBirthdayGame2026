@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=4 uid="uid://cb2v31dl57c8u"]
+
+[ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_3w07q"]
+[ext_resource type="TileSet" uid="uid://jiswldymii3t" path="res://tileset/furniture_tileset.tres" id="2_2812u"]
+[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="3_n5en3"]
+[ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="3_sqdrw"]
+[ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="4_2812u"]
+[ext_resource type="Script" uid="uid://xlp7eredppto" path="res://scenes/rooms/kitchen_sink.gd" id="5_581re"]
+[ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="6_581re"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_njvo0"]
+[ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="9_m75iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2812u"]
+atlas = ExtResource("3_sqdrw")
+region = Rect2(157, 29, 38, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtubd"]
+size = Vector2(33.000042, 52.000095)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_581re"]
+atlas = ExtResource("6_njvo0")
+region = Rect2(0, 70, 16, 10)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n5en3"]
+load_path = "res://.godot/imported/Counter Decor.png-a661c86c96e26b83b40d6a91c033e0c3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75iv"]
+atlas = SubResource("CompressedTexture2D_n5en3")
+region = Rect2(164, 48, 24, 11)
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="FloorAndWall" type="Node2D" parent="."]
+position = Vector2(5, 6)
+
+[node name="Floor" type="TileMapLayer" parent="FloorAndWall"]
+tile_map_data = PackedByteArray("AAACAAoAAgAKAAAAAAACAAsAAgAKAAEAAAADAAoAAgALAAAAAAADAAsAAgALAAEAAAACAAgAAgAKAAAAAAACAAkAAgAKAAEAAAADAAgAAgALAAAAAAADAAkAAgALAAEAAAACAAYAAgAKAAAAAAACAAcAAgAKAAEAAAADAAYAAgALAAAAAAADAAcAAgALAAEAAAACAAUAAgAKAAEAAAADAAUAAgALAAEAAAAEAAUAAgAKAAEAAAAFAAUAAgALAAEAAAAEAAYAAgAKAAAAAAAEAAcAAgAKAAEAAAAFAAYAAgALAAAAAAAFAAcAAgALAAEAAAAEAAgAAgAKAAAAAAAEAAkAAgAKAAEAAAAFAAgAAgALAAAAAAAFAAkAAgALAAEAAAAEAAoAAgAKAAAAAAAEAAsAAgAKAAEAAAAFAAoAAgALAAAAAAAFAAsAAgALAAEAAAADAAwAAgAKAAEAAAAEAAwAAgALAAEAAAAGAAYAAgAKAAAAAAAGAAcAAgAKAAEAAAAGAAgAAgAKAAAAAAAGAAkAAgAKAAEAAAAGAAoAAgAKAAAAAAAGAAsAAgAKAAEAAAAGAAUAAgAKAAEAAAAGAAQAAgAKAAAAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Rugs" type="TileMapLayer" parent="FloorAndWall"]
+tile_map_data = PackedByteArray("AAADAAgAAwATAAEAAAADAAkAAwATAAQAAAAEAAgAAwAWAAEAAAAEAAkAAwAWAAQAAAADAAcAAwAUAAAAAAAEAAcAAwAUAAAAAAADAAoAAwAUAAUAAAAEAAoAAwAUAAUAAAAFAAgAAwAXAAEAAAAFAAkAAwAXAAEAAAACAAkAAwASAAMAAAACAAgAAwASAAMAAAACAAoAAwASAAUAAAAFAAoAAwAXAAUAAAAFAAcAAwAXAAAAAAACAAcAAwASAAAAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Wall" type="TileMapLayer" parent="FloorAndWall"]
+tile_map_data = PackedByteArray("AAAAAAAACQAAAAAAAAAAAAEACQAAAAEAAAAAAAIACQAAAAIAAAAAAAMACQAAAAEAAAABAAAACQABAAAAAAABAAEACQABAAEAAAABAAIACQABAAIAAAABAAMACQABAAEAAAACAAAACQAAAAAAAAACAAEACQAAAAEAAAACAAIACQAAAAIAAAACAAMACQAAAAMAAAADAAAACQABAAAAAAADAAEACQABAAEAAAADAAIACQABAAIAAAADAAMACQABAAMAAAAEAAAACQAAAAAAAAAEAAEACQAAAAEAAAAEAAIACQAAAAIAAAAEAAMACQAAAAMAAAAFAAAACQABAAAAAAAFAAEACQABAAEAAAAFAAIACQABAAIAAAAFAAMACQABAAMAAAAGAAAACQAAAAAAAAAGAAEACQAAAAEAAAAGAAIACQAAAAIAAAAGAAMACQAAAAMAAAAHAAAACQABAAAAAAAHAAEACQABAAEAAAAHAAIACQABAAIAAAAHAAMACQABAAMAAAAAAAUACQAAAAIAAGAAAAQACQABAAIAAGABAAUACQAAAAMAAGABAAQACQABAAMAAGAAAAcACQAAAAIAAGAAAAYACQABAAIAAGABAAcACQAAAAMAAGABAAYACQABAAMAAGAAAAkACQAAAAIAAGAAAAgACQABAAIAAGABAAkACQAAAAMAAGABAAgACQABAAMAAGAAAAsACQAAAAIAAGAAAAoACQABAAIAAGABAAsACQAAAAMAAGABAAoACQABAAMAAGAIAAIACQAAAAIAAAAIAAEACQAAAAIAAAAIAAAACQAAAAIAAAAIAAMACQABAAIAAAAIAAQACQABAAIAAAAIAAUACQABAAIAAAAIAAYACQABAAIAAAAIAAcACQABAAIAAAAIAAgACQABAAIAAAAIAAkACQABAAIAAAAIAAoACQABAAIAAAAIAAsACQABAAIAAAAJAAMACQABAAIAAAAJAAQACQABAAIAAAAJAAUACQABAAIAAAAJAAYACQABAAIAAAAJAAcACQABAAIAAAAJAAgACQABAAIAAAAJAAkACQABAAIAAAAJAAoACQABAAIAAAAJAAsACQABAAIAAAAJAAIACQABAAIAAAAJAAEACQABAAIAAAAJAAAACQABAAIAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Windows" type="Node2D" parent="FloorAndWall"]
+
+[node name="Outside" type="TileMapLayer" parent="FloorAndWall/Windows"]
+tile_map_data = PackedByteArray("AAADAAAABwAEAAAAAAADAAEABwAEAAEAAAAEAAAABwAFAAAAAAAEAAEABwAFAAEAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Pane" type="TileMapLayer" parent="FloorAndWall/Windows"]
+position = Vector2(0, -1)
+tile_map_data = PackedByteArray("AAADAAAABgACAAAAAAADAAEABgACAAEAAAAEAAAABgADAAAAAAAEAAEABgADAAEAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Curtains" type="TileMapLayer" parent="FloorAndWall/Windows"]
+tile_map_data = PackedByteArray("AAADAAAACAAEAAAAAAADAAEACAAEAAEAAAAEAAAACAAFAAAAAAAEAAEACAAFAAEAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Decor" type="Node2D" parent="FloorAndWall"]
+
+[node name="Furniture" type="TileMapLayer" parent="FloorAndWall/Decor"]
+tile_map_data = PackedByteArray("AAACAAMABQAGAAgAAAACAAQABQAGAAkAAAACAAUABQAGAAoAAAAEAAMABQAKAAgAAAAEAAQABQAKAAkAAAAEAAUABQAKAAoAAAAFAAUABQALAAoAAAAFAAQABQALAAkAAAAFAAMABQALAAgAAAAGAAoABQAEAAoAAFAHAAoABQAEAAkAAFAGAAsABQAFAAoAAFAHAAsABQAFAAkAAFAGAAQABQAAAAoAAFAHAAQABQAAAAkAAFAHAAUABQABAAkAAFAGAAUABQABAAoAAFAHAAYABQACAAkAAFAGAAYABQACAAoAAFAGAAcABQADAAoAAFAHAAcABQADAAkAAFAGAAgABQAOAAoAAFAGAAkABQAPAAoAAFAHAAkABQAPAAkAAFAHAAgABQAOAAkAAFAIAAQABQAAAAgAAFAIAAUABQABAAgAAFAIAAYABQACAAgAAFAIAAcABQADAAgAAFAIAAgABQAOAAgAAFAIAAkABQAPAAgAAFAIAAoABQAEAAgAAFAIAAsABQAFAAgAAFAGAAAACgAGAAAAAAAGAAEACgAGAAEAAAAHAAAACgAHAAAAAAAHAAEACgAHAAEAAAACAAkADAAAAAUAAGABAAkADAAAAAAAAGABAAYACgAJAAIAAGACAAYACgAJAAMAAGADAAUABQAHAAoAAAADAAQABQAHAAkAAAADAAMABQAHAAgAAAA=")
+tile_set = ExtResource("2_2812u")
+
+[node name="WallDecor" type="TileMapLayer" parent="FloorAndWall/Decor"]
+tile_map_data = PackedByteArray("AAAAAAsABAAAAAAAAGAAAAoABAABAAAAAGAAAAkABAAEAAAAAGAAAAgABAADAAAAAGAAAAcABAAEAAAAAGAAAAYABAABAAAAAGABAAsABAAAAAEAAGABAAoABAABAAEAAGABAAYABAABAAEAAGAAAAQACgAPAAoAAGA=")
+tile_set = ExtResource("2_2812u")
+
+[node name="Details" type="TileMapLayer" parent="FloorAndWall/Decor"]
+tile_map_data = PackedByteArray("AAAFAAMABgACAAAAAAAIAAoABgAEAAEAAFAIAAsABgADAAAAAFAIAAcABgACAAAAAFAIAAUABgACAAIAAFAIAAQABgADAAEAAFAIAAgADQAGAAUAAFAIAAYADQAAAAQAAFABAAYACgAPAAYAAGADAAsACQAIAAMAAAAEAAsACQAJAAMAAAAEAAMADQAHAAcAAAA=")
+tile_set = ExtResource("2_2812u")
+
+[node name="Border" type="TileMapLayer" parent="FloorAndWall"]
+tile_map_data = PackedByteArray("AAD//wAACgABAAIAAAD//wEACgABAAIAAAD//wIACgABAAIAAAD//wMACgABAAIAAAD//wQACgABAAIAAAD//wUACgABAAIAAAD//wYACgABAAIAAAD//wcACgABAAIAAAD//wgACgABAAIAAAD//wkACgABAAIAAAD//woACgABAAIAAAD//wsACgABAAIAAAD/////CgABAAEAAAAAAP//CgACAAEAAAABAP//CgACAAEAAAACAP//CgACAAEAAAADAP//CgACAAEAAAAEAP//CgACAAEAAAAFAP//CgACAAEAAAAGAP//CgACAAEAAAAHAP//CgACAAEAAAAIAP//CgACAAEAAAAJAP//CgACAAEAAAAKAAAACgAGAAIAAAAKAAEACgAGAAIAAAAKAAIACgAGAAIAAAAKAAMACgAGAAIAAAAKAAQACgAGAAIAAAAKAAUACgAGAAIAAAAKAAYACgAGAAIAAAAKAAcACgAGAAIAAAAKAAgACgAGAAIAAAAKAAkACgAGAAIAAAAKAAoACgAGAAIAAAAKAAsACgAGAAIAAAAKAAwACgAEAAQAAAAKAP//CgAEAAEAAAD//wwACgABAAQAAAAAAAwACgACAAQAAAABAAwACgACAAQAAAACAAwACgALAAQAAAAFAAwACgAGAAQAAAAGAAwACgACAAQAAAAHAAwACgACAAQAAAAIAAwACgACAAQAAAAJAAwACgACAAQAAAA=")
+tile_set = ExtResource("1_3w07q")
+
+[node name="Sink" type="Sprite2D" parent="."]
+material = ExtResource("3_n5en3")
+position = Vector2(52.000004, 57)
+scale = Vector2(0.875, 0.875)
+texture = SubResource("AtlasTexture_2812u")
+script = ExtResource("5_581re")
+
+[node name="PutPlateInteractable" parent="Sink" instance=ExtResource("4_2812u")]
+position = Vector2(-59.428566, -64.00001)
+scale = Vector2(1.1428571, 1.1428571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink/PutPlateInteractable"]
+position = Vector2(53.499977, 74.99994)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_jtubd")
+debug_color = Color(0.88235295, 0.2784314, 0.47843137, 0.41960785)
+
+[node name="InteractPrompt" parent="Sink/PutPlateInteractable" instance=ExtResource("6_581re")]
+position = Vector2(52.999996, 32.00001)
+prompt = "Put Plate"
+
+[node name="Plate" type="Sprite2D" parent="Sink"]
+position = Vector2(-5.7142944, -1.1428604)
+rotation = 0.7853982
+scale = Vector2(0.8228598, 0.8228598)
+texture = SubResource("AtlasTexture_581re")
+
+[node name="Sink Bottom" type="Sprite2D" parent="Sink"]
+position = Vector2(0, 6.857147)
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("AtlasTexture_m75iv")
+
+[node name="Collectable4" parent="Sink" instance=ExtResource("9_m75iv")]
+position = Vector2(-24.000002, 115.428566)
+rotation = -1.3089969

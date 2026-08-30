@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://8680ygn8oq35"]
+
+[ext_resource type="Script" uid="uid://bdxxult61i0ai" path="res://scenes/main_scene.gd" id="1_rt2n2"]
+[ext_resource type="PackedScene" uid="uid://cyjuqntwjxfsv" path="res://scenes/map/main_map.tscn" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://dot7wjke6lis1" path="res://scenes/characters/sree/sree.tscn" id="2_pw63i"]
+[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="5_6wevv"]
+[ext_resource type="Script" uid="uid://b5bjphjbps3un" path="res://scenes/omma_and_appa.gd" id="5_18nlu"]
+[ext_resource type="PackedScene" uid="uid://dmi2u7qcsf3jq" path="res://scenes/characters/omma/omma.tscn" id="5_c16ls"]
+[ext_resource type="PackedScene" uid="uid://doti5gcky4v6o" path="res://scenes/characters/appa/appa.tscn" id="6_18nlu"]
+[ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="6_c1pb6"]
+[ext_resource type="PackedScene" uid="uid://c53ro0m8orybb" path="res://scenes/characters/porkpaglu/porkpaglu.tscn" id="11_4w45t"]
+[ext_resource type="PackedScene" uid="uid://bmbyrnr34g1k8" path="res://scenes/characters/ramenpaglu/ramenpaglu.tscn" id="12_r6p65"]
+[ext_resource type="PackedScene" uid="uid://cpijbndk8h6r8" path="res://scenes/characters/upasana/upasana.tscn" id="13_si52b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1pb6"]
+radius = 26.0
+height = 87.0
+
+[node name="MainScene" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rt2n2")
+
+[node name="HouseScene" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="MainMap" parent="HouseScene" instance=ExtResource("1_w2twt")]
+
+[node name="Charcters" type="Node2D" parent="HouseScene"]
+
+[node name="OmmaAndAppa" type="Node2D" parent="HouseScene/Charcters"]
+z_index = 1
+material = ExtResource("5_6wevv")
+position = Vector2(633, 200)
+script = ExtResource("5_18nlu")
+
+[node name="Interactable" parent="HouseScene/Charcters/OmmaAndAppa" instance=ExtResource("6_c1pb6")]
+interact_once = false
+interactable_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseScene/Charcters/OmmaAndAppa/Interactable"]
+position = Vector2(-4.5, 3)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_c1pb6")
+
+[node name="Omma" parent="HouseScene/Charcters/OmmaAndAppa" instance=ExtResource("5_c16ls")]
+position = Vector2(-21, 15)
+
+[node name="Appa" parent="HouseScene/Charcters/OmmaAndAppa" instance=ExtResource("6_18nlu")]
+position = Vector2(12, 15)
+
+[node name="Porkpaglu" parent="HouseScene/Charcters" instance=ExtResource("11_4w45t")]
+position = Vector2(0, 241)
+
+[node name="Ramenpaglu" parent="HouseScene/Charcters" instance=ExtResource("12_r6p65")]
+position = Vector2(25, 243)
+
+[node name="Upasana" parent="HouseScene/Charcters" instance=ExtResource("13_si52b")]
+position = Vector2(12, 215)
+
+[node name="Sree" parent="HouseScene" instance=ExtResource("2_pw63i")]
+position = Vector2(-1, 7)

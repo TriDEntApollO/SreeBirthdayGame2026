@@ -1,0 +1,41 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> regular
+	
+~ first_interaction
+do set_avatar("upasana")
+Upasana: HAPPY BIRTHDAY! Sreejita!
+Upasana: Congratulations on turning 22.
+do set_avatar("sree")
+You: Thank you! How was the cake?
+do set_avatar("upasana")
+Upasana: Omg! the cake was soo good!
+do set_avatar("sree")
+You: Glad you liked it so much.
+do set_avatar("upasana")
+Upasana: Oo, and here is your gift.
+
+do Ui.gift_box.give_gift("makeup")
+
+Upasana: There is a set of highlighters, blush and bronzer, 2 blenders... 
+Upasana: A brush set, a set of eye pencils and 2 lipsticks.
+do set_avatar("sree")
+You: Omg! these colors are so cute, thank you so much!!!
+You: I will wear these in Puja, when we go out.
+do set_avatar("upasana")
+Upasana: Oh, great tell me what you will wear, we'll match.
+do set_avatar("sree")
+You: Okay, we will discuss and match outfits
+
+set first_interaction = false
+do EventManager.finish_task(EventManager.task_ids.talk_to_upasana)
+=> END
+
+~ regular
+do set_avatar("upasana")
+%1 Upasana: Send me a selfie if you try the makeup out.
+%1 Upasana: Don't forget to tell what you will be wearing in Puja
+
+=> END

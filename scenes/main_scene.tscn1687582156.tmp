@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://8680ygn8oq35"]
+
+[ext_resource type="Script" uid="uid://bdxxult61i0ai" path="res://scenes/main_scene.gd" id="1_rt2n2"]
+[ext_resource type="PackedScene" uid="uid://cyjuqntwjxfsv" path="res://scenes/map/main_map.tscn" id="1_w2twt"]
+[ext_resource type="Texture2D" uid="uid://cl8a67m6wv38g" path="res://assets/cats/Sree-sleep.png" id="2_7ykc4"]
+[ext_resource type="PackedScene" uid="uid://cmr8l1yviylo2" path="res://scenes/ui/ui.tscn" id="2_gubc5"]
+[ext_resource type="PackedScene" uid="uid://dot7wjke6lis1" path="res://scenes/characters/sree/sree.tscn" id="2_pw63i"]
+[ext_resource type="PackedScene" uid="uid://dmi2u7qcsf3jq" path="res://scenes/characters/omma/omma.tscn" id="5_c16ls"]
+[ext_resource type="PackedScene" uid="uid://doti5gcky4v6o" path="res://scenes/characters/appa/appa.tscn" id="6_18nlu"]
+
+[node name="MainScene" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rt2n2")
+
+[node name="UI" parent="." instance=ExtResource("2_gubc5")]
+
+[node name="MainMap" parent="." instance=ExtResource("1_w2twt")]
+
+[node name="SreeSleeping" type="Sprite2D" parent="MainMap"]
+position = Vector2(-60, -30)
+texture = ExtResource("2_7ykc4")
+
+[node name="Locations" type="Node2D" parent="."]
+
+[node name="Bed" type="Marker2D" parent="Locations"]
+position = Vector2(-42, 4)
+
+[node name="Charcters" type="Node2D" parent="."]
+
+[node name="Omma" parent="Charcters" instance=ExtResource("5_c16ls")]
+position = Vector2(604, 209)
+
+[node name="Appa" parent="Charcters" instance=ExtResource("6_18nlu")]
+position = Vector2(645, 209)
+
+[node name="Sree" parent="." instance=ExtResource("2_pw63i")]
+position = Vector2(-1, 7)
+
+[node name="Camera2D" type="Camera2D" parent="Sree"]
+position = Vector2(0, -9)
+zoom = Vector2(4, 4)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://caxwllqb77r62"
+path="res://.godot/imported/UI SFX_MENU_Scroll.ogg-c1d227b6ae8a5c59b974094a00b8a37a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/lolurio Free Cozy Game UI SFX Pack/UI SFX_MENU_Scroll.ogg"
+dest_files=["res://.godot/imported/UI SFX_MENU_Scroll.ogg-c1d227b6ae8a5c59b974094a00b8a37a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

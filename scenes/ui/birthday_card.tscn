@@ -1,0 +1,294 @@
+[gd_scene load_steps=12 format=3 uid="uid://dll0qxuhbkxm5"]
+
+[ext_resource type="Texture2D" uid="uid://b23rqiw2lsm2i" path="res://assets/images/birthday_card_closed.png" id="1_a8mbb"]
+[ext_resource type="Script" uid="uid://toapo54iqdks" path="res://scenes/ui/birthday_card.gd" id="1_mdfds"]
+[ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="2_ankmb"]
+[ext_resource type="FontFile" uid="uid://c15qbyb6b7r5t" path="res://assets/Fonts/Monocraft.ttc" id="2_tacr8"]
+[ext_resource type="Texture2D" uid="uid://cyry7x8n3g766" path="res://assets/images/birthday_card_open.png" id="4_tacr8"]
+[ext_resource type="AudioStream" uid="uid://qyfe1g6gclyk" path="res://assets/music/birthday_instrumental.ogg" id="6_ckkvy"]
+
+[sub_resource type="Animation" id="Animation_tacr8"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect3:color:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.61960787]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666664, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.36, 0.36), Vector2(1.18, 1.18), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ckkvy"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect3:color:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.61960787, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.36, 0.36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wm13o"]
+resource_name = "Open"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CardClosed:modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/CardOpen:modulate:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_mdfds"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect3:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.36, 0.36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/CardClosed:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/CardOpen:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckkvy"]
+_data = {
+&"FadeIn": SubResource("Animation_tacr8"),
+&"FadeOut": SubResource("Animation_ckkvy"),
+&"Open": SubResource("Animation_wm13o"),
+&"RESET": SubResource("Animation_mdfds")
+}
+
+[node name="BirthdayCard" type="CanvasLayer"]
+script = ExtResource("1_mdfds")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ckkvy")
+}
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.36, 0.36)
+
+[node name="Open" type="Button" parent="Control"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 255.0
+offset_right = 100.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_ankmb")
+theme_override_fonts/font = ExtResource("2_tacr8")
+theme_override_font_sizes/font_size = 30
+text = "  OPEN  "
+
+[node name="Close" type="Button" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 255.0
+offset_right = 100.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_ankmb")
+theme_override_fonts/font = ExtResource("2_tacr8")
+theme_override_font_sizes/font_size = 30
+text = "CLOSE"
+
+[node name="CardClosed" type="TextureRect" parent="Control"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -334.25
+offset_right = 234.0
+offset_bottom = 250.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a8mbb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardOpen" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -429.0
+offset_top = -342.25
+offset_right = 438.0
+offset_bottom = 242.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tacr8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BirthdayMusicPLayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ckkvy")
+volume_db = 5.379
+bus = &"Music"

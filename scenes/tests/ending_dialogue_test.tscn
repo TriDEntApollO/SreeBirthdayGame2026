@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2wgwb1gdtlhi"]
+
+[ext_resource type="Script" uid="uid://kqea7c67sw1o" path="res://scenes/tests/ending_dialogue_test.gd" id="1_duvnm"]
+[ext_resource type="PackedScene" uid="uid://cyjuqntwjxfsv" path="res://scenes/map/main_map.tscn" id="1_mkt4g"]
+[ext_resource type="PackedScene" uid="uid://bmbyrnr34g1k8" path="res://scenes/characters/ramenpaglu/ramenpaglu.tscn" id="2_duvnm"]
+[ext_resource type="PackedScene" uid="uid://clig72ow6pnft" path="res://scenes/characters/cat/cat.tscn" id="3_0wk05"]
+[ext_resource type="PackedScene" uid="uid://dot7wjke6lis1" path="res://scenes/characters/sree/sree.tscn" id="3_inl4m"]
+
+[node name="EndingDialogueTest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_duvnm")
+
+[node name="MainMap" parent="." instance=ExtResource("1_mkt4g")]
+
+[node name="Cat" parent="." instance=ExtResource("3_0wk05")]
+position = Vector2(49, -2)
+scale = Vector2(0.5, 0.5)
+
+[node name="Ramenpaglu" parent="." instance=ExtResource("2_duvnm")]
+position = Vector2(-25, 21)
+
+[node name="Sree" parent="." instance=ExtResource("3_inl4m")]
+position = Vector2(13, 65)

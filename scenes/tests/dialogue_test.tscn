@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=4 uid="uid://b4gd7agfe2woy"]
+
+[ext_resource type="Script" uid="uid://bh68j7l5rxond" path="res://scenes/tests/dialogue_test.gd" id="1_kh8ij"]
+[ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_njma1"]
+[ext_resource type="PackedScene" uid="uid://rjxls6pxk8sh" path="res://scenes/rooms/bed_room.tscn" id="2_rjmye"]
+[ext_resource type="PackedScene" uid="uid://cb2v31dl57c8u" path="res://scenes/rooms/kitchen.tscn" id="3_kh8ij"]
+[ext_resource type="PackedScene" uid="uid://be3yuno21ni5r" path="res://scenes/rooms/living_room.tscn" id="4_a53eb"]
+[ext_resource type="PackedScene" uid="uid://bovsxmqx4uycm" path="res://scenes/rooms/master_bedroom.tscn" id="5_a41ql"]
+[ext_resource type="PackedScene" uid="uid://dmi2u7qcsf3jq" path="res://scenes/characters/omma/omma.tscn" id="6_njma1"]
+[ext_resource type="PackedScene" uid="uid://dot7wjke6lis1" path="res://scenes/characters/sree/sree.tscn" id="7_302wl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q5b77"]
+vertices = PackedVector2Array(494, 182, 494, 127.703125, 542.84375, 131.00781, 503, 212.10156, 615, 128.35938, 615, 176.71875, 503, 222, 277.54688, 185.10156, 348.7422, 226, 349.7422, 265, 270.96094, 265, 177.75, 194.0625, 205.96094, 168.85938, 21.101563, 266.92188, 21.898438, 192, 58.101563, 192, 89.328125, 192.64844, 686.14844, 178.71875, 686.84375, 222, 390.28125, 182, 380, 210.89844, 380, 226, -57, 74.078125, -57, -12, -5, -12, 56.898438, 75.09375, -5, -32, 88, -32, 88, 89.0625, 255.57813, 167.11719)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6, 3), PackedInt32Array(7, 8, 9, 10, 11, 12), PackedInt32Array(10, 13, 14, 15, 16), PackedInt32Array(17, 18, 6, 5), PackedInt32Array(19, 0, 3, 20, 7), PackedInt32Array(20, 21, 8, 7), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(25, 24, 26, 27, 28), PackedInt32Array(15, 25, 28, 16), PackedInt32Array(10, 16, 11), PackedInt32Array(7, 12, 29)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(696, 169, 625, 167, 625, 118, 543, 121, 484, 117, 484, 172, 390, 172, 281, 175, 259, 157, 202, 159, 174, 184, 99.19841, 182.81268, 98, 89, 98, -42, -15, -42, -15, -22, -67, -22, -67, 84, 47, 85, 48, 182, 12, 182, 11, 277, 271, 275, 360, 275, 359, 236, 390, 236, 390, 221, 493, 222, 493, 232, 697, 232)])
+
+[node name="DialogueTest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_kh8ij")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -392.0
+offset_top = -508.0
+offset_right = 1043.0
+offset_bottom = 696.0
+color = Color(0.86716837, 0.60209715, 0.67631733, 1)
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Floor" type="TileMapLayer" parent="Map"]
+position = Vector2(9, 7)
+tile_map_data = PackedByteArray("AAADAAcAAgAEAAAAAAADAAgAAgAEAAEAAAAEAAcAAgAFAAAAAAAEAAgAAgAFAAEAAAADAAYAAgAIAAIAAAAEAAYAAgAJAAIAAAANAAUAAgAKAAAAAAAOAAUAAgALAAAAAAANAAYAAgAEAAAAAAANAAcAAgAEAAEAAAAOAAYAAgAFAAAAAAAOAAcAAgAFAAEAAAANAAgAAgAEAAAAAAANAAkAAgAEAAEAAAAOAAgAAgAFAAAAAAAOAAkAAgAFAAEAAAA=")
+tile_set = ExtResource("1_njma1")
+
+[node name="BedRoom" parent="Map" instance=ExtResource("2_rjmye")]
+position = Vector2(-109, -95)
+
+[node name="Kitchen" parent="Map" instance=ExtResource("3_kh8ij")]
+position = Vector2(164, -126)
+
+[node name="LivingRoom" parent="Map" instance=ExtResource("4_a53eb")]
+position = Vector2(-13, 113)
+
+[node name="MasterBedroom" parent="Map" instance=ExtResource("5_a41ql")]
+position = Vector2(457, 39)
+
+[node name="Dining" type="Marker2D" parent="Map"]
+position = Vector2(276, 252)
+
+[node name="Navigtion" type="Node2D" parent="."]
+visible = false
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(43, 276, 105, 277, 105, 246, 43, 245)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(58, 234, 88, 234, 88, 221, 57, 221)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(217, 240, 249, 240, 249, 231, 217, 231)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D5" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(174, 271, 184, 272, 184, 262, 173, 262)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(283, 271, 293, 271, 294, 262, 283, 261)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D4" type="NavigationObstacle2D" parent="Navigtion"]
+radius = 13.89
+vertices = PackedVector2Array(202, 278, 264, 279, 265, 256, 202, 255)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navigtion"]
+navigation_polygon = SubResource("NavigationPolygon_q5b77")
+
+[node name="Omma" parent="." instance=ExtResource("6_njma1")]
+position = Vector2(616, 213)
+
+[node name="Sree" parent="." instance=ExtResource("7_302wl")]
+position = Vector2(559, 158)

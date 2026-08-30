@@ -1,0 +1,92 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> cake_question
+
+~ first_interaction
+do set_avatar("omma")
+Omma: Did your friends like the Cake?
+do set_avatar("sree")
+You: Yes, they very much did. It was very tasty, where did you order it from?
+do set_avatar("omma")
+Omma: I have my secrets.
+Omma: Do me a help please...
+do set_avatar("sree")
+You: Ofcourse, tell
+do set_avatar("omma")
+Omma: Please put the remaining cake inside the fridge and put away the plate.
+do set_avatar("sree")
+You: Okay, no problem.
+do set_avatar("omma")
+Omma: Come back and talk with me after you are done.
+
+set first_interaction = false
+do EventManager.finish_task(EventManager.task_ids.talk_to_omma)
+do EventManager.add_task()
+=> END
+
+~ cake_question
+if cake_question_done:
+	=> regular
+
+do set_avatar("omma")
+Omma: Did you put away the cake?
+- Yes
+	if not EventManager.is_task_finished(EventManager.task_ids.take_cake):
+		do set_avatar("omma")
+		Omma: Jinu, I can see the cake still on the table from here.
+		do set_avatar("sree")
+		Sree: Fine, I will do it first.
+		=> END
+	elif not EventManager.is_task_finished(EventManager.task_ids.put_cake_in_fridge):
+		do set_avatar("omma")
+		Omma: Jinu, I can literally see the cake in your hands.
+		do set_avatar("sree")
+		Sree: Okay... I will put it in fridge.
+		=> END
+	elif not EventManager.is_task_finished(EventManager.task_ids.put_plate_in_sink):
+		do set_avatar("omma")
+		Omma: Jinu, I can see you hiding the plate behind your back.
+		do set_avatar("sree")
+		Sree: Okay... I will put it in the sink first!.
+		=> END
+	else:
+		do set_avatar("omma")
+		Omma: Thank you! Now a secret.
+		Omma: You can find hidden collectable pieces in the house.
+		Omma: Here I have already gathered one for you.
+		
+		do GameState.add_collectable()
+		do Ui.collectable_found.found()
+		do GameState.show_cursor()
+		
+		Omma: If you can find the rest of the 5 by the end of the day then you will get a surprise.
+		do set_avatar("sree")
+		Sree: Really?! Okay I will start looking for them now.
+		do set_avatar("omma")
+		Omma: One thing to keep in mind, to collect them you need to be very close to it and face towards it.
+		do set_avatar("sree")
+		Sree: Okay, I will remember that.
+		do set_avatar("omma")
+		Omma: Now go, enjoy your day with you friends.
+		
+		set cake_question_done = true
+		do EventManager.add_task()
+		do EventManager.add_task()
+		do EventManager.finish_task(EventManager.task_ids.talk_to_omma_2)
+		=> END
+		
+- No
+	do set_avatar("sree")
+	You: No, I haven't yet.
+	do set_avatar("omma")
+	Omma: Okay, do it first.
+	=> END
+	
+~ regular
+do set_avatar("omma")
+%2 Omma: Enjoy your day with your friends.
+%1 Omma: Remeber to look for the hidden collectables.
+
+=> END

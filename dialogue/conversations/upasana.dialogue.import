@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bwcvm21pwoh7a"
+path="res://.godot/imported/upasana.dialogue-d34bfa2c1a9efa8277857fef91f88b0d.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/upasana.dialogue"
+dest_files=["res://.godot/imported/upasana.dialogue-d34bfa2c1a9efa8277857fef91f88b0d.tres"]
+
+[params]
+
+defaults=true

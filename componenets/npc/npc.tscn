@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm5hlj3hfjxqy"]
+
+[ext_resource type="Script" uid="uid://dlx0txqkm6537" path="res://componenets/npc/npc.gd" id="1_erjer"]
+[ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="2_l5iwh"]
+[ext_resource type="Script" uid="uid://chif5fy8qlsvx" path="res://scripts/state_machine/node_state_machine.gd" id="3_36wid"]
+[ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="3_l5iwh"]
+[ext_resource type="Script" uid="uid://cxqdj3nrq64id" path="res://componenets/npc/idle_state.gd" id="4_erjer"]
+[ext_resource type="Script" uid="uid://b0d2hdf5qer1p" path="res://componenets/npc/walk_state.gd" id="5_l5iwh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhy1s"]
+radius = 6.0
+height = 12.01778
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3vgc"]
+radius = 27.0
+
+[node name="NpcComponent" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 256
+collision_mask = 259
+script = ExtResource("1_erjer")
+metadata/_custom_type_script = "uid://dlx0txqkm6537"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+rotation = 1.5616552
+shape = SubResource("CapsuleShape2D_hhy1s")
+
+[node name="Interactable" parent="." instance=ExtResource("2_l5iwh")]
+interact_once = false
+interactable_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_a3vgc")
+debug_color = Color(0.60784316, 0.5411765, 0, 0.23137255)
+
+[node name="InteractPrompt" parent="Interactable" instance=ExtResource("3_l5iwh")]
+position = Vector2(0, -42)
+scale = Vector2(0.5062501, 0.5062501)
+prompt = "talk with"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_36wid")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("4_erjer")
+character = NodePath("../..")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("5_l5iwh")
+character = NodePath("../..")

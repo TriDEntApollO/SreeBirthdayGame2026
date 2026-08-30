@@ -1,0 +1,28 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> regular
+
+~ first_interaction
+do set_avatar("appa")
+Appa: Are you enjoying your day?
+do set_avatar("sree")
+You: Yes! Very much!
+do set_avatar("appa")
+Appa: Very well, I will take you to get some black current icecream in the evening.
+Appa: Don't tell your Omma this.
+do set_avatar("sree")
+You: Yay! okay I won't tell her.
+do set_avatar("appa")
+Appa: Now go enjoy your day.
+
+set first_interaction = false
+do EventManager.finish_task(EventManager.task_ids.talk_to_appa)
+=> END
+
+~ regular
+do set_avatar("appa")
+Appa: Be ready by evening, if you want icecream.
+
+=> END

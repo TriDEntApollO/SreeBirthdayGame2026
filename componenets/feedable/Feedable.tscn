@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2v0k8t076xin"]
+
+[ext_resource type="Theme" uid="uid://bmqaayioogi3d" path="res://scenes/ui/Prompt.tres" id="1_dr0xj"]
+[ext_resource type="Script" uid="uid://jme8mji0d1dw" path="res://componenets/feedable/feedable.gd" id="1_jr2ai"]
+[ext_resource type="Texture2D" uid="uid://dtuch0eo5dpt7" path="res://assets/ui/keyboard/SPACE.png" id="1_um23h"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="2_dr0xj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jr2ai"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr2ai"]
+atlas = ExtResource("1_um23h")
+region = Rect2(6, 0, 51, 21)
+
+[sub_resource type="LabelSettings" id="LabelSettings_75d1x"]
+font = ExtResource("2_dr0xj")
+outline_size = 1
+outline_color = Color(0.5003663, 0.15730917, 0.4793197, 1)
+shadow_color = Color(0.36275932, 0.0958711, 0.3634825, 0.6784314)
+
+[node name="Feedable" type="Node2D"]
+script = ExtResource("1_jr2ai")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_jr2ai")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FeedPrompt" type="Node2D" parent="CanvasLayer"]
+visible = false
+z_index = 100
+position = Vector2(616.00006, 655)
+scale = Vector2(3.37, 3.37)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/FeedPrompt"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -15.5
+offset_right = 60.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("1_dr0xj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FeedPrompt/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/FeedPrompt/Panel/MarginContainer"]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="E" type="TextureRect" parent="CanvasLayer/FeedPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jr2ai")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/FeedPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "to Feed"
+label_settings = SubResource("LabelSettings_75d1x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

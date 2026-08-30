@@ -1,0 +1,629 @@
+[gd_scene load_steps=70 format=3 uid="uid://blpu3g8fiolkk"]
+
+[ext_resource type="Script" uid="uid://ch5235d64bsp4" path="res://scenes/start_menu.gd" id="1_apowk"]
+[ext_resource type="Texture2D" uid="uid://b2gtfmktwsq17" path="res://assets/ui/StartMenuBg.png" id="2_apowk"]
+[ext_resource type="Texture2D" uid="uid://b1sv1mfqv6w2o" path="res://assets/interiors/Custom interiors.png" id="3_egh8s"]
+[ext_resource type="Texture2D" uid="uid://duga5d3i3fdmc" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Windows/Window Exterior.png" id="3_vnuwp"]
+[ext_resource type="Texture2D" uid="uid://nl8k2ga0xwne" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Windows/Windows.png" id="4_egh8s"]
+[ext_resource type="Texture2D" uid="uid://qyh4pjflopfx" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Windows/Window Curtains.png" id="5_b1kog"]
+[ext_resource type="Texture2D" uid="uid://duxni2sejypy3" path="res://assets/interiors/interiors_demo_purple.png" id="6_gqu1h"]
+[ext_resource type="Texture2D" uid="uid://cnp7nqhn28al4" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Furniture/Desks and Dressers.png" id="7_ruo1u"]
+[ext_resource type="Texture2D" uid="uid://bfk6kqc061gxy" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Furniture/Beds.png" id="7_vnuwp"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="8_trkcg"]
+[ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="9_ruo1u"]
+[ext_resource type="Texture2D" uid="uid://b0dofp3ncyha5" path="res://assets/cats/CatPackFree/Idle.png" id="10_gqu1h"]
+[ext_resource type="PackedScene" uid="uid://hjyh81yn8y3r" path="res://scenes/ui/settings.tscn" id="10_hntex"]
+[ext_resource type="Texture2D" uid="uid://c8jof2un7nh4c" path="res://assets/interiors/Clock.png" id="11_gqu1h"]
+[ext_resource type="AudioStream" uid="uid://bbobd6m3hgxx7" path="res://assets/music/start_menu.ogg" id="11_mroui"]
+[ext_resource type="Texture2D" uid="uid://c062ufwfo7cpv" path="res://assets/ui/StartMenuButtons.png" id="15_mroui"]
+[ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="15_trkcg"]
+[ext_resource type="Script" uid="uid://b4oi56fjerol5" path="res://scenes/ui/menu_button.gd" id="16_0lulb"]
+[ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="16_fbjtm"]
+[ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="17_hntex"]
+[ext_resource type="FontFile" uid="uid://bjvnijhp4qcxq" path="res://assets/Fonts/SuperFrog-Bubble.ttf" id="18_fbjtm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbjtm"]
+atlas = ExtResource("3_vnuwp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hntex"]
+atlas = ExtResource("4_egh8s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mroui"]
+atlas = ExtResource("5_b1kog")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_egh8s"]
+load_path = "res://.godot/imported/Custom interiors.png-88bd6f106917c040a3426ec58889383e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1kog"]
+atlas = SubResource("CompressedTexture2D_egh8s")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ruo1u"]
+load_path = "res://.godot/imported/Wall Decor.png-7ebf7b356417e6f28a732d658958d410.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqu1h"]
+atlas = SubResource("CompressedTexture2D_ruo1u")
+region = Rect2(72, 39, 16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0oe1"]
+atlas = ExtResource("3_egh8s")
+region = Rect2(16, 17, 15, 15)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5byqq"]
+load_path = "res://.godot/imported/Rugs.png-35cc731dd8b4ad15094f838da18075ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e58y3"]
+atlas = SubResource("CompressedTexture2D_5byqq")
+region = Rect2(288, 152, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lulb"]
+atlas = ExtResource("7_ruo1u")
+region = Rect2(96, 32, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o8dr"]
+atlas = ExtResource("6_gqu1h")
+region = Rect2(144, 40, 16, 24)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_apowk"]
+load_path = "res://.godot/imported/TopDownHouse_SmallItems.png-fb1f2bf15b3265fd8e759454ac3598c2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnuwp"]
+atlas = SubResource("CompressedTexture2D_apowk")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np3gv"]
+atlas = ExtResource("9_ruo1u")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4mi7"]
+atlas = ExtResource("6_gqu1h")
+region = Rect2(112, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mohu8"]
+atlas = ExtResource("8_trkcg")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3w4"]
+atlas = ExtResource("11_gqu1h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccphb"]
+atlas = ExtResource("6_gqu1h")
+region = Rect2(224, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trkcg"]
+atlas = ExtResource("7_vnuwp")
+region = Rect2(0, 104, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rgym"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ism"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjmg0"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d3uo"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp5u2"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy578"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1sms"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q77r4"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul6wr"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra0d"]
+atlas = ExtResource("10_gqu1h")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_np3gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rgym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ism")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjmg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d3uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp5u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy578")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1sms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q77r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul6wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra0d")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mroui"]
+load_path = "res://.godot/imported/StartMenuButtons.png-566ee331665ce8b8ccace0186ce3fb88.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aejak"]
+atlas = SubResource("CompressedTexture2D_mroui")
+region = Rect2(437, 15, 125, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ki3ti"]
+texture = SubResource("AtlasTexture_aejak")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 25.0
+region_rect = Rect2(0, 0, 125, 132)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iwuek"]
+load_path = "res://.godot/imported/StartMenuButtons.png-566ee331665ce8b8ccace0186ce3fb88.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yqfq"]
+atlas = SubResource("CompressedTexture2D_iwuek")
+region = Rect2(38, 15, 124, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwaxl"]
+texture = SubResource("AtlasTexture_4yqfq")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 25.0
+region_rect = Rect2(0, 0, 125, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q55s4"]
+atlas = ExtResource("15_mroui")
+region = Rect2(237, 15, 125, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ja48i"]
+texture = SubResource("AtlasTexture_q55s4")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 25.0
+region_rect = Rect2(0, 0, 125, 132)
+
+[sub_resource type="Theme" id="Theme_sq3oh"]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("18_fbjtm")
+Button/styles/hover = SubResource("StyleBoxTexture_ki3ti")
+Button/styles/normal = SubResource("StyleBoxTexture_dwaxl")
+Button/styles/pressed = SubResource("StyleBoxTexture_ja48i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hntex"]
+line_spacing = 28.25
+font = ExtResource("18_fbjtm")
+font_size = 155
+font_color = Color(0.9019608, 0.7882353, 0.7647059, 1)
+outline_size = 30
+outline_color = Color(0.5529412, 0.32941177, 0.5372549, 1)
+shadow_size = 76
+shadow_color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+shadow_offset = Vector2(0.61, 6.645)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mroui"]
+line_spacing = 28.25
+font = ExtResource("18_fbjtm")
+font_size = 175
+font_color = Color(0.9019608, 0.7882353, 0.7647059, 1)
+outline_size = 30
+outline_color = Color(0.5529412, 0.32941177, 0.5372549, 1)
+shadow_size = 76
+shadow_color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+shadow_offset = Vector2(0.61, 6.645)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjk0l"]
+atlas = ExtResource("16_fbjtm")
+region = Rect2(15, 2, 160, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mroui"]
+texture = SubResource("AtlasTexture_bjk0l")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 160, 44)
+
+[sub_resource type="InputEventAction" id="InputEventAction_qtotc"]
+action = &"interact"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_0lulb"]
+events = [SubResource("InputEventAction_qtotc")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_bujqp"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_2o8dr"]
+events = [SubResource("InputEventAction_bujqp")]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_apowk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bg" type="Control" parent="CanvasLayer"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wall" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_apowk")
+stretch_mode = 6
+
+[node name="Outside" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 16.0
+offset_right = 572.0
+offset_bottom = 270.0
+texture = SubResource("AtlasTexture_fbjtm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="windowPane" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 16.0
+offset_right = 572.0
+offset_bottom = 270.0
+texture = SubResource("AtlasTexture_hntex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Curtains" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 16.0
+offset_right = 572.0
+offset_bottom = 270.0
+texture = SubResource("AtlasTexture_mroui")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Painitng" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 107.0
+offset_right = 216.0
+offset_bottom = 251.0
+texture = SubResource("AtlasTexture_b1kog")
+stretch_mode = 5
+
+[node name="Painitng2" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 1197.0
+offset_top = 107.0
+offset_right = 1313.0
+offset_bottom = 275.0
+texture = SubResource("AtlasTexture_gqu1h")
+stretch_mode = 5
+
+[node name="Clock" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 68.0
+offset_right = 1100.0
+offset_bottom = 194.0
+texture = SubResource("AtlasTexture_s0oe1")
+stretch_mode = 5
+
+[node name="Rug" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 1350.0
+offset_top = 764.0
+offset_right = 3133.8093
+offset_bottom = 1501.9934
+rotation = -3.1415927
+scale = Vector2(0.3938293, 0.3938293)
+texture = SubResource("AtlasTexture_e58y3")
+stretch_mode = 6
+
+[node name="Desk" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 240.0
+offset_right = 326.9852
+offset_bottom = 288.0
+scale = Vector2(7.530164, 7.530164)
+texture = SubResource("AtlasTexture_0lulb")
+
+[node name="Table" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 421.99997
+offset_right = 227.0
+offset_bottom = 591.0
+texture = SubResource("AtlasTexture_2o8dr")
+stretch_mode = 5
+
+[node name="Telephone" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 108.00001
+offset_top = 397.0
+offset_right = 148.0
+offset_bottom = 437.0
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_vnuwp")
+
+[node name="Books" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 745.00006
+offset_top = 257.0
+offset_right = 785.00006
+offset_bottom = 297.00006
+rotation = 1.5707964
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_np3gv")
+
+[node name="Books2" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 246.00003
+offset_right = 334.0
+offset_bottom = 286.00006
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_n4mi7")
+
+[node name="Cup" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 262.00003
+offset_right = 417.84616
+offset_bottom = 303.1539
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_mohu8")
+stretch_mode = 5
+
+[node name="Alarm" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 248.00002
+offset_right = 527.6154
+offset_bottom = 296.0769
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_ac3w4")
+stretch_mode = 6
+
+[node name="FlowerPot" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 381.0
+offset_right = 113.0
+offset_bottom = 606.9811
+texture = SubResource("AtlasTexture_ccphb")
+stretch_mode = 5
+
+[node name="Bed" type="TextureRect" parent="CanvasLayer/Bg"]
+layout_mode = 0
+offset_left = 796.00006
+offset_top = 300.00003
+offset_right = 900.4273
+offset_bottom = 367.47937
+scale = Vector2(6.010804, 6.010804)
+texture = SubResource("AtlasTexture_trkcg")
+stretch_mode = 5
+
+[node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer/Bg"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(156.00002, 614.00006)
+scale = Vector2(4.929689, 4.929689)
+sprite_frames = SubResource("SpriteFrames_np3gv")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.42531306
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.91663
+offset_top = -374.0
+offset_right = 225.91663
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("15_trkcg")
+theme_override_constants/separation = 10
+
+[node name="Start" type="Button" parent="CanvasLayer/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_sq3oh")
+text = "Start Day"
+script = ExtResource("16_0lulb")
+
+[node name="Settings" type="Button" parent="CanvasLayer/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_sq3oh")
+text = "Settings"
+script = ExtResource("16_0lulb")
+
+[node name="Quit" type="Button" parent="CanvasLayer/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_sq3oh")
+text = "Good Bye"
+script = ExtResource("16_0lulb")
+
+[node name="Title" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -189.0
+offset_right = 29.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.68, 0.68)
+
+[node name="The Birthday" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 0
+offset_left = -533.82355
+offset_top = -213.23526
+offset_right = 487.17645
+offset_bottom = 95.76474
+rotation = -0.06409091
+text = "The Birthday"
+label_settings = SubResource("LabelSettings_hntex")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Game" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 0
+offset_left = -208.82352
+offset_top = -97.058815
+offset_right = 572.1765
+offset_bottom = 211.9412
+rotation = 0.058333986
+scale = Vector2(0.9858766, 0.9858766)
+text = "Game"
+label_settings = SubResource("LabelSettings_mroui")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("10_hntex")]
+visible = false
+
+[node name="Confirmation" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Confirmation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Confirmation"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -74.0
+offset_right = 31.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_trkcg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_mroui")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Confirmation/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("15_trkcg")
+theme_override_fonts/font = ExtResource("17_hntex")
+theme_override_font_sizes/font_size = 40
+text = "Exit Game?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_trkcg")
+theme_override_constants/separation = 50
+
+[node name="Yes" type="Button" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+shortcut = SubResource("Shortcut_0lulb")
+text = " Yes "
+
+[node name="No" type="Button" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+shortcut = SubResource("Shortcut_2o8dr")
+text = " No "
+
+[node name="StartMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_mroui")
+volume_db = 16.0
+bus = &"Music"

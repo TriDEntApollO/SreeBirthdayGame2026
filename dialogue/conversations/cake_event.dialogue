@@ -1,0 +1,13 @@
+~ blow
+do set_avatar("none")
+Everyone: Happy Birthday to You... Happy Birthday to You...
+Everyone: Happy Birthday Dear Sreejita... Happy  Birthdya to You...
+Everyone: Happy 22nd Birthday!
+do set_avatar("omma")
+Omma: Now, make your wish and blow the candle.
+=> END
+
+~ cut
+do set_avatar("porkpaglu")
+PorkPaglu: Nigga hurry up and cut the cake, can't wait to taste it anymore.
+=> END

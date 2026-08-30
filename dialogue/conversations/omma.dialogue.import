@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b5ik07fvtlvmm"
+path="res://.godot/imported/omma.dialogue-79f9d7eeb20196486f0a11a0af1ca988.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/omma.dialogue"
+dest_files=["res://.godot/imported/omma.dialogue-79f9d7eeb20196486f0a11a0af1ca988.tres"]
+
+[params]
+
+defaults=true

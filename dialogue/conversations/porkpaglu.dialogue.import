@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d36pxe853ebop"
+path="res://.godot/imported/porkpaglu.dialogue-06ed999d3b87595870d2a0d1192df188.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/porkpaglu.dialogue"
+dest_files=["res://.godot/imported/porkpaglu.dialogue-06ed999d3b87595870d2a0d1192df188.tres"]
+
+[params]
+
+defaults=true

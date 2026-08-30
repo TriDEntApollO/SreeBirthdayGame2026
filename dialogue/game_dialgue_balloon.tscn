@@ -1,0 +1,171 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgart14je63x"]
+
+[ext_resource type="Script" uid="uid://dhd1a2ktswsni" path="res://dialogue/game_dialgue_balloon.gd" id="1_6bbka"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_cindb"]
+[ext_resource type="Theme" uid="uid://c2qg5vanjekeq" path="res://dialogue/dialogue_balloon_theme.tres" id="2_jy2hg"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_aimjp"]
+[ext_resource type="PackedScene" uid="uid://btjc28n7w1um4" path="res://scenes/ui/avatar_panel.tscn" id="3_f751s"]
+[ext_resource type="FontFile" uid="uid://c15qbyb6b7r5t" path="res://assets/Fonts/Monocraft.ttc" id="5_03yns"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="6_gclfj"]
+[ext_resource type="AudioStream" uid="uid://dkwdjgsv37l66" path="res://assets/SFX/text-bleep.mp3" id="7_xxn24"]
+
+[node name="GameDialogueBalloon" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_6bbka")
+text_blip_speed = 0.05
+skip = true
+next_action = &"action"
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_jy2hg")
+
+[node name="DialogueBox" type="MarginContainer" parent="Balloon"]
+custom_minimum_size = Vector2(900, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -548.5
+offset_top = -220.0
+offset_right = 548.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/DialogueBox"]
+clip_children = 2
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/DialogueBox/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/DialogueBox/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AvatarPanel" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_f751s")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"CharacterNameText"
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_cindb")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"DialogueText"
+text = "Dialogue... "
+
+[node name="Control" type="Control" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Progress" type="Polygon2D" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+visible = false
+polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/Control"]
+autoplay = "progress"
+
+[node name="NextButton" type="Button" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_03yns")
+theme_override_font_sizes/font_size = 18
+text = " Next "
+
+[node name="ResponseContainer" type="PanelContainer" parent="Balloon"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -106.0
+offset_right = 158.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/ResponseContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/ResponseContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="Balloon/ResponseContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_gclfj")
+theme_override_font_sizes/font_size = 33
+text = "REPLY"
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/ResponseContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("3_aimjp")
+response_template = NodePath("ResponseExample")
+next_action = &"left_click"
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponseContainer/MarginContainer/VBoxContainer/ResponsesMenu"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("2_jy2hg")
+text = "Response example"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_xxn24")
+volume_db = 2.5
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/ResponseContainer/MarginContainer/VBoxContainer/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

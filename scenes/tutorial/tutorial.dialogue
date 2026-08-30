@@ -1,0 +1,38 @@
+~ start
+
+do set_avatar("none")
+Tutorial: Hi, it's me, welcome to the tutorial. You can Press [img=128x60]res://assets/ui/keyboard/SPACE.png[/img] or the Next button to proceed
+Tutorial: Let me walk you through the controls and UI a bit so you get familiar.
+Tutorial: You can press [img=128x60]res://assets/ui/keyboard/SPACE.png[/img] or the next button to procced any dialouges.
+Tutorial: You can also Press [img=128x60]res://assets/ui/keyboard/SPACE.png[/img] to close dialogue boxes.
+Tutorial: and finally [img=128x60]res://assets/ui/keyboard/SPACE.png[/img] is used for action inputs, like you just did to wake up.
+Tutorial: Now onto movement.
+Tutorial: First Press [img=64x64]res://assets/ui/keyboard/S.png[/img] to Move Down. [#input]
+do wait_completion(stages.down)
+Tutorial: Great now Press [img=64x64]res://assets/ui/keyboard/D.png[/img] to Move Right. [#input]
+do wait_completion(stages.right)
+Tutorial: Now Press [img=64x64]res://assets/ui/keyboard/A.png[/img] to Move Left. [#input]
+do wait_completion(stages.left)
+Tutorial: You are doing good, now Press [img=64x64]res://assets/ui/keyboard/W.png[/img] to Move Up. [#input]
+do wait_completion(stages.up)
+
+Tutorial: Good, now some info abou the UI.
+do tasks_outline.show()
+do animation_player.play("task")
+Tutorial: This is your tasks list section. Here you can see all your active tasks.
+do tasks_outline.hide()
+do animation_player.play("reset")
+do inventory_outline.show()
+do animation_player.play("inventory")
+Tutorial: This is your inventory section. Here you can see all the things you currently have on you.
+do inventory_outline.hide()
+do animation_player.play("task")
+
+Tutorial: Also, you can Press [img=64x64]res://assets/ui/keyboard/ESCAPE.png[/img] to open the pause menu, go on give it a try.
+
+Tutorial: Finally, you can Press [img=64x64]res://assets/ui/keyboard/E.png[/img] to interact with other objects in the game, like the alarm clock.
+do EventManager.tutorial_finished.emit()
+Tutorial: Okay you are ready, now go turn off the alarm clock to start your
+
+do end_tutorial()
+=> END

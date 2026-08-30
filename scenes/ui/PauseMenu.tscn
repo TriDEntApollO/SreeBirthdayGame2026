@@ -1,0 +1,746 @@
+[gd_scene load_steps=54 format=3 uid="uid://dc8qqn3lflxk"]
+
+[ext_resource type="Script" uid="uid://d0kv2jlfri4wj" path="res://scenes/ui/pause_menu.gd" id="1_vb6pq"]
+[ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="2_7ida2"]
+[ext_resource type="Texture2D" uid="uid://dnhgoqho8fki4" path="res://assets/ui/MenuBg.png" id="2_qtotc"]
+[ext_resource type="Texture2D" uid="uid://b1sv1mfqv6w2o" path="res://assets/interiors/Custom interiors.png" id="3_cblg5"]
+[ext_resource type="Texture2D" uid="uid://tfhvbphbordt" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Floor/Rugs.png" id="3_epfii"]
+[ext_resource type="Texture2D" uid="uid://duxni2sejypy3" path="res://assets/interiors/interiors_demo_purple.png" id="4_0bs3u"]
+[ext_resource type="Texture2D" uid="uid://wl37pqckjyyr" path="res://assets/ui/CustomUi.png" id="4_5twic"]
+[ext_resource type="Texture2D" uid="uid://ca48rh0h4ufeb" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Wall Decor.png" id="4_k0lqy"]
+[ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="5_cctyv"]
+[ext_resource type="Texture2D" uid="uid://cglrk6ekxp7ar" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Furniture/Chairs.png" id="5_nh787"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_cblg5"]
+[ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="6_csaq8"]
+[ext_resource type="FontFile" uid="uid://bg52upngetjhx" path="res://assets/Fonts/04B_30__.TTF" id="6_qtotc"]
+[ext_resource type="Texture2D" uid="uid://c42e4dywusfqd" path="res://assets/ui/keyboard/W.png" id="7_7g3sk"]
+[ext_resource type="Texture2D" uid="uid://c4is227gi7ldk" path="res://assets/ui/keyboard/A.png" id="9_bujqp"]
+[ext_resource type="Texture2D" uid="uid://bem5kuvtwyuhe" path="res://assets/cats/Sree-cat.png" id="9_vx2t8"]
+[ext_resource type="Texture2D" uid="uid://c2qhwfvbju5ck" path="res://assets/ui/keyboard/S.png" id="10_bjk0l"]
+[ext_resource type="Texture2D" uid="uid://cvb4eekifsdou" path="res://assets/ui/keyboard/D.png" id="11_y5d2p"]
+[ext_resource type="Script" uid="uid://b4oi56fjerol5" path="res://scenes/ui/menu_button.gd" id="12_k0lqy"]
+[ext_resource type="Texture2D" uid="uid://bgl46wp60ckyv" path="res://assets/ui/keyboard/E.png" id="12_mq8pi"]
+[ext_resource type="Texture2D" uid="uid://bveiyf8vd8wxb" path="res://assets/ui/keyboard/ESCAPE.png" id="13_epfii"]
+[ext_resource type="Texture2D" uid="uid://dtuch0eo5dpt7" path="res://assets/ui/keyboard/SPACE.png" id="14_0bs3u"]
+[ext_resource type="AudioStream" uid="uid://dvejup1hf3bds" path="res://assets/music/pause_menu.ogg" id="15_7g3sk"]
+[ext_resource type="PackedScene" uid="uid://hjyh81yn8y3r" path="res://scenes/ui/settings.tscn" id="15_bujqp"]
+[ext_resource type="AudioStream" uid="uid://cnu778v7e1yb4" path="res://assets/SFX/menu_open.ogg" id="24_vx2t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pf5d"]
+atlas = ExtResource("3_cblg5")
+region = Rect2(48, 19, 16, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq48a"]
+atlas = ExtResource("4_k0lqy")
+region = Rect2(8, 39, 16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0lqy"]
+atlas = ExtResource("3_epfii")
+region = Rect2(288, 152, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx2t8"]
+atlas = ExtResource("4_0bs3u")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hr5g"]
+atlas = ExtResource("5_nh787")
+region = Rect2(40, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e385v"]
+atlas = ExtResource("4_0bs3u")
+region = Rect2(240, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3743"]
+atlas = ExtResource("4_0bs3u")
+region = Rect2(144, 40, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaetu"]
+atlas = ExtResource("6_cblg5")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq3s2"]
+atlas = ExtResource("4_0bs3u")
+region = Rect2(224, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fv6u"]
+atlas = ExtResource("9_vx2t8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xmyu"]
+atlas = ExtResource("9_vx2t8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p42y0"]
+atlas = ExtResource("9_vx2t8")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxtfp"]
+atlas = ExtResource("9_vx2t8")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cblg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fv6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xmyu")
+}],
+"loop": true,
+"name": &"Idle left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p42y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxtfp")
+}],
+"loop": true,
+"name": &"Idle right",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5pi0"]
+atlas = ExtResource("4_5twic")
+region = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cctyv"]
+texture = SubResource("AtlasTexture_v5pi0")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cblg5"]
+atlas = ExtResource("5_cctyv")
+region = Rect2(15, 2, 160, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_px486"]
+texture = SubResource("AtlasTexture_cblg5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 160, 44)
+
+[sub_resource type="InputEventAction" id="InputEventAction_7g3sk"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_bujqp"]
+events = [SubResource("InputEventAction_7g3sk")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qtotc"]
+action = &"interact"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_7g3sk"]
+events = [SubResource("InputEventAction_qtotc")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_bujqp"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_bjk0l"]
+events = [SubResource("InputEventAction_bujqp")]
+
+[sub_resource type="Animation" id="Animation_k0lqy"]
+resource_name = "Open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -720), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vx2t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -720)]
+}
+
+[sub_resource type="Animation" id="Animation_3hr5g"]
+resource_name = "Close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 7), Vector2(0, -720)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e385v"]
+_data = {
+&"Close": SubResource("Animation_3hr5g"),
+&"Open": SubResource("Animation_k0lqy"),
+&"RESET": SubResource("Animation_vx2t8")
+}
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_vb6pq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Control" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wall" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_qtotc")
+stretch_mode = 6
+
+[node name="Painitng" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 196.0
+offset_right = 1230.0
+offset_bottom = 285.0
+texture = SubResource("AtlasTexture_2pf5d")
+stretch_mode = 5
+
+[node name="Painitng2" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 123.0
+offset_right = 294.0
+offset_bottom = 326.0
+texture = SubResource("AtlasTexture_dq48a")
+stretch_mode = 5
+
+[node name="Rug" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 779.0
+offset_right = 2329.8093
+offset_bottom = 1516.9934
+rotation = -3.1415927
+scale = Vector2(0.3938293, 0.3938293)
+texture = SubResource("AtlasTexture_k0lqy")
+stretch_mode = 6
+
+[node name="Couch" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 353.0
+offset_right = -96.0
+offset_bottom = 393.0
+scale = Vector2(7.530164, 7.530164)
+texture = SubResource("AtlasTexture_vx2t8")
+
+[node name="Table" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 432.0
+offset_right = 202.0
+offset_bottom = 472.0
+scale = Vector2(3.6942556, 5.178218)
+texture = SubResource("AtlasTexture_3hr5g")
+
+[node name="Flower" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 188.00002
+offset_top = 400.0
+offset_right = 228.00008
+offset_bottom = 440.0
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_e385v")
+
+[node name="Table2" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 946.99994
+offset_top = 420.0
+offset_right = 984.8967
+offset_bottom = 457.8967
+scale = Vector2(3.6942556, 5.178218)
+texture = SubResource("AtlasTexture_x3743")
+
+[node name="Fish" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 385.00003
+offset_right = 985.0
+offset_bottom = 425.00003
+scale = Vector2(2.5999994, 2.5999994)
+texture = SubResource("AtlasTexture_iaetu")
+
+[node name="Painitng3" type="TextureRect" parent="Control/Bg"]
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 379.0
+offset_right = 1337.0
+offset_bottom = 604.9811
+texture = SubResource("AtlasTexture_mq3s2")
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Bg"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1136, 557)
+scale = Vector2(10.421875, 10.421875)
+sprite_frames = SubResource("SpriteFrames_cblg5")
+animation = &"Idle left"
+autoplay = "Idle left"
+
+[node name="Menu" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Menu"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 325.0
+offset_top = 20.0
+offset_right = 645.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+
+[node name="Label" type="Label" parent="Control/Menu"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 93.00001
+offset_right = 616.0
+offset_bottom = 128.0
+scale = Vector2(2.425, 2.425)
+theme = ExtResource("2_7ida2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cctyv")
+text = "Pausing To Think?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 0
+offset_left = 440.0
+offset_top = 221.0
+offset_right = 785.9259
+offset_bottom = 522.48145
+scale = Vector2(1.35, 1.35)
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 6
+
+[node name="Resume" type="Button" parent="Control/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume Day"
+script = ExtResource("12_k0lqy")
+
+[node name="Restart" type="Button" parent="Control/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart Day"
+script = ExtResource("12_k0lqy")
+
+[node name="Controls" type="Button" parent="Control/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "View Cotrols"
+script = ExtResource("12_k0lqy")
+
+[node name="Settings" type="Button" parent="Control/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+script = ExtResource("12_k0lqy")
+
+[node name="Quit" type="Button" parent="Control/Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "End Day"
+script = ExtResource("12_k0lqy")
+
+[node name="ControlsView" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7ida2")
+
+[node name="ColorRect" type="ColorRect" parent="Control/ControlsView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/ControlsView"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -296.0
+offset_right = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_px486")
+
+[node name="Label" type="Label" parent="Control/ControlsView"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 89.0
+offset_right = 823.0
+offset_bottom = 140.04167
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_qtotc")
+theme_override_font_sizes/font_size = 47
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ControlsView"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -192.0
+offset_right = 174.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="W" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/W"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("7_7g3sk")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/W"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Move Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/A"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("9_bujqp")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/A"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Move Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/S"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("10_bjk0l")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/S"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Move Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/D"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("11_y5d2p")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/D"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Move Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="E" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/E"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("12_mq8pi")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/E"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Esc" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/Esc"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+texture = ExtResource("13_epfii")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/Esc"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="HBoxContainer" parent="Control/ControlsView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="Control/ControlsView/VBoxContainer/Space"]
+custom_minimum_size = Vector2(124, 0)
+layout_mode = 2
+texture = ExtResource("14_0bs3u")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control/ControlsView/VBoxContainer/Space"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 50
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Control/ControlsView"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 0
+offset_left = 530.0
+offset_top = 578.0
+offset_right = 737.0
+offset_bottom = 633.0
+shortcut = SubResource("Shortcut_bujqp")
+text = "   Close   "
+script = ExtResource("12_k0lqy")
+
+[node name="Confirmation" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Confirmation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Confirmation"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -157.0
+offset_right = 17.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_px486")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Confirmation/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Confirmation/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/Confirmation/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7ida2")
+theme_override_fonts/font = ExtResource("6_csaq8")
+theme_override_font_sizes/font_size = 24
+text = "Are You Sure?
+You will loose all your progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Confirmation/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7ida2")
+theme_override_constants/separation = 50
+
+[node name="Yes" type="Button" parent="Control/Confirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+shortcut = SubResource("Shortcut_7g3sk")
+text = " Yes "
+script = ExtResource("12_k0lqy")
+
+[node name="No" type="Button" parent="Control/Confirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+shortcut = SubResource("Shortcut_bjk0l")
+text = " No "
+script = ExtResource("12_k0lqy")
+
+[node name="SettingsMenu" parent="Control" instance=ExtResource("15_bujqp")]
+visible = false
+layout_mode = 1
+
+[node name="MenuStartSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_vx2t8")
+
+[node name="PauseMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_7g3sk")
+autoplay = true
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e385v")
+}

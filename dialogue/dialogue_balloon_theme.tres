@@ -1,0 +1,82 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://c2qg5vanjekeq"]
+
+[ext_resource type="FontFile" uid="uid://dr232pnset5ei" path="res://assets/Fonts/monogram.ttf" id="1_mlgyr"]
+[ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="3_da7dv"]
+[ext_resource type="FontFile" uid="uid://c15qbyb6b7r5t" path="res://assets/Fonts/Monocraft.ttc" id="4_my13y"]
+[ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="5_da7dv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my13y"]
+atlas = ExtResource("5_da7dv")
+region = Rect2(135, 101, 50, 55)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da7dv"]
+texture = SubResource("AtlasTexture_my13y")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm2g8"]
+atlas = ExtResource("5_da7dv")
+region = Rect2(71, 166, 50, 52)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_preor"]
+texture = SubResource("AtlasTexture_rm2g8")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da7dv"]
+atlas = ExtResource("5_da7dv")
+region = Rect2(7, 166, 50, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rm2g8"]
+texture = SubResource("AtlasTexture_da7dv")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_preor"]
+atlas = ExtResource("5_da7dv")
+region = Rect2(135, 166, 50, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptclq"]
+texture = SubResource("AtlasTexture_preor")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oammv"]
+atlas = ExtResource("5_da7dv")
+region = Rect2(15, 2, 160, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlgyr"]
+texture = SubResource("AtlasTexture_oammv")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[resource]
+Button/font_sizes/font_size = 38
+Button/fonts/font = ExtResource("1_mlgyr")
+Button/styles/disabled = SubResource("StyleBoxTexture_da7dv")
+Button/styles/focus = SubResource("StyleBoxTexture_preor")
+Button/styles/hover = SubResource("StyleBoxTexture_preor")
+Button/styles/normal = SubResource("StyleBoxTexture_rm2g8")
+Button/styles/pressed = SubResource("StyleBoxTexture_ptclq")
+CharacterNameText/base_type = &"RichTextLabel"
+CharacterNameText/font_sizes/normal_font_size = 54
+CharacterNameText/fonts/normal_font = ExtResource("3_da7dv")
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 26
+DialogueText/fonts/normal_font = ExtResource("4_my13y")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_mlgyr")

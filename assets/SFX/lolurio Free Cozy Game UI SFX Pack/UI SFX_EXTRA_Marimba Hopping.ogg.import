@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6usjkrln5i8p"
+path="res://.godot/imported/UI SFX_EXTRA_Marimba Hopping.ogg-4738c00c083dcdba878f37550579c556.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/lolurio Free Cozy Game UI SFX Pack/UI SFX_EXTRA_Marimba Hopping.ogg"
+dest_files=["res://.godot/imported/UI SFX_EXTRA_Marimba Hopping.ogg-4738c00c083dcdba878f37550579c556.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

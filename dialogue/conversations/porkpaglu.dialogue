@@ -1,0 +1,48 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> regular
+	
+~ first_interaction
+do set_avatar("porkpaglu")
+PorkPaglu: Happy birthday Sreejita!
+do set_avatar("sree")
+You: Thank You!
+do set_avatar("porkpaglu")
+PorkPaglu: Congragulations on being one year closer to being a Grandma.
+do set_avatar("sree")
+You: You are also very cose to being a Granpa soon
+do set_avatar("porkpaglu")
+PorkPaglu: Yeah yeah whatever.
+PorkPaglu: Btw, the cake was just "Shera"!
+do set_avatar("sree")
+You: All credits to my mom and her secret bakery
+do set_avatar("porkpaglu")
+PorkPaglu: Cake was good, but you could have kept pork and octopus on the lunch menu as well.
+do set_avatar("sree")
+You: .....
+You: You keep that on the menu in your own birthday party.
+do set_avatar("porkpaglu")
+PorkPaglu: Anyways, here is my staple gift, a perfume because I can't think of anything better.
+
+do Ui.gift_box.give_gift("perfume")
+
+do set_avatar("sree")
+You: Very beautiful and cute scent, thank you!
+do set_avatar("porkpaglu")
+PorkPaglu: My perfume choice is always perfect.
+PorkPaglu: Before going out wear this and guys will surround you like bees
+do set_avatar("sree")
+You: No need, I will wear it for its scent, I have no interest in guys surrounding me.
+
+set first_interaction = false
+do EventManager.finish_task(EventManager.task_ids.talk_to_porkpaglu)
+=> END
+
+~ regular
+do set_avatar("porkpaglu")
+%1 PorkPaglu: Very much missing some pork and sea food.
+%1 PorkPaglu: The cake was so tasty, it's taste is still lingering.
+%1 PorkPaglu: Give feedback on the perfume, if you were surrounded by guys or not
+=> END

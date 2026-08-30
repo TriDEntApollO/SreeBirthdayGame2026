@@ -1,0 +1,108 @@
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bmqaayioogi3d"]
+
+[ext_resource type="FontFile" uid="uid://dr232pnset5ei" path="res://assets/Fonts/monogram.ttf" id="1_eftaw"]
+[ext_resource type="Texture2D" uid="uid://wl37pqckjyyr" path="res://assets/ui/CustomUi.png" id="1_y81xt"]
+[ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="2_j0087"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y81xt"]
+load_path = "res://.godot/imported/Dialogue.png-651f05957fb72de6372a742bfc0282ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcc46"]
+atlas = SubResource("CompressedTexture2D_y81xt")
+region = Rect2(135, 101, 50, 55)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eftaw"]
+texture = SubResource("AtlasTexture_vcc46")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 50, 55)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j0087"]
+load_path = "res://.godot/imported/Dialogue.png-651f05957fb72de6372a742bfc0282ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igiyw"]
+atlas = SubResource("CompressedTexture2D_j0087")
+region = Rect2(71, 166, 50, 52)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l13cw"]
+texture = SubResource("AtlasTexture_igiyw")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sw6n3"]
+load_path = "res://.godot/imported/Dialogue.png-651f05957fb72de6372a742bfc0282ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoxkm"]
+atlas = SubResource("CompressedTexture2D_sw6n3")
+region = Rect2(71, 166, 50, 52)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oncdy"]
+texture = SubResource("AtlasTexture_aoxkm")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymnhq"]
+load_path = "res://.godot/imported/Dialogue.png-651f05957fb72de6372a742bfc0282ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm4yr"]
+atlas = SubResource("CompressedTexture2D_ymnhq")
+region = Rect2(7, 166, 50, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cj4ek"]
+texture = SubResource("AtlasTexture_cm4yr")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t4gws"]
+load_path = "res://.godot/imported/Dialogue.png-651f05957fb72de6372a742bfc0282ec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbbpb"]
+atlas = SubResource("CompressedTexture2D_t4gws")
+region = Rect2(135, 166, 50, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atgfd"]
+texture = SubResource("AtlasTexture_kbbpb")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys5fb"]
+atlas = ExtResource("1_y81xt")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rswhy"]
+texture = SubResource("AtlasTexture_ys5fb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 90, 25)
+
+[resource]
+Button/font_sizes/font_size = 38
+Button/fonts/font = ExtResource("1_eftaw")
+Button/styles/disabled = SubResource("StyleBoxTexture_eftaw")
+Button/styles/focus = SubResource("StyleBoxTexture_l13cw")
+Button/styles/hover = SubResource("StyleBoxTexture_oncdy")
+Button/styles/normal = SubResource("StyleBoxTexture_cj4ek")
+Button/styles/pressed = SubResource("StyleBoxTexture_atgfd")
+CharacterNameText/base_type = &"RichTextLabel"
+CharacterNameText/font_sizes/normal_font_size = 54
+CharacterNameText/fonts/normal_font = ExtResource("2_j0087")
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 26
+DialogueText/fonts/normal_font = ExtResource("1_eftaw")
+MarginContainer/constants/margin_bottom = 1
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 1
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_rswhy")

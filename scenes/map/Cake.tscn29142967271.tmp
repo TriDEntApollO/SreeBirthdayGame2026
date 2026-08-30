@@ -1,0 +1,763 @@
+[gd_scene load_steps=75 format=4 uid="uid://0s44medyn1sk"]
+
+[ext_resource type="Script" uid="uid://8ag6v0qpa5g2" path="res://scenes/map/cake_scene.gd" id="1_lee0v"]
+[ext_resource type="Script" uid="uid://bugxln3kbol8f" path="res://scenes/map/cake.gd" id="1_xh4am"]
+[ext_resource type="TileSet" uid="uid://jiswldymii3t" path="res://tileset/furniture_tileset.tres" id="2_c3cx6"]
+[ext_resource type="Texture2D" uid="uid://ckp160u21ut7u" path="res://assets/cats/Ramenpaglu-cat.png" id="2_en0nt"]
+[ext_resource type="PackedScene" uid="uid://bopjx5gsg2web" path="res://componenets/action/action_component.tscn" id="2_tu21v"]
+[ext_resource type="Texture2D" uid="uid://hd0j7qvhggwk" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Wall/Wall.png" id="3_tu21v"]
+[ext_resource type="Texture2D" uid="uid://ddknoqtanxkxt" path="res://assets/cats/Porkpaglu-cat.png" id="3_xi0st"]
+[ext_resource type="Texture2D" uid="uid://dtxrkqbe0366w" path="res://assets/cats/Appa-cat.png" id="4_xh4am"]
+[ext_resource type="Texture2D" uid="uid://dfoblnvhdqhpy" path="res://assets/cats/Omma-cat.png" id="6_nidki"]
+[ext_resource type="Texture2D" uid="uid://d3b2msenjp6l4" path="res://assets/cats/Upasana-cat.png" id="7_8nkk8"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="7_lmdb3"]
+[ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="8_wxmjl"]
+[ext_resource type="Texture2D" uid="uid://b6e5vyj3d3y5n" path="res://assets/Hats.png" id="10_lmdb3"]
+[ext_resource type="Texture2D" uid="uid://u65qs743om47" path="res://assets/Knife.png" id="12_1w2rm"]
+[ext_resource type="Texture2D" uid="uid://df5x0j7qpxcfe" path="res://assets/Flame.png" id="12_2evcf"]
+[ext_resource type="Texture2D" uid="uid://5ncnat781qqh" path="res://assets/Cake sprite.png" id="13_jxv1e"]
+[ext_resource type="Script" uid="uid://dvb5hj5twtaeh" path="res://scenes/map/knife.gd" id="13_ti8kp"]
+[ext_resource type="Texture2D" uid="uid://dq80hr6ynddhh" path="res://assets/Cake slice.png" id="14_jxv1e"]
+[ext_resource type="Theme" uid="uid://c2qg5vanjekeq" path="res://dialogue/dialogue_balloon_theme.tres" id="16_6s5mn"]
+[ext_resource type="Texture2D" uid="uid://c6xcsuyi068c1" path="res://assets/ui/keyboard/left.png" id="17_lee0v"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Pixel Fonts/Abaddon Bold.ttf" id="18_613ye"]
+[ext_resource type="Texture2D" uid="uid://bgl46wp60ckyv" path="res://assets/ui/keyboard/E.png" id="19_ea8rx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e78t"]
+atlas = ExtResource("3_tu21v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh4am"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2evcf"]
+atlas = SubResource("CompressedTexture2D_xh4am")
+region = Rect2(5, 8, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxv1e"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w2rm"]
+atlas = SubResource("CompressedTexture2D_jxv1e")
+region = Rect2(37, 8, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ti8kp"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu21v"]
+atlas = SubResource("CompressedTexture2D_ti8kp")
+region = Rect2(69, 8, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rhljj"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7br4s"]
+atlas = SubResource("CompressedTexture2D_rhljj")
+region = Rect2(37, 72, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tx4j3"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbxo1"]
+atlas = SubResource("CompressedTexture2D_tx4j3")
+region = Rect2(5, 72, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6s5mn"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lee0v"]
+atlas = SubResource("CompressedTexture2D_6s5mn")
+region = Rect2(133, 8, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidki"]
+atlas = ExtResource("2_en0nt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wxmjl"]
+load_path = "res://.godot/imported/Hats.png-de8a039ddec312cdcd0f5e333e69e46f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx4j3"]
+atlas = SubResource("CompressedTexture2D_wxmjl")
+region = Rect2(41, 8, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nkk8"]
+atlas = ExtResource("3_xi0st")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vbxo1"]
+load_path = "res://.godot/imported/Hats.png-de8a039ddec312cdcd0f5e333e69e46f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s5mn"]
+atlas = SubResource("CompressedTexture2D_vbxo1")
+region = Rect2(41, 38, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmdb3"]
+atlas = ExtResource("4_xh4am")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxv1e"]
+atlas = ExtResource("7_lmdb3")
+region = Rect2(17, 71, 14, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti8kp"]
+atlas = ExtResource("8_wxmjl")
+region = Rect2(64, 36, 15, 13)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tu21v"]
+load_path = "res://.godot/imported/Counter Decor.png-a661c86c96e26b83b40d6a91c033e0c3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhljj"]
+atlas = SubResource("CompressedTexture2D_tu21v")
+region = Rect2(32, 16, 17, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhljj"]
+size = Vector2(100.24391, 29.878056)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7br4s"]
+size = Vector2(61.707375, 40.487816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx4j3"]
+size = Vector2(62.073185, 42.19512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbxo1"]
+size = Vector2(134.63416, 41.219482)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea8rx"]
+atlas = ExtResource("12_2evcf")
+region = Rect2(0, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo6i0"]
+atlas = ExtResource("12_2evcf")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7628i"]
+atlas = ExtResource("12_2evcf")
+region = Rect2(0, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvu5h"]
+atlas = ExtResource("12_2evcf")
+region = Rect2(0, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouy6k"]
+atlas = ExtResource("12_2evcf")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7628i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea8rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo6i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7628i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvu5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouy6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Shader" id="Shader_6s5mn"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false  ;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	vec4 color = texture(TEXTURE, UV);
+
+	float outline_amount = (outline - color.a) * float(outline_enabled);
+
+	COLOR = mix(color, line_color, outline_amount);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lee0v"]
+shader = SubResource("Shader_6s5mn")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktjax"]
+atlas = ExtResource("13_jxv1e")
+region = Rect2(584, 72, 616, 632)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2evcf"]
+load_path = "res://.godot/imported/Cake sprite.png-fe25281bec30cc422db38ce0ea594c34.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w4hi"]
+atlas = SubResource("CompressedTexture2D_2evcf")
+region = Rect2(1209, 141, 537, 516)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tu21v"]
+radius = 108.91736
+height = 419.82642
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu21v"]
+size = Vector2(78.00003, 31.000917)
+
+[sub_resource type="Shader" id="Shader_613ye"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false  ;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	vec4 color = texture(TEXTURE, UV);
+
+	float outline_amount = (outline - color.a) * float(outline_enabled);
+
+	COLOR = mix(color, line_color, outline_amount);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ea8rx"]
+shader = SubResource("Shader_613ye")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofme3"]
+font = ExtResource("18_613ye")
+outline_size = 1
+outline_color = Color(0.5003663, 0.15730917, 0.4793197, 1)
+shadow_color = Color(0.36275932, 0.0958711, 0.3634825, 0.6784314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxmjl"]
+atlas = ExtResource("6_nidki")
+region = Rect2(105, 101, 28, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_613ye"]
+atlas = ExtResource("10_lmdb3")
+region = Rect2(9, 38, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh4am"]
+atlas = ExtResource("7_8nkk8")
+region = Rect2(72, 38, 17, 24)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ea8rx"]
+load_path = "res://.godot/imported/Hats.png-de8a039ddec312cdcd0f5e333e69e46f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofme3"]
+atlas = SubResource("CompressedTexture2D_ea8rx")
+region = Rect2(9, 6, 13, 17)
+
+[sub_resource type="Animation" id="Animation_nidki"]
+resource_name = "Idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upasana:offset:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Omma:offset:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.23333333, 0.43333334, 0.6333333, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/Appa:offset:y")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333333, 0.33333334, 0.5333333, 0.73333335, 0.9333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/PorkPaglu:offset:y")
+tracks/3/interp = 2
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0.16629122, 0.36666667, 0.56666666, 0.7666667, 0.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 0.5, 1.0, 0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/RamenPaglu:offset:y")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0.06666663, 0.26666668, 0.46666667, 0.66666675, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.5, 1.0, 0.0, 0.5, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Upasana/UpasanaHat:offset:y")
+tracks/5/interp = 2
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Omma/OmmaHat:offset:y")
+tracks/6/interp = 2
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0.033333335, 0.23333333, 0.43333334, 0.6333333, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Characters/Appa/AppaHat:offset:y")
+tracks/7/interp = 2
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(0.13333334, 0.33333337, 0.5333333, 0.73333335, 0.9333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.5, 1.0, 0.5, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Characters/PorkPaglu/PorkPagluHat:offset:y")
+tracks/8/interp = 2
+tracks/8/loop_wrap = false
+tracks/8/keys = {
+"times": PackedFloat32Array(0.16666667, 0.36704212, 0.5670421, 0.76704216, 0.96704215),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 0.5, 1.0, 0.5]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Characters/RamenPaglu/RamenPagluHat:offset:y")
+tracks/9/interp = 2
+tracks/9/loop_wrap = false
+tracks/9/keys = {
+"times": PackedFloat32Array(0.06666667, 0.2666667, 0.4666667, 0.6666668, 0.86666673),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.5, 1.0, 0.0, 0.5, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8nkk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upasana:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Omma/OmmaHat:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/Appa/AppaHat:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/PorkPaglu/PorkPagluHat:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/RamenPaglu/RamenPagluHat:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lmdb3"]
+_data = {
+&"Idle": SubResource("Animation_nidki"),
+&"RESET": SubResource("Animation_8nkk8")
+}
+
+[node name="CakeScene" type="Node2D"]
+script = ExtResource("1_lee0v")
+
+[node name="InputPrompts" type="CanvasLayer" parent="."]
+
+[node name="ActionComponent" parent="InputPrompts" instance=ExtResource("2_tu21v")]
+position = Vector2(640, 704)
+scale = Vector2(3.5, 3.5)
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(675, 440)
+scale = Vector2(50, 50)
+texture = SubResource("AtlasTexture_6e78t")
+
+[node name="Balloons" type="Node2D" parent="."]
+position = Vector2(0, -62)
+
+[node name="Balloon" type="Sprite2D" parent="Balloons"]
+position = Vector2(997.99994, 130.00003)
+rotation = 2.9106681
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_2evcf")
+
+[node name="Balloon2" type="Sprite2D" parent="Balloons"]
+position = Vector2(117, 108.00001)
+rotation = 3.5554345
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_1w2rm")
+
+[node name="Balloon3" type="Sprite2D" parent="Balloons"]
+position = Vector2(321.99997, 93.99999)
+rotation = 3.3869479
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_tu21v")
+
+[node name="Balloon4" type="Sprite2D" parent="Balloons"]
+position = Vector2(549, 142.99998)
+rotation = 3.336742
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_7br4s")
+
+[node name="Balloon5" type="Sprite2D" parent="Balloons"]
+position = Vector2(768, 96.999985)
+rotation = 2.9716582
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_vbxo1")
+
+[node name="Balloon6" type="Sprite2D" parent="Balloons"]
+position = Vector2(1188, 95.00003)
+rotation = 2.8398993
+scale = Vector2(7, 7)
+texture = SubResource("AtlasTexture_lee0v")
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="RamenPaglu" type="Sprite2D" parent="Characters"]
+position = Vector2(632.0001, 294)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_nidki")
+offset = Vector2(0, 0.5)
+
+[node name="RamenPagluHat" type="Sprite2D" parent="Characters/RamenPaglu"]
+position = Vector2(0.59998995, -11.333333)
+scale = Vector2(0.80000013, 0.8000001)
+texture = SubResource("AtlasTexture_tx4j3")
+
+[node name="PorkPaglu" type="Sprite2D" parent="Characters"]
+position = Vector2(943.0001, 303.00003)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_8nkk8")
+offset = Vector2(0, 1)
+
+[node name="PorkPagluHat" type="Sprite2D" parent="Characters/PorkPaglu"]
+position = Vector2(0.5333314, -11.0666685)
+scale = Vector2(0.80000013, 0.8000001)
+texture = SubResource("AtlasTexture_6s5mn")
+
+[node name="Appa" type="Sprite2D" parent="Characters"]
+position = Vector2(300.00003, 308.00003)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_lmdb3")
+
+[node name="AppaHat" type="Sprite2D" parent="Characters/Appa"]
+position = Vector2(0.5333314, -12.266669)
+scale = Vector2(0.80000013, 0.8000001)
+texture = SubResource("AtlasTexture_6s5mn")
+
+[node name="Table" type="TileMapLayer" parent="."]
+position = Vector2(3, -53)
+scale = Vector2(8.2, 8.2)
+tile_map_data = PackedByteArray("AAACAAQACgAMAAkAAAACAAUACgAMAAkAAAACAAYACgAMAAoAAAADAAQACgANAAkAAAADAAUACgANAAkAAAADAAYACgANAAoAAAAEAAQACgANAAkAAAAEAAUACgANAAkAAAAEAAYACgANAAoAAAACAAMACgAMAAgAAAADAAMACgANAAgAAAAEAAMACgANAAgAAAAFAAMACgANAAgAAAAFAAQACgANAAkAAAAFAAUACgANAAkAAAAFAAYACgANAAoAAAAGAAMACgANAAgAAAAGAAQACgANAAkAAAAGAAUACgANAAkAAAAGAAYACgANAAoAAAAHAAMACgANAAgAAAAHAAYACgAOAAoAAAAHAAQACgAOAAkAAAAHAAUACgAOAAkAAAA=")
+tile_set = ExtResource("2_c3cx6")
+
+[node name="Utencils" type="Node2D" parent="Table"]
+
+[node name="Plate" type="Sprite2D" parent="Table/Utencils"]
+position = Vector2(84.87805, 65.9756)
+scale = Vector2(1.5853634, 1.5853634)
+texture = SubResource("AtlasTexture_jxv1e")
+
+[node name="Pot" type="Sprite2D" parent="Table/Utencils"]
+position = Vector2(110.243904, 67.68293)
+scale = Vector2(1.8011271, 1.8011272)
+texture = SubResource("AtlasTexture_ti8kp")
+
+[node name="Jars" type="Sprite2D" parent="Table/Utencils"]
+position = Vector2(54.14634, 66.46342)
+scale = Vector2(1.2382734, 1.2382736)
+texture = SubResource("AtlasTexture_rhljj")
+
+[node name="Boundary" type="StaticBody2D" parent="Table"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Boundary"]
+position = Vector2(79.87805, 106.40244)
+shape = SubResource("RectangleShape2D_rhljj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Table/Boundary"]
+position = Vector2(143.65852, 73.048805)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_7br4s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Table/Boundary"]
+position = Vector2(13.170735, 73.23172)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_tx4j3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Table/Boundary"]
+position = Vector2(79.51219, 21.4634)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_vbxo1")
+
+[node name="Cake" type="Node2D" parent="."]
+script = ExtResource("1_xh4am")
+
+[node name="Flame" type="AnimatedSprite2D" parent="Cake"]
+position = Vector2(648, 445)
+scale = Vector2(1.4583359, 1.4583359)
+sprite_frames = SubResource("SpriteFrames_7628i")
+autoplay = "default"
+frame = 4
+frame_progress = 0.45832244
+
+[node name="Cake" type="Sprite2D" parent="Cake"]
+material = SubResource("ShaderMaterial_lee0v")
+position = Vector2(640.00006, 575)
+scale = Vector2(0.50497025, 0.5049703)
+texture = SubResource("AtlasTexture_ktjax")
+
+[node name="CakeCut" type="Sprite2D" parent="Cake"]
+visible = false
+position = Vector2(640.00006, 576)
+scale = Vector2(0.50497025, 0.5049703)
+texture = SubResource("AtlasTexture_2w4hi")
+
+[node name="CutArea" type="Area2D" parent="Cake"]
+position = Vector2(640.00006, 576)
+scale = Vector2(0.50497025, 0.5049703)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cake/CutArea"]
+position = Vector2(1.9801937, -41.5866)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_tu21v")
+debug_color = Color(0.8884488, 0.08693559, 0.7671962, 0.41960785)
+
+[node name="CakeSlice" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(862, 632)
+scale = Vector2(0.49472398, 0.49472398)
+texture = ExtResource("14_jxv1e")
+
+[node name="Knife" type="RigidBody2D" parent="."]
+position = Vector2(406.00003, 677.00006)
+rotation = -0.0008791685
+collision_layer = 8
+collision_mask = 128
+input_pickable = true
+script = ExtResource("13_ti8kp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
+position = Vector2(54.99997, -0.45385742)
+shape = SubResource("RectangleShape2D_tu21v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife"]
+material = SubResource("ShaderMaterial_ea8rx")
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("12_1w2rm")
+flip_h = true
+
+[node name="Edge" type="Area2D" parent="Knife"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife/Edge"]
+polygon = PackedVector2Array(-87.997375, -3.0773926, -78.995605, -5.069519, -53.009674, 10.953369, -11.00885, 9.990295, -12.018494, 20.98938, -52.01935, 21.954224)
+
+[node name="GrabPrompt" type="Node2D" parent="Knife"]
+visible = false
+z_index = 100
+position = Vector2(-8.022885, 25.992895)
+scale = Vector2(1.75, 1.75)
+
+[node name="Panel" type="PanelContainer" parent="Knife/GrabPrompt"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.93408
+offset_top = -75.06073
+offset_right = 73.06592
+offset_bottom = -32.06073
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_6s5mn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Knife/GrabPrompt/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 3
+
+[node name="HboxContainer" type="HBoxContainer" parent="Knife/GrabPrompt/Panel/MarginContainer"]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+
+[node name="Left" type="TextureRect" parent="Knife/GrabPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+texture = ExtResource("17_lee0v")
+stretch_mode = 5
+
+[node name="Or" type="Label" parent="Knife/GrabPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "or"
+label_settings = SubResource("LabelSettings_ofme3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="E" type="TextureRect" parent="Knife/GrabPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+texture = ExtResource("19_ea8rx")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Knife/GrabPrompt/Panel/MarginContainer/HboxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "to Grab"
+label_settings = SubResource("LabelSettings_ofme3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Omma" type="Sprite2D" parent="."]
+position = Vector2(150, 614)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_wxmjl")
+offset = Vector2(0, 0.5)
+
+[node name="OmmaHat" type="Sprite2D" parent="Omma"]
+position = Vector2(-0.73333335, -13)
+scale = Vector2(0.80000013, 0.8000001)
+texture = SubResource("AtlasTexture_613ye")
+
+[node name="Upasana" type="Sprite2D" parent="."]
+position = Vector2(1123, 598)
+scale = Vector2(15, 15)
+texture = SubResource("AtlasTexture_xh4am")
+
+[node name="UpasanaHat" type="Sprite2D" parent="Upasana"]
+position = Vector2(0.06666672, -13.266666)
+scale = Vector2(0.80000013, 0.8000001)
+texture = SubResource("AtlasTexture_ofme3")
+offset = Vector2(0, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lmdb3")
+}
+autoplay = "Idle"
+
+[connection signal="area_entered" from="Cake/CutArea" to="Cake" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Cake/CutArea" to="Cake" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Knife" to="Knife" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Knife" to="Knife" method="_on_mouse_exited"]

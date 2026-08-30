@@ -1,0 +1,367 @@
+[gd_scene load_steps=38 format=3 uid="uid://dbdd5mbrrg5ea"]
+
+[ext_resource type="Script" uid="uid://crhcl7dqm0co6" path="res://scenes/video_player.gd" id="1_b1d5n"]
+[ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="2_37vyb"]
+[ext_resource type="Texture2D" uid="uid://cug252wylsu4t" path="res://assets/ui/PhoneUI.png" id="2_plvoq"]
+[ext_resource type="Texture2D" uid="uid://c6ejcs4j7ob4k" path="res://assets/ui/MediaButtons.png" id="5_qsgte"]
+
+[sub_resource type="Animation" id="Animation_plvoq"]
+resource_name = "FadeIn"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.395, 0.395), Vector2(1.215, 1.215), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.62]
+}
+
+[sub_resource type="Animation" id="Animation_0pgi0"]
+resource_name = "FadeOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.395, 0.395)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.62, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_37vyb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pgi0"]
+_data = {
+&"FadeIn": SubResource("Animation_plvoq"),
+&"FadeOut": SubResource("Animation_0pgi0"),
+&"RESET": SubResource("Animation_37vyb")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5jlj"]
+atlas = ExtResource("5_qsgte")
+region = Rect2(82, 90, 247, 250)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3viam"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4630"]
+atlas = SubResource("CompressedTexture2D_3viam")
+region = Rect2(693, 92, 247, 248)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e82xc"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e3ba"]
+atlas = SubResource("CompressedTexture2D_e82xc")
+region = Rect2(389, 90, 246, 249)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y5jlj"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qosi"]
+atlas = SubResource("CompressedTexture2D_y5jlj")
+region = Rect2(81, 365, 248, 249)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8pha"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cpl8"]
+atlas = SubResource("CompressedTexture2D_e8pha")
+region = Rect2(692, 365, 249, 249)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmqrc"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn7w5"]
+atlas = SubResource("CompressedTexture2D_rmqrc")
+region = Rect2(389, 365, 246, 249)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qsgte"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3viam"]
+atlas = SubResource("CompressedTexture2D_qsgte")
+region = Rect2(80, 930, 249, 240)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y4630"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e82xc"]
+atlas = SubResource("CompressedTexture2D_y4630")
+region = Rect2(692, 930, 248, 240)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7e3ba"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksj14"]
+atlas = SubResource("CompressedTexture2D_7e3ba")
+region = Rect2(389, 928, 245, 241)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1qosi"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pha"]
+atlas = SubResource("CompressedTexture2D_1qosi")
+region = Rect2(80, 643, 249, 254)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cpl8"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmqrc"]
+atlas = SubResource("CompressedTexture2D_2cpl8")
+region = Rect2(692, 644, 249, 253)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pn7w5"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuv70"]
+atlas = SubResource("CompressedTexture2D_pn7w5")
+region = Rect2(389, 643, 246, 254)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh3do"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc0xc"]
+atlas = SubResource("CompressedTexture2D_xh3do")
+region = Rect2(79, 1197, 250, 239)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y8g8d"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dqtj"]
+atlas = SubResource("CompressedTexture2D_y8g8d")
+region = Rect2(692, 1196, 249, 240)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_esobk"]
+load_path = "res://.godot/imported/MediaButtons.png-a67c9af161f59aeb55f2c560b2680cf1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuunt"]
+atlas = SubResource("CompressedTexture2D_esobk")
+region = Rect2(388, 1196, 246, 239)
+
+[node name="VideoPlayer" type="CanvasLayer"]
+script = ExtResource("1_b1d5n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0pgi0")
+}
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_37vyb")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(340, 460)
+layout_mode = 0
+offset_left = -208.0
+offset_top = -284.0
+offset_right = 212.0
+offset_bottom = 282.0
+color = Color(0.099555366, 0.04017009, 0.121801145, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -299.99997
+offset_right = 258.0
+offset_bottom = 340.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+bus = &"Music"
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(640, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -300.0
+offset_right = 275.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_plvoq")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -278.0
+offset_right = -278.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Play" type="TextureButton" parent="Control/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_y5jlj")
+texture_pressed = SubResource("AtlasTexture_y4630")
+texture_hover = SubResource("AtlasTexture_7e3ba")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pause" type="TextureButton" parent="Control/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_1qosi")
+texture_pressed = SubResource("AtlasTexture_2cpl8")
+texture_hover = SubResource("AtlasTexture_pn7w5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Stop" type="TextureButton" parent="Control/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_3viam")
+texture_pressed = SubResource("AtlasTexture_e82xc")
+texture_hover = SubResource("AtlasTexture_ksj14")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Restart" type="TextureButton" parent="Control/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e8pha")
+texture_pressed = SubResource("AtlasTexture_rmqrc")
+texture_hover = SubResource("AtlasTexture_xuv70")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Close" type="TextureButton" parent="Control/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gc0xc")
+texture_pressed = SubResource("AtlasTexture_5dqtj")
+texture_hover = SubResource("AtlasTexture_xuunt")
+ignore_texture_size = true
+stretch_mode = 5

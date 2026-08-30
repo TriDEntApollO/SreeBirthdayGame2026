@@ -1,0 +1,359 @@
+[gd_scene load_steps=20 format=3 uid="uid://ba4w7wmjt6yr0"]
+
+[ext_resource type="Theme" uid="uid://c2qg5vanjekeq" path="res://dialogue/dialogue_balloon_theme.tres" id="1_kwcxv"]
+[ext_resource type="Script" uid="uid://b5rmdbkktrbvl" path="res://scenes/ui/collectable_found.gd" id="1_suof4"]
+[ext_resource type="Texture2D" uid="uid://wl37pqckjyyr" path="res://assets/ui/CustomUi.png" id="2_suof4"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="3_yqovb"]
+[ext_resource type="FontFile" uid="uid://c15qbyb6b7r5t" path="res://assets/Fonts/Monocraft.ttc" id="4_go4a2"]
+[ext_resource type="Texture2D" uid="uid://j8lmiwihus5j" path="res://assets/collectable.png" id="5_ipliw"]
+[ext_resource type="Texture2D" uid="uid://qhfhpd7cqapl" path="res://assets/images/surprise.png" id="7_yqovb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l268y"]
+atlas = ExtResource("2_suof4")
+region = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1lys"]
+texture = SubResource("AtlasTexture_l268y")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_77b2a"]
+font = ExtResource("3_yqovb")
+font_size = 30
+outline_size = 6
+outline_color = Color(0.69334877, 0.26110607, 0.6628323, 1)
+shadow_size = 10
+shadow_color = Color(0.36275932, 0.0958711, 0.3634825, 0.6784314)
+shadow_offset = Vector2(1.625, 2.33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8w05"]
+font = ExtResource("4_go4a2")
+
+[sub_resource type="InputEventAction" id="InputEventAction_suof4"]
+action = &"action"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_yqovb"]
+events = [SubResource("InputEventAction_suof4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_yqovb"]
+action = &"action"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_go4a2"]
+events = [SubResource("InputEventAction_yqovb")]
+
+[sub_resource type="Animation" id="Animation_k1lys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_go4a2"]
+resource_name = "UiFade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.61960787, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.4, 0.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ipliw"]
+resource_name = "UiPop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.61960787]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(1.215, 1.215), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77b2a"]
+_data = {
+&"RESET": SubResource("Animation_k1lys"),
+&"UiFade": SubResource("Animation_go4a2"),
+&"UiPop": SubResource("Animation_ipliw")
+}
+
+[node name="CollectableFound" type="CanvasLayer"]
+script = ExtResource("1_suof4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0)
+
+[node name="FoundSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+
+[node name="FoundPiece" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -97.5
+offset_right = 206.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_kwcxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/FoundPiece"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/FoundPiece/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Panel" type="PanelContainer" parent="Control/FoundPiece/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_k1lys")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/FoundPiece/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 1
+
+[node name="Label" type="Label" parent="Control/FoundPiece/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "You Found a Collectable"
+label_settings = SubResource("LabelSettings_77b2a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/FoundPiece/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Found" type="Label" parent="Control/FoundPiece/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_n8w05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/FoundPiece/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_n8w05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/FoundPiece/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "6"
+label_settings = SubResource("LabelSettings_n8w05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/FoundPiece/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_ipliw")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Control/FoundPiece/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Collectables Found"
+label_settings = SubResource("LabelSettings_n8w05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control/FoundPiece/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+shortcut = SubResource("Shortcut_yqovb")
+text = "  Ok  "
+
+[node name="FoundCollectable" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -300.0
+offset_right = 206.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_kwcxv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/FoundCollectable"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/FoundCollectable/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Panel" type="PanelContainer" parent="Control/FoundCollectable/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_k1lys")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/FoundCollectable/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 1
+
+[node name="Label" type="Label" parent="Control/FoundCollectable/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "Here is Your Surprise"
+label_settings = SubResource("LabelSettings_77b2a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/FoundCollectable/MarginContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(100, 450)
+layout_mode = 2
+texture = ExtResource("7_yqovb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Control/FoundCollectable/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+shortcut = SubResource("Shortcut_go4a2")
+text = "  -_-  "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_77b2a")
+}

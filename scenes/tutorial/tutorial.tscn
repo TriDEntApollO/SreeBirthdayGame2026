@@ -1,0 +1,192 @@
+[gd_scene load_steps=11 format=3 uid="uid://brp3je5x5y0sr"]
+
+[ext_resource type="Script" uid="uid://d1lkn7d8i3vmc" path="res://scenes/tutorial/tutorial.gd" id="1_jaenq"]
+[ext_resource type="PackedScene" uid="uid://dgart14je63x" path="res://dialogue/game_dialgue_balloon.tscn" id="1_ymgc8"]
+[ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="3_bmltb"]
+[ext_resource type="Texture2D" uid="uid://cn5frk6ygqj1b" path="res://assets/Arrow.png" id="4_g40di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g40di"]
+atlas = ExtResource("3_bmltb")
+region = Rect2(183, 38, 50, 52)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r23bs"]
+texture = SubResource("AtlasTexture_g40di")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_r23bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TasksOutline/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(301, 218)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryOutline/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(950, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_pq3l0"]
+resource_name = "inventory"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryOutline/TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 80), Vector2(930, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_g40di"]
+resource_name = "task"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TasksOutline/TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 220), Vector2(320, 240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pq3l0"]
+_data = {
+&"RESET": SubResource("Animation_r23bs"),
+&"inventory": SubResource("Animation_pq3l0"),
+&"task": SubResource("Animation_g40di")
+}
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_jaenq")
+
+[node name="GameDialogueBalloon" parent="." instance=ExtResource("1_ymgc8")]
+layer = 2
+hide_on_mutaion = false
+will_block_other_input = false
+
+[node name="TasksOutline" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TasksOutline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 322.0
+offset_bottom = -593.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="ColorRect3" type="ColorRect" parent="TasksOutline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="Panel" type="Panel" parent="TasksOutline"]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 131.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r23bs")
+
+[node name="TextureRect" type="TextureRect" parent="TasksOutline"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 218.0
+offset_right = 484.0
+offset_bottom = 400.9997
+rotation = -1.0471976
+texture = ExtResource("4_g40di")
+
+[node name="InventoryOutline" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="InventoryOutline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="ColorRect3" type="ColorRect" parent="InventoryOutline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = -168.0
+offset_bottom = -595.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="Panel" type="Panel" parent="InventoryOutline"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r23bs")
+
+[node name="TextureRect" type="TextureRect" parent="InventoryOutline"]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 80.0
+offset_right = 1132.999
+offset_bottom = 263.00046
+rotation = 1.0471976
+texture = ExtResource("4_g40di")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pq3l0")
+}

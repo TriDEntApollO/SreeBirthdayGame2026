@@ -1,0 +1,172 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> all_task_question
+
+~ first_interaction
+do set_avatar("ramenpaglu")
+RamenPaglu: Heyy! Happy 22nd birthday Sree!!!
+do set_avatar("sree")
+You: Thank You!
+do set_avatar("ramenpaglu")
+RamenPaglu: I know where aunty got the Cake from
+do set_avatar("sree")
+You: What?! How? Where?
+do set_avatar("ramenpaglu")
+RamenPaglu: Some things are better kept secret ;) 
+do set_avatar("sree")
+You: Okay then, keep your secrets -_-
+
+set first_interaction = false
+=> all_task_question
+
+~ all_task_question
+do set_avatar("ramenpaglu")
+RamenPaglu: So... all tasks done and spoke with everyone?
+- Yup
+	do set_avatar("sree")
+	You: Yes, now tell me.
+	if all_tasks_done:
+		=> all_done
+	else: 
+		=> all_not_done
+- Nope
+	do set_avatar("sree")
+	You: Nope, some are still left.
+	do set_avatar("ramenpaglu")
+	RamenPaglu: Okay, complete them first mine will take some time.
+
+set first_interaction = false
+
+=> END
+
+~ all_not_done
+do set_avatar("ramenpaglu")
+RamenPaglu: Sree... I have a feeling you haven't, please do them first.
+RamenPaglu: Mine will take time.
+do set_avatar("sree")
+You: Fine! I will finish everything else first.
+=> END
+
+~ all_done
+do EventManager.finish_task(EventManager.task_ids.talk_to_ramenpaglu)
+do EventManager.start_event()
+
+do set_avatar("ramenpaglu")
+RamenPaglu: Great, now that everything is done.
+RamenPaglu: Please stand there for me a bit Sree, or you can even sit down.
+RamenPaglu: It will take a little bit of time.
+
+set GameState.can_move = false
+do GameState.sree.go_to("DrawEventSree", Vector2.LEFT)
+do character.face_direction("right")
+
+do set_avatar("sree")
+You: Okay but what is it?
+do set_avatar("ramenpaglu")
+RamenPaglu: Nothing much, Sagnik prolly gave you a perfume set and Upasana gave you a makeup set.
+do set_avatar("sree")
+You: Yes, so?
+do set_avatar("ramenpaglu")
+RamenPaglu: So, I will gift you a paiting.
+do set_avatar("sree")
+You: A painting? Of whom, me?
+do set_avatar("ramenpaglu")
+RamenPaglu: Yes, exactly! But it will be a live painting.
+do paint(1)
+RamenPaglu: So just sit still for a while.
+do GameState.sree.set_still(true)
+do paint(2)
+do set_avatar("sree")
+do GameState.sree.set_still(false)
+You: ~~~
+do set_avatar("ramenpaglu")
+RamenPaglu: Don't move, try to stay still please. It's almost done.
+do set_avatar("sree")
+do GameState.sree.set_still(true)
+You: ...
+do paint(3)
+do set_avatar("ramenpaglu")
+RamenPaglu: And here, We are done!
+do paint(4)
+do set_avatar("sree")
+do GameState.sree.set_still(false)
+You: Uff, finally.
+do set_avatar("ramenpaglu")
+RamenPaglu: Here is your gift
+
+do Ui.gift_box.give_gift("painting")
+
+do set_avatar("sree")
+You: Omg!! This is So Beautiful!!
+You: Thank you!
+do set_avatar("ramenpaglu")
+RamenPaglu: But I ain't done yet though.
+do set_avatar("sree")
+You: There's more?
+do set_avatar("ramenpaglu")
+RamenPaglu: Don't you see these gift boxes around me?
+do set_avatar("sree")
+You: ...
+do set_avatar("ramenpaglu")
+RamenPaglu: Well there is one more other than these...
+
+if GameState.collectables_count >= 6:
+	do set_avatar("ramenpaglu")
+	RamenPaglu: As far as I know you have already found the surprise (he he).
+	- So funny
+		do set_avatar("sree")
+		You: Ha ha so funny, Mr. Comedian.
+	- I will kill you
+		do set_avatar("sree")
+		You: If it werent my birthday today, I would have killed you for that!
+	- You are the worst
+		do set_avatar("sree")
+		You: You are the absolute worst!
+	do set_avatar("ramenpaglu")
+	RamenPaglu: I know, I know >_<
+else:
+	do set_avatar("ramenpaglu")
+	RamenPaglu: But sadly you haven't found all the collectables.
+	RamenPaglu: And the day is about to end so..
+	RamenPaglu: Better luck next play through the game I guess.
+	do set_avatar("sree")
+	You: Okay, will see...
+
+do set_avatar("ramenpaglu")
+RamenPaglu: Well... anyways coming back to the topic of gifts.
+RamenPaglu: Here's a video for you.
+
+do Ui.video_player.play_video("happy_birthday_duck")
+
+do set_avatar("sree")
+- Awww!
+	You: Awww! Thank you ☺️!
+- Thank You ^-^
+	You: This is so cute, Thank You 🌝!
+- Bruh!
+	You: Bruh.... 😐
+
+do set_avatar("ramenpaglu")
+RamenPaglu: He He 😁
+RamenPaglu: Now the last but not the least...
+RamenPaglu: Here is you Birthday card.
+
+do Ui.give_card()
+
+do set_avatar("ramenpaglu")
+RamenPaglu: Oh btw, I will be putting this in status.
+
+do Ui.video_player.play_video("birthday_edit")
+
+do set_avatar("sree")
+You: Do whatever you like, I can't stop you -_-
+
+do set_avatar("ramenpaglu")
+RamenPaglu: Lol I know.
+RamenPaglu: Hope you enjoyed the experience.
+RamenPaglu: Good Bye 👋
+
+do EventManager.end_event(EventManager.event_ids.ending_event)
+=> END

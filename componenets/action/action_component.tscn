@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://bopjx5gsg2web"]
+
+[ext_resource type="Texture2D" uid="uid://dtuch0eo5dpt7" path="res://assets/ui/keyboard/SPACE.png" id="1_8abq7"]
+[ext_resource type="Script" uid="uid://mv0g61wnp5i7" path="res://componenets/action/action_component.gd" id="1_tgwca"]
+[ext_resource type="Theme" uid="uid://c2qg5vanjekeq" path="res://dialogue/dialogue_balloon_theme.tres" id="2_56kll"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="2_tgwca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56kll"]
+atlas = ExtResource("1_8abq7")
+region = Rect2(6, 0, 51, 21)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7dtk"]
+font = ExtResource("2_tgwca")
+outline_size = 1
+outline_color = Color(0.5003663, 0.15730917, 0.4793197, 1)
+shadow_color = Color(0.36275932, 0.0958711, 0.3634825, 0.6784314)
+
+[node name="ActionComponent" type="Node2D"]
+script = ExtResource("1_tgwca")
+
+[node name="ActionPrompt" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -21.0
+offset_right = 47.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_56kll")
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionPrompt"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 3
+
+[node name="HboxContainer" type="HBoxContainer" parent="ActionPrompt/MarginContainer"]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Space" type="TextureRect" parent="ActionPrompt/MarginContainer/HboxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_56kll")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ActionPrompt/MarginContainer/HboxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "to Do"
+label_settings = SubResource("LabelSettings_y7dtk")
+horizontal_alignment = 1
+vertical_alignment = 1

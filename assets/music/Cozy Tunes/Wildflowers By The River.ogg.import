@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cwuioryej7lai"
+path="res://.godot/imported/Wildflowers By The River.ogg-b8ea3bc0c234d182b52ee5fea974179d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Cozy Tunes/Wildflowers By The River.ogg"
+dest_files=["res://.godot/imported/Wildflowers By The River.ogg-b8ea3bc0c234d182b52ee5fea974179d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

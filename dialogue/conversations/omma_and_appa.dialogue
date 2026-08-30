@@ -1,0 +1,80 @@
+~ start
+if first_interaction:
+	=> first_interaction
+else:
+	=> brush_question
+
+~ first_interaction
+do set_avatar("omma")
+Omma: Good Morning Jinu, Happy Birthday!!!
+do set_avatar("appa")
+Appa: Happy Birthday Sreejita!!!
+do set_avatar("sree")
+You: Thank you!
+do set_avatar("omma")
+set first_interaction = false
+=> brush_question
+
+~ brush_question
+do set_avatar("omma")
+Omma: Have you brushed your teeth?
+- Yes
+	do set_avatar("sree")
+	You: Yes, done.
+	if EventManager.is_task_finished(EventManager.task_ids.brush_teeth):
+		=> brushed_teeth
+	else:
+		=> not_brushed_teeth
+- No
+	do set_avatar("sree")
+	You: No, I havent yet.
+	do set_avatar("omma")
+	Omma: Go brush your teeth first.
+	=> END
+
+~ not_brushed_teeth
+do set_avatar("omma")
+Omma: Jinu..., I can tell you haven't
+do set_avatar("sree")
+You: Fine..., I'll go brush my teeth.
+=> END
+
+~ brushed_teeth
+do set_avatar("omma")
+Omma: Good, now... 
+Omma: Guess what we have got you for your Brithday present.
+- I don't know
+	do set_avatar("sree")
+	You: I don't know..
+	do set_avatar("omma")
+	Omma: It's a Cat!
+- A cat?!
+	do set_avatar("sree")
+	You: Is it a cat? Please be a cat!
+	do set_avatar("omma")
+	Omma: Yes! It's a Cat!
+- Trip to Hawai?
+	do set_avatar("sree")
+	You: A trip to Hawai with my friends?
+	do set_avatar("omma")
+	Omma: No....
+	Omma: It's a Cat!
+
+do Ui.gift_box.give_gift("cat")
+do EventManager.start_event()
+
+do set_avatar("sree")
+You: Omg! Thank You sooooo much!!! I love it
+do set_avatar("omma")
+Omma: Enjoy your time with her.
+Omma: When you are ready come to the dining, we will be waiting.
+do set_avatar("sree")
+You: Okay, I will.
+
+set interactable.interact_once = true
+do EventManager.alarm_tick.emit()
+do EventManager.finish_task(EventManager.task_ids.talk_to_omma_and_appa)
+do EventManager.add_task()
+do EventManager.start_event()
+
+=> END

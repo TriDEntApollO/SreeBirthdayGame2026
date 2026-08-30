@@ -1,0 +1,281 @@
+[gd_scene load_steps=5 format=3 uid="uid://wvtstblr6rsr"]
+
+[ext_resource type="Script" uid="uid://dwutu31fbbs50" path="res://componenets/Confetti/confetti.gd" id="1_ehekv"]
+[ext_resource type="Texture2D" uid="uid://c527syo0ot3j6" path="res://assets/Confetti.png" id="1_qftsy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ehekv"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yaomo"]
+_data = [Vector2(0.003174603, 0.98341835), 0.0, 0.0, 0, 0, Vector2(0.784127, 0.59375), -1.3058043, -1.3058043, 0, 0, Vector2(0.9968254, 0.07142854), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Confetti" type="Node2D"]
+script = ExtResource("1_ehekv")
+
+[node name="Left" type="Node2D" parent="."]
+position = Vector2(-0.99975586, 721)
+scale = Vector2(1.922, 1.922)
+
+[node name="Green" type="CPUParticles2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0, 1, 0.45775273, 1)
+anim_offset_max = 1.0
+
+[node name="Red" type="CPUParticles2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.8745098, 0.27450982, 0.28627452, 1)
+anim_offset_max = 1.0
+
+[node name="Blue" type="CPUParticles2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.29803923, 0.3372549, 1, 1)
+anim_offset_max = 1.0
+
+[node name="Yellow" type="CPUParticles2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.96862745, 0.8117647, 0.25882354, 1)
+anim_offset_max = 1.0
+
+[node name="Right" type="Node2D" parent="."]
+position = Vector2(1279.9999, 721)
+scale = Vector2(1.922, 1.922)
+
+[node name="Green" type="CPUParticles2D" parent="Right"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(-1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0, 1, 0.45775273, 1)
+anim_offset_max = 1.0
+
+[node name="Red" type="CPUParticles2D" parent="Right"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(-1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.8745098, 0.27450982, 0.28627452, 1)
+anim_offset_max = 1.0
+
+[node name="Blue" type="CPUParticles2D" parent="Right"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(-1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.29803923, 0.3372549, 1, 1)
+anim_offset_max = 1.0
+
+[node name="Yellow" type="CPUParticles2D" parent="Right"]
+material = SubResource("CanvasItemMaterial_ehekv")
+emitting = false
+amount = 30
+texture = ExtResource("1_qftsy")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+speed_scale = 1.2
+explosiveness = 0.72
+randomness = 0.31
+direction = Vector2(-1, -1)
+spread = 37.01
+gravity = Vector2(0, 100)
+initial_velocity_min = 187.84
+initial_velocity_max = 396.17
+angular_velocity_min = 248.57
+angular_velocity_max = 548.57
+linear_accel_min = 45.24
+linear_accel_max = 91.66
+radial_accel_min = 21.43
+radial_accel_max = 33.33
+damping_min = 11.467
+damping_max = 51.349
+angle_min = 68.6
+angle_max = 240.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_yaomo")
+color = Color(0.96862745, 0.8117647, 0.25882354, 1)
+anim_offset_max = 1.0

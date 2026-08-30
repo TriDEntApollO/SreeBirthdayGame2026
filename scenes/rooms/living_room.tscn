@@ -1,0 +1,397 @@
+[gd_scene load_steps=42 format=4 uid="uid://be3yuno21ni5r"]
+
+[ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_ndxsf"]
+[ext_resource type="Script" uid="uid://gileipubw3mr" path="res://scenes/rooms/living_room.gd" id="1_oy7wu"]
+[ext_resource type="TileSet" uid="uid://jiswldymii3t" path="res://tileset/furniture_tileset.tres" id="2_bmq3m"]
+[ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="3_fbuym"]
+[ext_resource type="Texture2D" uid="uid://d4earcdfxs1sv" path="res://assets/interiors/DIning Table.png" id="4_8llds"]
+[ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="4_eokjc"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_qlgtg"]
+[ext_resource type="Texture2D" uid="uid://b1sv1mfqv6w2o" path="res://assets/interiors/Custom interiors.png" id="5_qlgtg"]
+[ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="7_5s50e"]
+[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="7_g005p"]
+[ext_resource type="Script" uid="uid://cyq25l8rm1dh8" path="res://scenes/rooms/sink.gd" id="8_2cxqs"]
+[ext_resource type="Texture2D" uid="uid://bxs1vv46pb6qn" path="res://assets/interiors/Balloons.png" id="9_7cjtg"]
+[ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="10_0vv3f"]
+[ext_resource type="Texture2D" uid="uid://dtpnrb4m50fjk" path="res://assets/interiors/Flags.png" id="10_8mmjm"]
+[ext_resource type="Script" uid="uid://rai7rc33xmqm" path="res://scenes/rooms/table_cake.gd" id="11_e86kh"]
+[ext_resource type="Script" uid="uid://by2iiy5nja6jk" path="res://scenes/rooms/fridge.gd" id="13_a5o1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8llds"]
+size = Vector2(64.00001, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s50e"]
+atlas = ExtResource("4_qlgtg")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cxqs"]
+atlas = ExtResource("4_qlgtg")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g005p"]
+atlas = ExtResource("4_qlgtg")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vv3f"]
+atlas = ExtResource("5_qlgtg")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsf0y"]
+atlas = ExtResource("9_7cjtg")
+region = Rect2(5, 72, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16llt"]
+atlas = ExtResource("9_7cjtg")
+region = Rect2(69, 8, 22, 48)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_331a7"]
+load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m25an"]
+atlas = SubResource("CompressedTexture2D_331a7")
+region = Rect2(37, 72, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4v7e"]
+atlas = SubResource("CompressedTexture2D_331a7")
+region = Rect2(37, 8, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5xou"]
+atlas = ExtResource("9_7cjtg")
+region = Rect2(37, 72, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12hvq"]
+atlas = ExtResource("9_7cjtg")
+region = Rect2(101, 8, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqisx"]
+atlas = SubResource("CompressedTexture2D_331a7")
+region = Rect2(133, 8, 22, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g6jb"]
+atlas = SubResource("CompressedTexture2D_331a7")
+region = Rect2(5, 8, 22, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5s50e"]
+radius = 56.0357
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlgtg"]
+size = Vector2(33, 4.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6grr"]
+atlas = ExtResource("3_fbuym")
+region = Rect2(94, 30, 36, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s50e"]
+size = Vector2(34.285698, 31.71428)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxqs"]
+size = Vector2(27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e86kh"]
+atlas = ExtResource("4_qlgtg")
+region = Rect2(1, 71, 14, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8llds"]
+atlas = ExtResource("5_qlgtg")
+region = Rect2(77, 10, 22, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5o1a"]
+atlas = ExtResource("5_qlgtg")
+region = Rect2(78, 51, 36, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnsc7"]
+size = Vector2(32, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eokjc"]
+size = Vector2(34, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vv3f"]
+size = Vector2(15, 58)
+
+[node name="LivingRoom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_oy7wu")
+
+[node name="RoomTilemap" type="Node2D" parent="."]
+position = Vector2(6, 22)
+
+[node name="Floor" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAAAAAMAAgAEAAEAAAABAAMAAgAFAAEAAAAAAAQAAgAEAAAAAAAAAAUAAgAEAAEAAAABAAQAAgAFAAAAAAABAAUAAgAFAAEAAAAAAAYAAgAEAAAAAAAAAAcAAgAEAAEAAAABAAYAAgAFAAAAAAABAAcAAgAFAAEAAAACAAYAAgAEAAAAAAACAAcAAgAEAAEAAAADAAYAAgAFAAAAAAADAAcAAgAFAAEAAAAEAAYAAgAEAAAAAAAEAAcAAgAEAAEAAAAFAAYAAgAFAAAAAAAFAAcAAgAFAAEAAAAGAAYAAgAEAAAAAAAGAAcAAgAEAAEAAAAHAAYAAgAFAAAAAAAHAAcAAgAFAAEAAAAIAAYAAgAEAAAAAAAIAAcAAgAEAAEAAAAJAAYAAgAFAAAAAAAJAAcAAgAFAAEAAAAKAAYAAgAEAAAAAAAKAAcAAgAEAAEAAAALAAYAAgAFAAAAAAALAAcAAgAFAAEAAAAKAAQAAgAEAAAAAAAKAAUAAgAEAAEAAAALAAQAAgAFAAAAAAALAAUAAgAFAAEAAAAMAAYAAgAEAAAAAAAMAAcAAgAEAAEAAAANAAYAAgAFAAAAAAANAAcAAgAFAAEAAAAOAAYAAgAEAAAAAAAOAAcAAgAEAAAAAAAPAAYAAgAFAAAAAAAPAAcAAgAFAAAAAAAOAAQAAgAEAAAAAAAOAAUAAgAEAAEAAAAPAAQAAgAFAAAAAAAPAAUAAgAFAAEAAAAOAAMAAgAEAAEAAAAPAAMAAgAFAAEAAAACAAMAAgAEAAEAAAADAAMAAgAFAAEAAAACAAQAAgAEAAAAAAACAAUAAgAEAAEAAAADAAQAAgAFAAAAAAADAAUAAgAFAAEAAAAEAAQAAgAEAAAAAAAEAAUAAgAEAAEAAAAFAAQAAgAFAAAAAAAFAAUAAgAFAAEAAAAGAAQAAgAEAAAAAAAGAAUAAgAEAAEAAAAHAAQAAgAFAAAAAAAHAAUAAgAFAAEAAAAEAAIAAgAEAAAAAAAEAAMAAgAEAAEAAAAFAAIAAgAFAAAAAAAFAAMAAgAFAAEAAAAGAAMAAgAEAAEAAAAHAAMAAgAFAAEAAAAIAAMAAgAEAAEAAAAJAAMAAgAFAAEAAAAKAAMAAgAEAAEAAAALAAMAAgAFAAEAAAAMAAMAAgAEAAEAAAANAAMAAgAFAAEAAAAMAAQAAgAEAAAAAAAMAAUAAgAEAAEAAAANAAQAAgAFAAAAAAANAAUAAgAFAAEAAAAIAAQAAgAEAAAAAAAIAAUAAgAEAAEAAAAJAAQAAgAFAAAAAAAJAAUAAgAFAAEAAAAAAAgAAgAEAAAAAAABAAgAAgAFAAAAAAACAAgAAgAEAAAAAAADAAgAAgAFAAAAAAAEAAgAAgAEAAAAAAAFAAgAAgAFAAAAAAAGAAgAAgAEAAAAAAAHAAgAAgAFAAAAAAAIAAgAAgAEAAAAAAAJAAgAAgAFAAAAAAAKAAgAAgAEAAAAAAALAAgAAgAFAAAAAAAMAAgAAgAEAAAAAAANAAgAAgAFAAAAAAAOAAgAAgAEAAEAAAAPAAgAAgAFAAEAAAAMAAIAAgAEAAEAAAANAAIAAgAFAAEAAAAOAAIAAgAEAAEAAAAPAAIAAgAFAAEAAAAQAAIAAgAEAAEAAAAQAAMAAgAEAAAAAAARAAIAAgAFAAEAAAARAAMAAgAFAAAAAAAQAAQAAgAEAAEAAAAQAAUAAgAEAAAAAAARAAQAAgAFAAEAAAARAAUAAgAFAAAAAAAQAAYAAgAEAAEAAAAQAAcAAgAEAAAAAAARAAYAAgAFAAEAAAARAAcAAgAFAAAAAAAQAAgAAgAEAAEAAAARAAgAAgAFAAEAAAASAAcAAgAEAAAAAAASAAgAAgAEAAEAAAATAAcAAgAFAAAAAAATAAgAAgAFAAEAAAAUAAcAAgAEAAAAAAAUAAgAAgAEAAEAAAAVAAcAAgAFAAAAAAAVAAgAAgAFAAEAAAAUAAUAAgAEAAAAAAAUAAYAAgAEAAEAAAAVAAUAAgAFAAAAAAAVAAYAAgAFAAEAAAAUAAMAAgAEAAAAAAAUAAQAAgAEAAEAAAAVAAMAAgAFAAAAAAAVAAQAAgAFAAEAAAASAAMAAgAEAAAAAAASAAQAAgAEAAEAAAATAAMAAgAFAAAAAAATAAQAAgAFAAEAAAASAAUAAgAEAAAAAAASAAYAAgAEAAEAAAATAAUAAgAFAAAAAAATAAYAAgAFAAEAAAAWAAMAAgAEAAAAAAAWAAQAAgAEAAEAAAAXAAMAAgAFAAAAAAAXAAQAAgAFAAEAAAAWAAUAAgAEAAAAAAAWAAYAAgAEAAEAAAAXAAUAAgAFAAAAAAAXAAYAAgAFAAEAAAAWAAcAAgAEAAAAAAAWAAgAAgAEAAEAAAAXAAcAAgAFAAAAAAAXAAgAAgAFAAEAAAAYAAcAAgAEAAAAAAAYAAgAAgAEAAEAAAAYAAUAAgAEAAAAAAAYAAYAAgAEAAEAAAAYAAMAAgAEAAAAAAAYAAQAAgAEAAEAAAAZAAMAAgAFAAAAAAAZAAQAAgAFAAEAAAAaAAMAAgAFAAAAAAAaAAQAAgAFAAAAAAAbAAMAAgAFAAAAAAAcAAMAAgAFAAAAAAAcAAQAAgAFAAAAAAAbAAQAAgAFAAAAAAAEAAEAAgAEAAAAAAAFAAEAAgAEAAAAAAA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Wall" type="TileMapLayer" parent="RoomTilemap"]
+rotation = 0.001278066
+tile_map_data = PackedByteArray("AAAAAAAACQAEAAEAAAAAAAEACQAEAAIAAAAAAAIACQAEAAMAAAABAAAACQAFAAEAAAABAAEACQAFAAIAAAABAAIACQAEAAMAAAACAAAACQAEAAEAAAACAAEACQAEAAIAAAACAAIACQAEAAMAAAADAAAACQAFAAEAAAADAAEACQAFAAIAAAADAAIACQAFAAMAAAAEAAAABAAEAAEAAAAEAAEABAAEAAIAAAAEAAIABAAEAAMAAAAFAAAABAAFAAEAAAAFAAEABAAFAAIAAAAFAAIABAAFAAMAAAAGAAAACQAEAAEAAAAGAAEACQAEAAIAAAAGAAIACQAEAAMAAAAHAAAACQAEAAEAAAAHAAEACQAEAAIAAAAHAAIACQAEAAMAAAAIAAAACQAEAAEAAAAIAAEACQAEAAIAAAALAAAACQAFAAEAAAALAAEACQAFAAIAAAALAAIACQAFAAMAAAAIAAIACQAEAAMAAAAJAAAACQAFAAEAAAAJAAEACQAFAAIAAAAJAAIACQAFAAMAAAAKAAAACQAEAAEAAAAKAAEACQAEAAIAAAAKAAIACQAEAAMAAAAMAAAACQAKAAcAAAAMAAEACQAKAAgAAAAMAAIACQAKAAkAAAAMAP//CQAEAAAAAAANAP//CQAEAAEAAAANAAAACQAEAAIAAAANAAEACQAEAAMAAAAQAP//CQAEAAEAAAAQAAAACQAEAAIAAAAQAAEACQAEAAMAAAARAAAACQAJAAcAAAARAAEACQAJAAgAAAARAAIACQAJAAkAAAARAP//CQAJAAYAAAAOAP//BAAEAAEAAAAOAAAABAAEAAIAAAAOAAEABAAEAAMAAAAPAP//BAAFAAEAAAAPAAAABAAFAAIAAAAPAAEABAAFAAMAAAASAAAACQAEAAEAAAASAAEACQAEAAIAAAASAAIACQAEAAMAAAATAAAACQAEAAEAAAATAAIACQAEAAMAAAAUAAAACQAEAAEAAAAUAAEACQAEAAIAAAAUAAIACQAEAAMAAAAVAAAABAAAAAEAAAAVAAEABAAAAAIAAAAVAAIABAAAAAMAAAASAP//CQAEAAAAAAATAP//CQAEAAAAAAAUAP//CQAEAAAAAAAVAP//BAAAAAAAAAABAP//CQAEAAAAAAACAP//CQAEAAAAAAADAP//CQAEAAAAAAAEAP//BAAEAAAAAAAFAP//BAAFAAAAAAAGAP//CQAEAAAAAAAIAP//CQAEAAAAAAAJAP//CQAEAAAAAAAKAP//CQAEAAAAAAALAP//CQAEAAAAAAAMAP7/CQAEAAAAAAANAP7/CQAEAAAAAAAOAP7/BAAEAAAAAAAPAP7/BAAFAAAAAAAQAP7/CQAEAAAAAAARAP7/CQAEAAAAAAAAAP//CQAEAAAAAAAWAP//BAABAAAAAAAWAAAABAABAAEAAAAWAAEABAABAAIAAAAWAAIABAABAAMAAAAXAP//CQAEAAAAAAAXAAAACQAEAAEAAAAXAAEACQAEAAIAAAAXAAIACQAEAAMAAAAYAP//CQAFAAAAAAAYAAAACQAFAAEAAAAYAAIACQAFAAMAAAAZAAUACQAEAAMAAFAZAAYACQAEAAMAAFAZAAcACQAEAAMAAFAZAAgACQAEAAMAAFAYAAEACQAFAAIAAAAZAAEACQAFAAIAAAAZAAAACQAFAAIAAAAZAP//CQAFAAIAAAAaAP//CQAFAAIAAAAaAAAACQAFAAIAAAAaAAEACQAFAAIAAAAaAAIACQAFAAIAAAAaAAUACQAFAAIAAAAaAAYACQAFAAIAAAAaAAcACQAFAAIAAAAaAAgACQAFAAIAAAAZAAIACQAFAAIAAAAaAAMABAAAAAAAAFAaAAQABAABAAAAAFAZAAMABAAAAAMAAFAZAAQABAABAAMAAFD+////CQAEAAAAAAD+/wAACQAEAAEAAAD+/wEACQAEAAIAAAD+/wIACQAEAAIAAAD+/wMACQAFAAIAAGD+/wQACQAEAAIAAGD+/wUABAAFAAAAAGD+/wYABAAEAAAAAGD+/wcACQAFAAIAAGD+/wgACQAEAAIAAGD/////CQAEAAAAAAD//wAACQAFAAEAAAD//wEACQAFAAIAAAD//wIACQAFAAEAAAD//wMACQAFAAMAAGD//wQACQAEAAMAAGD//wYABAAEAAEAAGD//wcACQAFAAMAAGD//wgACQAEAAMAAGD//wUABAAFAAEAAGAHAP//CQAEAAAAAAATAAEACQAJAAcAAAA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Doors" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAAVAP//BQAAAAAAAAAVAAAABQAAAAEAAAAVAAEABQAAAAIAAAAVAAIABQAAAAMAAAAWAP//BQABAAAAAAAWAAAABQABAAEAAAAWAAEABQABAAIAAAAWAAIABQABAAMAAAD+/wUABQABAAAAAGD+/wYABQAAAAAAAGD//wUABQABAAIAAGD//wYABQAAAAIAAGA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Rug" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAAAAAQAAwAEAAAAAAAVAAMAAwATAAoAAAAWAAMAAwAWAAoAAAAVAAQAAwATAAsAAAAWAAQAAwATAAsAAAAXAAMAAwAXAAoAAAAUAAMAAwASAAoAAAAVAAcAAwANAAgAAAAVAAYAAwANAAcAAAAVAAgAAwANAAoAAAAYAAYAAwAQAAcAAAAYAAgAAwAQAAoAAAAZAAgAAwARAAoAAAAYAAcAAwAQAAkAAAAWAAYAAwAOAAcAAAAXAAYAAwAOAAcAAAAWAAgAAwAOAAoAAAAXAAgAAwAOAAoAAAAWAAcAAwAOAAkAAAAXAAcAAwAOAAkAAAAUAAYAAwAMAAgAAAAUAAcAAwAMAAgAAAAUAAgAAwAMAAgAAAAVAAUAAwANAAsAADAWAAUAAwANAAsAADAXAAUAAwANAAsAADAYAAUAAwANAAsAADAZAAcAAwARAAoAAAAZAAYAAwARAAoAAAD//wQAAwAAAAAAAAD//wUAAwAAAAMAAAD//wYAAwAAAAMAAAD//wcAAwAAAAUAAAAAAAUAAwAEAAEAAAAAAAYAAwAEAAQAAAAAAAcAAwAEAAUAAAABAAQAAwAFAAAAAAABAAcAAwAFAAUAAAABAAYAAwAFAAMAAAABAAUAAwAFAAMAAAA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Rug2" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAADAAUAAwAOAAcAAAADAAYAAwAPAAgAAAADAAcAAwAPAAgAAAADAAgAAwAOAAoAAAABAAUAAwAMAAcAAAABAAYAAwAMAAgAAAABAAcAAwAMAAkAAAABAAgAAwAMAAoAAAACAAQAAwANAAsAADACAAUAAwANAAcAAAACAAYAAwANAAkAAAACAAcAAwANAAkAAAACAAgAAwANAAoAAAADAAQAAwANAAsAADAEAAQAAwANAAsAADAEAAUAAwAOAAcAAAAEAAYAAwAOAAgAAAAEAAcAAwAOAAgAAAAEAAgAAwAOAAoAAAAFAAQAAwANAAsAADAFAAUAAwAOAAcAAAAFAAYAAwAPAAgAAAAFAAcAAwAPAAgAAAAFAAgAAwAOAAoAAAAGAAQAAwANAAsAADAGAAUAAwAOAAcAAAAGAAYAAwAOAAgAAAAGAAcAAwAOAAgAAAAGAAgAAwAOAAoAAAAHAAQAAwANAAsAADAHAAUAAwAQAAcAAAAHAAYAAwAQAAgAAAAHAAcAAwAQAAgAAAAHAAgAAwAQAAoAAAAIAAUAAwARAAcAAAAIAAYAAwARAAgAAAAIAAcAAwARAAkAAAAIAAgAAwARAAoAAAA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Decor" type="Node2D" parent="RoomTilemap"]
+
+[node name="Collectable3" parent="RoomTilemap/Decor" instance=ExtResource("4_eokjc")]
+position = Vector2(269, 25.999992)
+rotation = 7.3303833
+
+[node name="Collectable2" parent="RoomTilemap/Decor" instance=ExtResource("4_eokjc")]
+position = Vector2(15, 50)
+
+[node name="Furniture" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAAGAAgACgAAAAgAADAGAAcACgAAAAkAADAFAAgACgABAAgAADAFAAcACgABAAkAADANAAEACgAPAAcAAAAQAAEACgAPAAgAAAADAAcACgACAAkAADADAAgACgACAAgAADAEAAcACgABAAkAADAEAAgACgABAAgAADAEAAUADAABAAAAAAAEAAYADAABAAUAAAAFAAUADAACAAAAAAAFAAYADAACAAUAAAAKAAIAAwAKAAMAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="FurnitureAlt" type="TileMapLayer" parent="RoomTilemap/Decor"]
+position = Vector2(8, 10)
+tile_map_data = PackedByteArray("AAAIAAgACgAJAAIAADAIAAcACgAJAAMAADACAAIACgAJAAMAAAACAAEACgAJAAIAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="ChairBottom" type="TileMapLayer" parent="RoomTilemap/Decor"]
+modulate = Color(1.1374342, 1.1374342, 1.1374342, 1)
+self_modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+tile_map_data = PackedByteArray("AAAPAAcAAAANAAcAADAOAAYACgAIAAcAAAAPAAYACgAIAAcAAAALAAgACgAJAAcAAAASAAgACgALAAcAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="DiningTable" type="Sprite2D" parent="RoomTilemap/Decor"]
+material = ExtResource("7_g005p")
+position = Vector2(240.00002, 131)
+rotation = 3.1415925
+texture = ExtResource("4_8llds")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RoomTilemap/Decor/DiningTable"]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomTilemap/Decor/DiningTable/StaticBody2D"]
+position = Vector2(1.5258789e-05, -1)
+shape = SubResource("RectangleShape2D_8llds")
+
+[node name="WallDecor" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAABAAAABwAAAAIAAAABAAEABwAAAAMAAAACAAAABwABAAIAAAACAAEABwABAAMAAAAHAAAABwAEAAIAAAAHAAEABwAEAAMAAAAIAAAABwAFAAIAAAAIAAEABwAFAAMAAAAXAAAABwACAAIAAAAXAAEABwACAAMAAAAYAAAABwADAAIAAAAYAAEABwADAAMAAAATAAAABwAGAAAAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="Details" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAANAAgABgAEAAIAADAQAAgABgACAAEAADAOAAgADQABAAQAADAAAAIACgAOAAYAAAAAAAMACgAOAAcAAAAFAAUACgAPAAYAAAAEAAUADQAAAAQAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="FIshBowl" type="Sprite2D" parent="RoomTilemap/Decor"]
+position = Vector2(160, 24)
+scale = Vector2(0.875, 0.875)
+texture = SubResource("AtlasTexture_5s50e")
+
+[node name="Plant" type="Sprite2D" parent="RoomTilemap/Decor"]
+position = Vector2(175, 23)
+scale = Vector2(0.875, 0.875)
+texture = SubResource("AtlasTexture_2cxqs")
+
+[node name="Phone" type="Sprite2D" parent="RoomTilemap/Decor"]
+position = Vector2(47.000008, 37)
+scale = Vector2(0.875, 0.875)
+texture = SubResource("AtlasTexture_g005p")
+
+[node name="Clock" type="Sprite2D" parent="RoomTilemap/Decor"]
+position = Vector2(155, 9.536743e-07)
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_0vv3f")
+
+[node name="BdayDecor" type="Node2D" parent="RoomTilemap"]
+visible = false
+z_index = 10
+z_as_relative = false
+position = Vector2(-6, -22)
+
+[node name="Balloon" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(218, 3.8146973e-06)
+rotation = -3.403392
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_xsf0y")
+
+[node name="Balloon3" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(284, 3.8146973e-06)
+rotation = -3.403392
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_16llt")
+
+[node name="Balloon2" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(274, -3.8146973e-06)
+rotation = -2.8797934
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_m25an")
+
+[node name="Balloon4" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(208, -1.2516975e-06)
+rotation = -2.8797934
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_v4v7e")
+
+[node name="Balloon5" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(56.000004, 15.999996)
+rotation = -3.403392
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_b5xou")
+
+[node name="Balloon6" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(129, 13.999996)
+rotation = -3.403392
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_12hvq")
+
+[node name="Balloon7" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(113, 16.999998)
+rotation = -2.8797934
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_eqisx")
+
+[node name="Balloon8" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(41, 14)
+rotation = -2.8797934
+scale = Vector2(0.506711, 0.506711)
+texture = SubResource("AtlasTexture_2g6jb")
+
+[node name="Flags" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(246, -2)
+scale = Vector2(0.52000004, 0.52000004)
+texture = ExtResource("10_8mmjm")
+
+[node name="Flags2" type="Sprite2D" parent="RoomTilemap/BdayDecor"]
+position = Vector2(85, 14)
+scale = Vector2(0.52000004, 0.52000004)
+texture = ExtResource("10_8mmjm")
+flip_h = true
+
+[node name="Border" type="TileMapLayer" parent="RoomTilemap"]
+z_index = 12
+z_as_relative = false
+tile_map_data = PackedByteArray("AAAPAAkACgADAAQAAAAOAAkACgADAAQAAAANAAkACgADAAQAAAAMAAkACgADAAQAAAALAAkACgADAAQAAAAKAAkACgADAAQAAAAJAAkACgADAAQAAAAIAAkACgADAAQAAAAHAAkACgADAAQAAAAGAAkACgADAAQAAAAFAAkACgADAAQAAAAEAAkACgADAAQAAAADAAkACgADAAQAAAACAAkACgADAAQAAAABAAkACgADAAQAAAAAAAkACgADAAQAAAD//wkACgADAAQAAAAQAAkACgAIAAAAAAARAAkACgAIAAAAAAATAAkACgAIAAAAAAASAAkACgAIAAAAAAAUAAkACgAIAAAAAAAVAAkACgAIAAAAAAAAAP7/CgAHAAUAAAABAP7/CgAHAAUAAAACAP7/CgAHAAUAAAD///7/CgAHAAUAAAALAP7/CgAJAAMAAAAJAP7/CgAHAAMAAAAKAP7/CgAHAAMAAAAMAP3/CgAIAAMAAAALAP3/CgABAAEAAAASAP3/CgAEAAEAAAASAP7/CgAGAAMAAAATAP7/CgAIAAUAAAAUAP7/CgAIAAUAAAAVAP7/CgAIAAUAAAARAP3/CgAIAAMAAAAQAP3/CgAGAAMAAAANAP3/CgAJAAMAAAAWAP7/CgAHAAMAAAAXAP7/CgAHAAMAAAAYAP7/CgAHAAMAAAAWAAkACgAHAAAAAAAXAAkACgAHAAAAAAAYAAkACgAHAAAAAAAbAP7/CgAEAAEAAAAbAP//CgAMAAMAAAAbAAAACgAMAAMAAAAbAAEACgAMAAMAAAAbAAIACgAGAAUAAAAbAAUACgAGAAQAAAAbAAYACgAMAAMAAAAbAAcACgAMAAMAAAAbAAgACgAMAAMAAAAbAAkACgAEAAQAAAAZAP7/CgAHAAMAAAAaAP7/CgAHAAMAAAAZAAkACgAHAAAAAAAaAAkACgAHAAAAAAD9//7/CgABAAEAAAD9////CgANAAIAAAD9/wAACgABAAIAAAD9/wEACgABAAMAAAD9/wIACgABAAIAAAD9/wMACgABAAMAAAD9/wQACgABAAIAAAD9/wUACgABAAMAAAD9/wYACgABAAIAAAD9/wcACgABAAMAAAD9/wgACgABAAIAAAD9/wkACgABAAQAAAD+//7/CgAHAAUAAAD+/wkACgADAAQAAAADAP7/CgANAAUAAAAHAP7/CgAHAAMAAAAIAP7/CgAHAAMAAAAGAP7/CgAMAAUAAAA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="DoorFrameTop" type="TileMapLayer" parent="RoomTilemap"]
+z_index = 9
+z_as_relative = false
+position = Vector2(0, -0.5)
+rotation = 0.002556132
+tile_map_data = PackedByteArray("AAAEAP//BAAEAAAAAAAFAP//BAAFAAAAAAAOAP7/BAAEAAAAAAAPAP7/BAAFAAAAAAAaAAMABAAAAAAAAFAaAAQABAABAAAAAFA=")
+tile_set = ExtResource("1_ndxsf")
+
+[node name="Ysort" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="ChairTop" type="TileMapLayer" parent="Ysort"]
+modulate = Color(1.1374342, 1.1374342, 1.1374342, 1)
+self_modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(6, 22)
+tile_map_data = PackedByteArray("AAASAAcACgALAAYAAAAOAAUACgAIAAYAAAAPAAUACgAIAAYAAAALAAcACgAJAAYAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
+[node name="CakeEventInteractable" parent="." instance=ExtResource("7_5s50e")]
+visible = false
+z_index = 5
+interactable_name = "Join Others"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CakeEventInteractable"]
+position = Vector2(247, 147)
+shape = SubResource("CircleShape2D_5s50e")
+debug_color = Color(0.6334544, 0.5271128, 0.09985284, 0.34300002)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(448, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6, 1)
+shape = SubResource("RectangleShape2D_qlgtg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.5, 28)
+shape = SubResource("RectangleShape2D_qlgtg")
+
+[node name="Sink" type="Sprite2D" parent="."]
+material = ExtResource("7_g005p")
+position = Vector2(318.00003, 50.000008)
+scale = Vector2(0.875, 0.875)
+texture = SubResource("AtlasTexture_j6grr")
+script = ExtResource("8_2cxqs")
+
+[node name="BrushTeethInteractable" parent="Sink" instance=ExtResource("7_5s50e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink/BrushTeethInteractable"]
+position = Vector2(-3.0517578e-05, 5.857132)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_5s50e")
+debug_color = Color(0.88235295, 0.2784314, 0.47843137, 0.41960785)
+
+[node name="InteractPrompt" parent="Sink/BrushTeethInteractable" instance=ExtResource("10_0vv3f")]
+position = Vector2(-3.487723e-05, -28.571436)
+prompt = "Brush Teeth"
+
+[node name="Cake" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("11_e86kh")
+
+[node name="TakeCakeInteractable" parent="Cake" instance=ExtResource("7_5s50e")]
+visible = false
+interactable_name = "Take Cake"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cake/TakeCakeInteractable"]
+position = Vector2(253.5, 144.5)
+shape = SubResource("RectangleShape2D_2cxqs")
+debug_color = Color(0.8829906, 0.2803877, 0.47924608, 0.41960785)
+
+[node name="Plate" type="Sprite2D" parent="Cake"]
+material = ExtResource("7_g005p")
+position = Vector2(254, 150)
+rotation = 3.1415925
+scale = Vector2(1.0000049, 1.0000049)
+texture = SubResource("AtlasTexture_e86kh")
+
+[node name="Cake" type="Sprite2D" parent="Cake"]
+material = ExtResource("7_g005p")
+position = Vector2(253.99998, 156)
+rotation = 3.1415925
+scale = Vector2(0.7200049, 0.7200049)
+texture = SubResource("AtlasTexture_8llds")
+
+[node name="Fridge" type="Sprite2D" parent="."]
+material = ExtResource("7_g005p")
+position = Vector2(398, 142)
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_a5o1a")
+script = ExtResource("13_a5o1a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fridge"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge/StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mnsc7")
+
+[node name="PutCakeInteractable" parent="Fridge" instance=ExtResource("7_5s50e")]
+interactable_name = "Put Cake in Fridge"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge/PutCakeInteractable"]
+position = Vector2(0, 20)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_eokjc")
+debug_color = Color(0.88235295, 0.2784314, 0.47843137, 0.41960785)
+
+[node name="WalkIn" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WalkIn"]
+position = Vector2(370.5, 98)
+shape = SubResource("RectangleShape2D_0vv3f")
+
+[connection signal="body_entered" from="WalkIn" to="." method="_on_walk_in_body_entered"]

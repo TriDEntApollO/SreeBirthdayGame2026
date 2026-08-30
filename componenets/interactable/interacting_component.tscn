@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://vvtaks8iuuil"]
+
+[ext_resource type="Script" uid="uid://b7avaqya1rap" path="res://componenets/interactable/interacting_component.gd" id="1_6f4l1"]
+[ext_resource type="Theme" uid="uid://bmqaayioogi3d" path="res://scenes/ui/Prompt.tres" id="2_5eou2"]
+[ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="2_5it8f"]
+[ext_resource type="Texture2D" uid="uid://bgl46wp60ckyv" path="res://assets/ui/keyboard/E.png" id="2_vg51a"]
+[ext_resource type="AudioStream" uid="uid://di6mbnuyowj0b" path="res://assets/SFX/interact.ogg" id="5_3nwwu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vg51a"]
+font = ExtResource("2_5it8f")
+outline_size = 2
+outline_color = Color(0.69334877, 0.26110607, 0.6628323, 1)
+shadow_color = Color(0.36275932, 0.0958711, 0.3634825, 0.6784314)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5it8f"]
+radius = 14.0
+
+[node name="InteractingComponent" type="Node2D"]
+script = ExtResource("1_6f4l1")
+
+[node name="InteractPrompt" type="Node2D" parent="."]
+z_index = 4
+position = Vector2(-4.5474735e-13, -40)
+scale = Vector2(0.6, 0.6)
+
+[node name="PanelContainer" type="PanelContainer" parent="InteractPrompt"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -14.5
+offset_right = 55.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("2_5eou2")
+
+[node name="MarginContainer" type="MarginContainer" parent="InteractPrompt/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InteractPrompt/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="InteractPrompt/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_vg51a")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="InteractPrompt/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "to Interact"
+label_settings = SubResource("LabelSettings_vg51a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_5it8f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3nwwu")
+bus = &"SFX"
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

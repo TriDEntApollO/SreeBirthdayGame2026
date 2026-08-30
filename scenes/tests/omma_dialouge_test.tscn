@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://qve6pshs3xio"]
+
+[ext_resource type="PackedScene" uid="uid://cyjuqntwjxfsv" path="res://scenes/map/main_map.tscn" id="1_hkuyl"]
+[ext_resource type="Script" uid="uid://c2r2ty5wpa3t4" path="res://scenes/tests/omma_dialouge_test.gd" id="1_ixlel"]
+[ext_resource type="PackedScene" uid="uid://dmi2u7qcsf3jq" path="res://scenes/characters/omma/omma.tscn" id="2_l2q4n"]
+[ext_resource type="PackedScene" uid="uid://dot7wjke6lis1" path="res://scenes/characters/sree/sree.tscn" id="3_ixlel"]
+[ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="5_dycen"]
+
+[node name="OmmaDialougeTest" type="Node2D"]
+script = ExtResource("1_ixlel")
+
+[node name="MainMap" parent="." instance=ExtResource("1_hkuyl")]
+
+[node name="Omma" parent="." instance=ExtResource("2_l2q4n")]
+position = Vector2(591, 199)
+
+[node name="Sree" parent="." instance=ExtResource("3_ixlel")]
+position = Vector2(535, 199)
+
+[node name="Collectable" parent="." instance=ExtResource("5_dycen")]
+position = Vector2(502, 195)
+
+[node name="Collectable2" parent="." instance=ExtResource("5_dycen")]
+position = Vector2(549, 157)
+
+[node name="Collectable3" parent="." instance=ExtResource("5_dycen")]
+position = Vector2(535, 213)
+
+[node name="Collectable4" parent="." instance=ExtResource("5_dycen")]
+position = Vector2(503, 218)
+
+[node name="Collectable5" parent="." instance=ExtResource("5_dycen")]
+position = Vector2(504, 161)

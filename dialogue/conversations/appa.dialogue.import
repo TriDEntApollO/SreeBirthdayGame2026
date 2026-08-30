@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bc5es65jed82v"
+path="res://.godot/imported/appa.dialogue-84e8dac43d8b989b06b9bf090b4a4c64.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/appa.dialogue"
+dest_files=["res://.godot/imported/appa.dialogue-84e8dac43d8b989b06b9bf090b4a4c64.tres"]
+
+[params]
+
+defaults=true

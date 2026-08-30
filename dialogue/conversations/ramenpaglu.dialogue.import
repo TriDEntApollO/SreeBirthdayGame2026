@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4fvosr345487"
+path="res://.godot/imported/ramenpaglu.dialogue-a0189a56bc83764aedba323945e7c0b1.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/ramenpaglu.dialogue"
+dest_files=["res://.godot/imported/ramenpaglu.dialogue-a0189a56bc83764aedba323945e7c0b1.tres"]
+
+[params]
+
+defaults=true

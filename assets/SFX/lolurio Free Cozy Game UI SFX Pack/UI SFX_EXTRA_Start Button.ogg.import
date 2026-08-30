@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jx6oqbggiy82"
+path="res://.godot/imported/UI SFX_EXTRA_Start Button.ogg-7233d3e9fe2acac2aa9f140da8099384.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/lolurio Free Cozy Game UI SFX Pack/UI SFX_EXTRA_Start Button.ogg"
+dest_files=["res://.godot/imported/UI SFX_EXTRA_Start Button.ogg-7233d3e9fe2acac2aa9f140da8099384.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

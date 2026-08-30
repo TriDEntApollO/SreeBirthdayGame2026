@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://btjc28n7w1um4"]
+
+[ext_resource type="Theme" uid="uid://blb58i44xx5so" path="res://scenes/ui/game_ui.tres" id="1_eqp5r"]
+[ext_resource type="Script" uid="uid://cvkjw13fjc2nh" path="res://scenes/ui/avatar_panel.gd" id="2_48gbn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfu1g"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48gbn"]
+atlas = SubResource("CompressedTexture2D_jfu1g")
+region = Rect2(7, 12, 17, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sa057"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6qbm"]
+atlas = SubResource("CompressedTexture2D_sa057")
+region = Rect2(37, 12, 19, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ai8td"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0igq7"]
+atlas = SubResource("CompressedTexture2D_ai8td")
+region = Rect2(71, 12, 17, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_geskc"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1el46"]
+atlas = SubResource("CompressedTexture2D_geskc")
+region = Rect2(1, 37, 28, 27)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_48gbn"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa057"]
+atlas = SubResource("CompressedTexture2D_48gbn")
+region = Rect2(36, 40, 23, 24)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e6qbm"]
+load_path = "res://.godot/imported/avatars.png-0c936f497651f18f99df8cee5d91b8e8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai8td"]
+atlas = SubResource("CompressedTexture2D_e6qbm")
+region = Rect2(71, 44, 17, 20)
+
+[node name="AvatarPanel" type="Panel"]
+custom_minimum_size = Vector2(164, 164)
+theme = ExtResource("1_eqp5r")
+theme_type_variation = &"AvatarBox"
+script = ExtResource("2_48gbn")
+
+[node name="Avatar" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.112, 1.112)
+
+[node name="Sree" type="Sprite2D" parent="Avatar"]
+position = Vector2(20.000002, 22)
+scale = Vector2(5.68, 5.68)
+texture = SubResource("AtlasTexture_48gbn")
+
+[node name="RamenPaglu" type="Sprite2D" parent="Avatar"]
+visible = false
+position = Vector2(20.000002, 22)
+scale = Vector2(5.68, 5.68)
+texture = SubResource("AtlasTexture_e6qbm")
+
+[node name="PorkPaglu" type="Sprite2D" parent="Avatar"]
+visible = false
+position = Vector2(20.000002, 22)
+scale = Vector2(5.68, 5.68)
+texture = SubResource("AtlasTexture_0igq7")
+
+[node name="Omma" type="Sprite2D" parent="Avatar"]
+visible = false
+position = Vector2(20.000004, 25)
+scale = Vector2(3.9999993, 4.0000005)
+texture = SubResource("AtlasTexture_1el46")
+
+[node name="Appa" type="Sprite2D" parent="Avatar"]
+visible = false
+position = Vector2(19.999996, 21)
+scale = Vector2(4.7826085, 4.7826076)
+texture = SubResource("AtlasTexture_sa057")
+
+[node name="Upasana" type="Sprite2D" parent="Avatar"]
+visible = false
+position = Vector2(20.000002, 22)
+scale = Vector2(5.68, 5.68)
+texture = SubResource("AtlasTexture_ai8td")

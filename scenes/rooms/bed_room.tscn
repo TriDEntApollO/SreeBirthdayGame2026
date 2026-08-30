@@ -1,0 +1,218 @@
+[gd_scene load_steps=28 format=4 uid="uid://rjxls6pxk8sh"]
+
+[ext_resource type="Script" uid="uid://cdv7yo5nn3qad" path="res://scenes/rooms/bed_room.gd" id="1_0vhsj"]
+[ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_8r8lq"]
+[ext_resource type="TileSet" uid="uid://jiswldymii3t" path="res://tileset/furniture_tileset.tres" id="2_smlgm"]
+[ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="3_6scm2"]
+[ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="4_3tp8k"]
+[ext_resource type="Texture2D" uid="uid://duxni2sejypy3" path="res://assets/interiors/interiors_demo_purple.png" id="4_7px2o"]
+[ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="4_hywd6"]
+[ext_resource type="Texture2D" uid="uid://c8jof2un7nh4c" path="res://assets/interiors/Clock.png" id="6_f5ehd"]
+[ext_resource type="Script" uid="uid://cmms6ctko8gxo" path="res://scenes/rooms/alarm_clock.gd" id="7_0vhsj"]
+[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="7_44f0h"]
+[ext_resource type="Texture2D" uid="uid://cl8a67m6wv38g" path="res://assets/cats/Sree-sleep.png" id="7_l2itn"]
+[ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="9_wf6t4"]
+[ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="11_44f0h"]
+[ext_resource type="AudioStream" uid="uid://4yb7ts1l54x7" path="res://assets/SFX/alarm_clock_old.mp3" id="11_yyg4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yntkt"]
+atlas = ExtResource("4_3tp8k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44f0h"]
+atlas = ExtResource("4_7px2o")
+region = Rect2(112, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7px2o"]
+atlas = ExtResource("3_6scm2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5ehd"]
+atlas = ExtResource("3_6scm2")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vhsj"]
+atlas = ExtResource("4_3tp8k")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf6t4"]
+atlas = ExtResource("4_3tp8k")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2itn"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyg4t"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hywd6"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tt0o"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5ehd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2itn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hywd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tt0o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yntkt"]
+size = Vector2(26, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44f0h"]
+size = Vector2(37, 15)
+
+[node name="BedRoom" type="Node2D"]
+script = ExtResource("1_0vhsj")
+
+[node name="RoomTilemap" type="Node2D" parent="."]
+position = Vector2(6, 6)
+
+[node name="Floor" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAAAAAMAAgAIAAMAAAAAAAQAAgAIAAIAAAAAAAUAAgAIAAMAAAAAAAYAAgAIAAIAAAAAAAcAAgAIAAMAAAAAAAgAAgAIAAIAAAAAAAkAAgAIAAIAAAAAAAoAAgAIAAMAAAABAAQAAgAJAAIAAAABAAUAAgAJAAMAAAABAAYAAgAJAAIAAAABAAcAAgAJAAMAAAABAAgAAgAJAAIAAAABAAkAAgAJAAIAAAABAAoAAgAJAAMAAAACAAQAAgAJAAMAAAACAAUAAgAJAAIAAAACAAYAAgAIAAIAAAACAAcAAgAIAAMAAAACAAgAAgAJAAMAAAACAAkAAgAJAAIAAAACAAoAAgAJAAMAAAADAAMAAgAJAAMAAAADAAUAAgAIAAMAAAADAAYAAgAJAAIAAAADAAcAAgAJAAMAAAADAAgAAgAIAAMAAAADAAkAAgAIAAIAAAADAAoAAgAIAAMAAAAEAAMAAgAIAAMAAAAEAAUAAgAIAAMAAAAEAAYAAgAIAAIAAAAEAAcAAgAIAAMAAAAEAAgAAgAJAAMAAAAEAAkAAgAJAAIAAAAEAAoAAgAJAAMAAAAFAAMAAgAJAAMAAAAFAAYAAgAJAAIAAAAFAAcAAgAJAAMAAAAFAAgAAgAIAAMAAAAFAAkAAgAIAAIAAAAFAAoAAgAIAAMAAAAGAAMAAgAIAAMAAAAGAAQAAgAIAAIAAAAGAAYAAgAIAAIAAAAGAAgAAgAJAAMAAAAGAAkAAgAJAAIAAAAGAAoAAgAJAAMAAAAHAAMAAgAJAAMAAAAHAAQAAgAJAAIAAAAHAAYAAgAJAAIAAAAHAAgAAgAIAAMAAAAHAAkAAgAJAAMAAAAHAAoAAgAJAAIAAAAIAAMAAgAIAAMAAAAIAAQAAgAIAAIAAAAIAAYAAgAIAAIAAAAIAAkAAgAIAAMAAAAIAAoAAgAIAAIAAAAJAAMAAgAJAAMAAAAJAAQAAgAJAAIAAAAJAAYAAgAJAAIAAAAJAAkAAgAIAAIAAAAJAAoAAgAIAAMAAAAKAAMAAgAIAAMAAAAKAAQAAgAJAAIAAAAKAAgAAgAJAAMAAAAKAAkAAgAJAAIAAAAKAAoAAgAJAAMAAAALAAMAAgAJAAMAAAALAAQAAgAIAAIAAAALAAcAAgAIAAIAAAALAAgAAgAIAAMAAAALAAkAAgAIAAIAAAALAAoAAgAIAAMAAAAIAAgAAgAJAAMAAAAJAAgAAgAIAAMAAAADAAQAAgAIAAIAAAAEAAQAAgAIAAIAAAAFAAQAAgAJAAIAAAAFAAUAAgAJAAMAAAAGAAUAAgAIAAMAAAAHAAUAAgAJAAMAAAAIAAUAAgAIAAMAAAAJAAUAAgAJAAMAAAAKAAUAAgAJAAMAAAALAAUAAgAIAAMAAAABAAMAAgAJAAMAAAACAAMAAgAIAAMAAAALAAYAAgAJAAIAAAAKAAYAAgAIAAIAAAAJAAcAAgAJAAMAAAAIAAcAAgAIAAMAAAAHAAcAAgAJAAMAAAAGAAcAAgAIAAMAAAAKAAcAAgAJAAIAAAAKAAsAAgAIAAIAAAALAAsAAgAJAAIAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="Rug" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAABAAQAAwATAAkAAAABAAUAAwATAAoAAAACAAQAAwAUAAkAAAACAAUAAwAUAAoAAAADAAQAAwAVAAkAAAADAAUAAwAVAAoAAAAEAAQAAwAVAAkAAAAEAAUAAwAVAAoAAAABAAMAAwATAAcAAAACAAMAAwAUAAcAAAADAAMAAwAVAAcAAAAEAAMAAwAVAAgAAAABAAYAAwATAAsAAAACAAYAAwAUAAsAAAAEAAYAAwAWAAsAAAAFAAMAAwAWAAgAAAAFAAQAAwAWAAkAAAAFAAUAAwAWAAoAAAAAAAQAAwASAAgAAAAAAAUAAwASAAkAAAAAAAYAAwASAAsAAAABAAIAAwATAAYAAAACAAIAAwAUAAYAAAADAAIAAwAVAAYAAAAEAAIAAwAWAAYAAAAFAAIAAwAWAAYAAAAFAAYAAwAWAAsAAAAGAAYAAwAXAAsAAAAGAAMAAwAXAAgAAAAGAAQAAwAXAAkAAAAGAAUAAwAXAAoAAAAGAAIAAwAXAAYAAAAFAAgAAwABAAEAAAAFAAkAAwABAAQAAAAGAAgAAwADAAEAAAAGAAkAAwACAAQAAAAHAAgAAwADAAEAAAAHAAkAAwACAAQAAAAIAAgAAwADAAEAAAAIAAkAAwACAAQAAAAJAAgAAwAEAAEAAAAJAAkAAwAEAAQAAAAFAAoAAwACAAUAAAAGAAoAAwACAAUAAAAHAAoAAwACAAUAAAAIAAoAAwACAAUAAAAJAAoAAwACAAUAAAAFAAcAAwACAAAAAAAGAAcAAwACAAAAAAAHAAcAAwACAAAAAAAIAAcAAwACAAAAAAAJAAcAAwACAAAAAAAKAAgAAwAFAAIAAAAKAAkAAwAFAAIAAAAEAAgAAwAAAAIAAAAEAAkAAwAAAAIAAAAEAAoAAwAAAAUAAAAKAAoAAwAFAAUAAAAKAAcAAwAFAAAAAAAEAAcAAwAAAAAAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="Wall" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAAAAAAACQAGAAEAAAAAAAEACQAGAAIAAAABAAAACQAHAAEAAAABAAEACQAHAAIAAAABAAIACQAGAAMAAAACAAAACQAGAAEAAAACAAEACQAGAAIAAAACAAIACQAGAAMAAAADAAAACQAHAAEAAAADAAEACQAHAAIAAAADAAIACQAHAAMAAAAEAAAACQAGAAEAAAAEAAEACQAGAAIAAAAEAAIACQAGAAMAAAAFAAAACQAHAAEAAAAFAAEACQAHAAIAAAAFAAIACQAHAAMAAAAGAAAACQAGAAEAAAAGAAEACQAGAAIAAAAGAAIACQAGAAMAAAAHAAAACQAHAAEAAAAHAAEACQAHAAIAAAAHAAIACQAHAAMAAAAIAAAACQAGAAEAAAAIAAEACQAGAAIAAAAIAAIACQAGAAMAAAAJAAAACQAHAAEAAAAJAAEACQAHAAIAAAAJAAIACQAHAAMAAAAKAAAACQAGAAEAAAAKAAEACQAGAAIAAAAKAAIACQAGAAMAAAALAAAACQAHAAEAAAALAAEACQAHAAIAAAALAAIACQAHAAMAAAAAAAQACQAGAAMAAGAAAAMACQAHAAMAAGAAAAYACQAGAAMAAGAAAAUACQAHAAMAAGAAAAgACQAGAAMAAGAAAAcACQAHAAMAAGAAAAoACQAGAAMAAGAAAAkACQAHAAMAAGD//wQACQAGAAIAAGD//wMACQAHAAIAAGD//wYACQAGAAIAAGD//wUACQAHAAIAAGD//wgACQAGAAIAAGD//wcACQAHAAIAAGD//woACQAGAAIAAGD//wkACQAHAAIAAGD//wEACQAGAAIAAAD//wAACQAGAAIAAAD/////CQAGAAIAAAAAAP//CQAGAAIAAAABAP//CQAGAAIAAAACAP//CQAGAAIAAAADAP//CQAGAAIAAAAEAP//CQAGAAIAAAAFAP//CQAGAAIAAAAGAP//CQAGAAIAAAAHAP//CQAGAAIAAAAIAP//CQAGAAIAAAAJAP//CQAGAAIAAAAKAP//CQAGAAIAAAALAP//CQAGAAIAAAAAAAIACQAGAAAAAAD//wIACQAGAAIAAAANAAMACQAGAAIAAFANAAQACQAHAAIAAFANAAUACQAGAAIAAFANAAYACQAHAAIAAFANAAcACQAGAAIAAFANAAgACQAHAAIAAFAMAAMACQAGAAMAAFAMAAQACQAHAAMAAFAMAAUACQAGAAMAAFAMAAYACQAHAAMAAFAMAAcACQAGAAMAAFAMAAgACQAHAAMAAFANAAkACQAGAAIAAFANAAoACQAHAAIAAFAMAAkACQAGAAMAAFAMAAoACQAHAAMAAFAMAAIACQAGAAIAAAAMAAEACQAGAAIAAAAMAAAACQAGAAIAAAAMAP//CQAGAAIAAAANAP//CQAGAAIAAAANAAAACQAGAAIAAAANAAEACQAGAAIAAAANAAIACQAGAAIAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="Windows" type="Node2D" parent="RoomTilemap"]
+
+[node name="outside" type="TileMapLayer" parent="RoomTilemap/Windows"]
+tile_map_data = PackedByteArray("AAAEAAAABwAEAAAAAAAEAAEABwAEAAEAAAAFAAAABwAFAAAAAAAFAAEABwAFAAEAAAABAAAABwAGAAAAAAABAAEABwAGAAEAAAACAAAABwAHAAAAAAACAAEABwAHAAEAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="frame" type="TileMapLayer" parent="RoomTilemap/Windows"]
+tile_map_data = PackedByteArray("AAABAAAABgAAAAAAAAAEAAAABgAAAAAAAAAEAAEABgAAAAEAAAAFAAAABgABAAAAAAAFAAEABgABAAEAAAABAAEABgAAAAEAAAACAAEABgABAAEAAAACAAAABgABAAAAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="curtain" type="TileMapLayer" parent="RoomTilemap/Windows"]
+tile_map_data = PackedByteArray("AAABAAAACAAAAAAAAAABAAEACAAAAAEAAAACAAAACAABAAAAAAACAAEACAABAAEAAAAEAAAACAAAAAAAAAAEAAEACAAAAAEAAAAFAAAACAABAAAAAAAFAAEACAABAAEAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="Decor" type="Node2D" parent="RoomTilemap"]
+
+[node name="Wall Decor" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAAKAAAABwAAAAAAAAAKAAEABwAAAAEAAAALAAAABwABAAAAAAALAAEABwABAAEAAAAIAAAACgAPAAoAAAAAAAgADAALAAUAAGA=")
+tile_set = ExtResource("2_smlgm")
+
+[node name="Wall Decor2" type="TileMapLayer" parent="RoomTilemap/Decor"]
+position = Vector2(-4, 7)
+tile_map_data = PackedByteArray("AAANAAUACwADAAEAAFANAAcACwACAAEAAFA=")
+tile_set = ExtResource("2_smlgm")
+
+[node name="Wall Decor3" type="TileMapLayer" parent="RoomTilemap/Decor"]
+position = Vector2(7, 0)
+tile_map_data = PackedByteArray("AAD//wQACgAPAAkAAGA=")
+tile_set = ExtResource("2_smlgm")
+
+[node name="Collectable1" parent="RoomTilemap/Decor" instance=ExtResource("4_hywd6")]
+z_as_relative = true
+position = Vector2(180, 54.000004)
+rotation = -1.1213804
+
+[node name="Furnitures" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAADAAMAAQAIAAYAABACAAgAAwAcAAkAAGABAAgAAwAMAAkAAGADAAgAAgAEAAAAAGAIAAIAAwAWAAgAAAA=")
+tile_set = ExtResource("2_smlgm")
+
+[node name="Details" type="TileMapLayer" parent="RoomTilemap/Decor"]
+tile_map_data = PackedByteArray("AAABAAcACgAPAAYAAGALAAIACgAOAAYAAAALAAMACgAOAAcAAAABAAkACgAHAAoAAGABAAgADAAKAAUAAGA=")
+tile_set = ExtResource("2_smlgm")
+
+[node name="Details2" type="Node2D" parent="RoomTilemap/Decor"]
+
+[node name="Bottle" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(113.99999, 24.000002)
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_yntkt")
+
+[node name="BookStackGreen" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(154.00002, 24.000002)
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_44f0h")
+
+[node name="Stand" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(8, 149)
+rotation = -1.5707964
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_7px2o")
+
+[node name="Plant" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(9, 110)
+rotation = -1.5707964
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_f5ehd")
+
+[node name="BookStackV" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(9, 158.99998)
+rotation = -1.5707964
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_0vhsj")
+
+[node name="BookStackH" type="Sprite2D" parent="RoomTilemap/Decor/Details2"]
+position = Vector2(13, 125)
+scale = Vector2(1.0625001, 1.0625001)
+texture = SubResource("AtlasTexture_wf6t4")
+
+[node name="Border" type="TileMapLayer" parent="RoomTilemap"]
+tile_map_data = PackedByteArray("AAD//wsACgACAAQAAAAAAAsACgACAAQAAAABAAsACgACAAQAAAACAAsACgACAAQAAAADAAsACgACAAQAAAAEAAsACgACAAQAAAAFAAsACgACAAQAAAAGAAsACgACAAQAAAAHAAsACgACAAQAAAAMAAsACgAGAAAAAAD///7/CgAHAAMAAAAAAP7/CgAHAAMAAAABAP7/CgAHAAMAAAACAP7/CgAHAAMAAAADAP7/CgAHAAMAAAAEAP7/CgAHAAMAAAAFAP7/CgAHAAMAAAAGAP7/CgAHAAMAAAAHAP7/CgAHAAMAAAAIAP7/CgAHAAMAAAAJAP7/CgAHAAMAAAAKAP7/CgAHAAMAAAALAP7/CgAHAAMAAAAMAP7/CgAHAAMAAAD+//7/CgABAAEAAAD+////CgABAAIAAAD+/wAACgABAAIAAAD+/wEACgABAAIAAAD+/wIACgABAAIAAAD+/wMACgABAAIAAAD+/wQACgABAAIAAAD+/wUACgABAAIAAAD+/wYACgABAAIAAAD+/wcACgABAAIAAAD+/wgACgABAAIAAAD+/wkACgABAAIAAAD+/woACgABAAIAAAD+/wsACgABAAQAAAAOAP7/CgAEAAEAAAAOAP//CgAEAAIAAAAOAAAACgAEAAIAAAAOAAEACgAEAAIAAAAOAAIACgAEAAIAAAAOAAMACgAEAAIAAAAOAAQACgAEAAIAAAAOAAUACgAEAAIAAAAOAAYACgAEAAIAAAAOAAcACgAEAAIAAAAOAAgACgAEAAIAAAAOAAkACgAEAAIAAAAOAAoACgAEAAIAAAAOAAsACgAEAAQAAAANAAsACgACAAQAAAANAP7/CgAHAAMAAAAJAAsACgAJAAAAAAAIAAsACgACAAQAAAA=")
+tile_set = ExtResource("1_8r8lq")
+
+[node name="SreeSleeping" type="Sprite2D" parent="."]
+position = Vector2(49, 65)
+texture = ExtResource("7_l2itn")
+
+[node name="AlarmClock" type="AnimatedSprite2D" parent="."]
+material = ExtResource("7_44f0h")
+position = Vector2(139, 32)
+scale = Vector2(0.8437501, 0.8437501)
+sprite_frames = SubResource("SpriteFrames_f5ehd")
+script = ExtResource("7_0vhsj")
+
+[node name="AlarmSfx" type="AudioStreamPlayer2D" parent="AlarmClock"]
+stream = ExtResource("11_yyg4t")
+
+[node name="Interactable" parent="AlarmClock" instance=ExtResource("9_wf6t4")]
+position = Vector2(-164.74072, -37.925922)
+scale = Vector2(1.1851851, 1.1851851)
+interactable_name = "Stop Alarm "
+
+[node name="InteractPrompt" parent="AlarmClock/Interactable" instance=ExtResource("11_44f0h")]
+position = Vector2(139, 13)
+scale = Vector2(0.5062501, 0.5062501)
+prompt = "Stop Alarm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlarmClock/Interactable"]
+position = Vector2(139, 38.5)
+shape = SubResource("RectangleShape2D_yntkt")
+debug_color = Color(0.67660564, 0.49548858, 0.2919395, 0.41960785)
+
+[node name="BlockDoor" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDoor"]
+position = Vector2(181.5, 189.5)
+shape = SubResource("RectangleShape2D_44f0h")
