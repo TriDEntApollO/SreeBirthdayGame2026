@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
-instance uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-instance uniform float line_thickness : hint_range(0, 10) = 1.0;
-instance uniform bool outline_enabled = false;
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
 
 const vec2 OFFSETS[8] = {
 	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
@@ -17,7 +17,7 @@ void fragment() {
 	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
 	float outline = 0.0;
 
-	for (int i = 0; i < OFFSETS.length(); i++) {
+	for (int i = 0; i < 8; i++) {
 		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
 	}
 

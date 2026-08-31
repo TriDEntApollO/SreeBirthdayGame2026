@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://be3yuno21ni5r"]
+[gd_scene load_steps=50 format=4 uid="uid://be3yuno21ni5r"]
 
 [ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_ndxsf"]
 [ext_resource type="Script" uid="uid://gileipubw3mr" path="res://scenes/rooms/living_room.gd" id="1_oy7wu"]
@@ -77,6 +77,54 @@ radius = 56.0357
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlgtg"]
 size = Vector2(33, 4.5)
 
+[sub_resource type="Shader" id="Shader_7cjtg"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mmjm"]
+shader = SubResource("Shader_7cjtg")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6grr"]
 atlas = ExtResource("3_fbuym")
 region = Rect2(94, 30, 36, 32)
@@ -87,13 +135,157 @@ size = Vector2(34.285698, 31.71428)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxqs"]
 size = Vector2(27, 33)
 
+[sub_resource type="Shader" id="Shader_xsf0y"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_16llt"]
+shader = SubResource("Shader_xsf0y")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e86kh"]
 atlas = ExtResource("4_qlgtg")
 region = Rect2(1, 71, 14, 8)
 
+[sub_resource type="Shader" id="Shader_331a7"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m25an"]
+shader = SubResource("Shader_331a7")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8llds"]
 atlas = ExtResource("5_qlgtg")
 region = Rect2(77, 10, 22, 23)
+
+[sub_resource type="Shader" id="Shader_v4v7e"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xou"]
+shader = SubResource("Shader_v4v7e")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5o1a"]
 atlas = ExtResource("5_qlgtg")
@@ -268,7 +460,6 @@ texture = ExtResource("10_8mmjm")
 flip_h = true
 
 [node name="Border" type="TileMapLayer" parent="RoomTilemap"]
-z_index = 12
 z_as_relative = false
 tile_map_data = PackedByteArray("AAAPAAkACgADAAQAAAAOAAkACgADAAQAAAANAAkACgADAAQAAAAMAAkACgADAAQAAAALAAkACgADAAQAAAAKAAkACgADAAQAAAAJAAkACgADAAQAAAAIAAkACgADAAQAAAAHAAkACgADAAQAAAAGAAkACgADAAQAAAAFAAkACgADAAQAAAAEAAkACgADAAQAAAADAAkACgADAAQAAAACAAkACgADAAQAAAABAAkACgADAAQAAAAAAAkACgADAAQAAAD//wkACgADAAQAAAAQAAkACgAIAAAAAAARAAkACgAIAAAAAAATAAkACgAIAAAAAAASAAkACgAIAAAAAAAUAAkACgAIAAAAAAAVAAkACgAIAAAAAAAAAP7/CgAHAAUAAAABAP7/CgAHAAUAAAACAP7/CgAHAAUAAAD///7/CgAHAAUAAAALAP7/CgAJAAMAAAAJAP7/CgAHAAMAAAAKAP7/CgAHAAMAAAAMAP3/CgAIAAMAAAALAP3/CgABAAEAAAASAP3/CgAEAAEAAAASAP7/CgAGAAMAAAATAP7/CgAIAAUAAAAUAP7/CgAIAAUAAAAVAP7/CgAIAAUAAAARAP3/CgAIAAMAAAAQAP3/CgAGAAMAAAANAP3/CgAJAAMAAAAWAP7/CgAHAAMAAAAXAP7/CgAHAAMAAAAYAP7/CgAHAAMAAAAWAAkACgAHAAAAAAAXAAkACgAHAAAAAAAYAAkACgAHAAAAAAAbAP7/CgAEAAEAAAAbAP//CgAMAAMAAAAbAAAACgAMAAMAAAAbAAEACgAMAAMAAAAbAAIACgAGAAUAAAAbAAUACgAGAAQAAAAbAAYACgAMAAMAAAAbAAcACgAMAAMAAAAbAAgACgAMAAMAAAAbAAkACgAEAAQAAAAZAP7/CgAHAAMAAAAaAP7/CgAHAAMAAAAZAAkACgAHAAAAAAAaAAkACgAHAAAAAAD9//7/CgABAAEAAAD9////CgANAAIAAAD9/wAACgABAAIAAAD9/wEACgABAAMAAAD9/wIACgABAAIAAAD9/wMACgABAAMAAAD9/wQACgABAAIAAAD9/wUACgABAAMAAAD9/wYACgABAAIAAAD9/wcACgABAAMAAAD9/wgACgABAAIAAAD9/wkACgABAAQAAAD+//7/CgAHAAUAAAD+/wkACgADAAQAAAADAP7/CgANAAUAAAAHAP7/CgAHAAMAAAAIAP7/CgAHAAMAAAAGAP7/CgAMAAUAAAA=")
 tile_set = ExtResource("1_ndxsf")
@@ -285,10 +476,15 @@ tile_set = ExtResource("1_ndxsf")
 z_index = 1
 y_sort_enabled = true
 
+[node name="AbovePlayerDetails" type="TileMapLayer" parent="Ysort"]
+y_sort_enabled = true
+position = Vector2(6, 22)
+tile_map_data = PackedByteArray("AAAFAAUACgAPAAYAAAAEAAUADQAAAAQAAAA=")
+tile_set = ExtResource("2_bmq3m")
+
 [node name="ChairTop" type="TileMapLayer" parent="Ysort"]
 modulate = Color(1.1374342, 1.1374342, 1.1374342, 1)
 self_modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
-z_index = 1
 y_sort_enabled = true
 position = Vector2(6, 22)
 tile_map_data = PackedByteArray("AAASAAcACgALAAYAAAAOAAUACgAIAAYAAAAPAAUACgAIAAYAAAALAAcACgAJAAYAAAA=")
@@ -316,7 +512,7 @@ position = Vector2(6.5, 28)
 shape = SubResource("RectangleShape2D_qlgtg")
 
 [node name="Sink" type="Sprite2D" parent="."]
-material = ExtResource("7_g005p")
+material = SubResource("ShaderMaterial_8mmjm")
 position = Vector2(318.00003, 50.000008)
 scale = Vector2(0.875, 0.875)
 texture = SubResource("AtlasTexture_j6grr")
@@ -348,21 +544,21 @@ shape = SubResource("RectangleShape2D_2cxqs")
 debug_color = Color(0.8829906, 0.2803877, 0.47924608, 0.41960785)
 
 [node name="Plate" type="Sprite2D" parent="Cake"]
-material = ExtResource("7_g005p")
+material = SubResource("ShaderMaterial_16llt")
 position = Vector2(254, 150)
 rotation = 3.1415925
 scale = Vector2(1.0000049, 1.0000049)
 texture = SubResource("AtlasTexture_e86kh")
 
 [node name="Cake" type="Sprite2D" parent="Cake"]
-material = ExtResource("7_g005p")
+material = SubResource("ShaderMaterial_m25an")
 position = Vector2(253.99998, 156)
 rotation = 3.1415925
 scale = Vector2(0.7200049, 0.7200049)
 texture = SubResource("AtlasTexture_8llds")
 
 [node name="Fridge" type="Sprite2D" parent="."]
-material = ExtResource("7_g005p")
+material = SubResource("ShaderMaterial_b5xou")
 position = Vector2(398, 142)
 rotation = 1.5707964
 texture = SubResource("AtlasTexture_a5o1a")

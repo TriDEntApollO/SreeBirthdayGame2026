@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	global_position = default_position
-	sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+	sprite_2d.material.set_shader_parameter("outline_enabled", false)
 	is_hovered = false
 	is_dragging = false
 	grab_prompt.hide()
@@ -42,10 +42,10 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity = Vector2.ZERO
 			drag_offset = global_position - get_global_mouse_position()
 			grab_prompt.hide()
-			sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+			sprite_2d.material.set_shader_parameter("outline_enabled", false)
 			
 			if first_grab:
-				EventManager.finish_task(EventManager.task_ids.pick_up_knife)
+				await EventManager.finish_task(EventManager.task_ids.pick_up_knife)
 				first_grab = false
 		
 		if is_dragging:
@@ -54,7 +54,7 @@ func _physics_process(_delta: float) -> void:
 
 	if is_dragging:
 		grab_prompt.show()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", true)
+		sprite_2d.material.set_shader_parameter("outline_enabled", true)
 		CakeScene.knife_grabbed = false
 		is_dragging = false
 		freeze = false
@@ -70,14 +70,14 @@ func _on_mouse_entered() -> void:
 	if !is_dragging and is_grabable:
 		is_hovered = true
 		grab_prompt.show()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", true)
+		sprite_2d.material.set_shader_parameter("outline_enabled", true)
 
 
 func _on_mouse_exited() -> void:
 	if is_grabable:
 		is_hovered = false
 		grab_prompt.hide()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+		sprite_2d.material.set_shader_parameter("outline_enabled", false)
 
 
 func _on_body_shape_entered(_body_rid: RID, body: Node, body_shape_index: int, _local_shape_index: int) -> void:

@@ -1,10 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://clig72ow6pnft"]
+[gd_scene load_steps=17 format=3 uid="uid://clig72ow6pnft"]
 
 [ext_resource type="Script" uid="uid://d3fmjc6aq8f0m" path="res://scenes/characters/cat/cat.gd" id="1_envyv"]
 [ext_resource type="Texture2D" uid="uid://bqtbc0r4q1mbb" path="res://assets/cats/CatPackFree/Box3.png" id="1_kmgj8"]
-[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="2_cedsb"]
+[ext_resource type="Shader" uid="uid://3mqr5orgej40" path="res://shaders/outline.gdshader" id="2_8y4ou"]
 [ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="2_envyv"]
 [ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="5_8y4ou"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppw3j"]
+shader = ExtResource("2_8y4ou")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y4ou"]
 atlas = ExtResource("1_kmgj8")
@@ -96,15 +102,14 @@ _data = {
 }
 
 [node name="Cat" type="StaticBody2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_envyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-material = ExtResource("2_cedsb")
-position = Vector2(0, -16)
+material = SubResource("ShaderMaterial_ppw3j")
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_cedsb")
 animation = &"IdleBox"
 autoplay = "IdleBox"
@@ -112,11 +117,11 @@ frame = 2
 frame_progress = 0.11598361
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.999998)
 rotation = 1.5616552
 shape = SubResource("CapsuleShape2D_kmgj8")
 
 [node name="Interactable" parent="." instance=ExtResource("2_envyv")]
+position = Vector2(0, 10)
 interact_once = false
 interactable_name = "Pet"
 

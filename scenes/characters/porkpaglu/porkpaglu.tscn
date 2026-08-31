@@ -1,9 +1,56 @@
-[gd_scene load_steps=26 format=3 uid="uid://c53ro0m8orybb"]
+[gd_scene load_steps=27 format=3 uid="uid://c53ro0m8orybb"]
 
 [ext_resource type="Script" uid="uid://c2cnuc5yx8581" path="res://scenes/characters/porkpaglu/porkpaglu.gd" id="1_0q5x2"]
 [ext_resource type="PackedScene" uid="uid://cm5hlj3hfjxqy" path="res://componenets/npc/npc.tscn" id="2_5wphi"]
-[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="3_5wphi"]
 [ext_resource type="Texture2D" uid="uid://ddknoqtanxkxt" path="res://assets/cats/Porkpaglu-cat.png" id="3_50hcp"]
+
+[sub_resource type="Shader" id="Shader_0q5x2"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wphi"]
+shader = SubResource("Shader_0q5x2")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rr2a"]
 atlas = ExtResource("3_50hcp")
@@ -189,17 +236,18 @@ animations = [{
 }]
 
 [node name="Porkpaglu" type="Node2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_0q5x2")
 
 [node name="NpcComponent" parent="." instance=ExtResource("2_5wphi")]
+z_index = 0
+position = Vector2(0, 11)
 character_name = "PorkPaglu"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NpcComponent"]
 z_index = 1
 y_sort_enabled = true
-material = ExtResource("3_5wphi")
+material = SubResource("ShaderMaterial_5wphi")
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_qj65m")
 animation = &"Idle front"

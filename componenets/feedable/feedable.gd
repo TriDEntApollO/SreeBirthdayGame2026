@@ -20,7 +20,7 @@ func _ready() -> void:
 	add_to_group("Feedables")
 	feed_prompt.hide()
 	if outline:
-		outline.set_instance_shader_parameter("outline_enabled", false)
+		outline.material.set_shader_parameter("outline_enabled", false)
 
 
 func _process(_delta: float) -> void:
@@ -29,11 +29,11 @@ func _process(_delta: float) -> void:
 	if can_feed_now:
 		feed_prompt.show()
 		if outline:
-			outline.set_instance_shader_parameter("outline_enabled", true)
+			outline.material.set_shader_parameter("outline_enabled", true)
 	else:
 		feed_prompt.hide()
 		if outline:
-			outline.set_instance_shader_parameter("outline_enabled", false)
+			outline.material.set_shader_parameter("outline_enabled", false)
 
 	if not can_feed_now:
 		return
@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 		CakeScene.feed_left -= 1
 		feed_prompt.hide()
 		if outline:
-			outline.set_instance_shader_parameter("outline_enabled", false)
+			outline.material.set_shader_parameter("outline_enabled", false)
 		if cake_slice != null:
 			cake_slice.freeze = true
 			cake_slice.can_drop = false
@@ -73,4 +73,4 @@ func _on_range_body_exited(body: Node2D) -> void:
 	is_hovered = false
 	feed_prompt.hide()
 	if outline:
-		outline.set_instance_shader_parameter("outline_enabled", false)
+		outline.material.set_shader_parameter("outline_enabled", false)

@@ -23,7 +23,7 @@ func _ready() -> void:
 	lock_rotation = true
 	freeze = true
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
-	sprite_2d.set_instance_shader_parameter("line_thickness", 8.0)
+	sprite_2d.material.set_shader_parameter("line_thickness", 8.0)
 
 
 func reset() -> void:
@@ -32,7 +32,7 @@ func reset() -> void:
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
 	grab_prompt.hide()
-	sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+	sprite_2d.material.set_shader_parameter("outline_enabled", false)
 	CakeScene.cake_grabbed = false
 	can_drop = true
 	freeze = true
@@ -47,10 +47,10 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity = Vector2.ZERO
 			drag_offset = global_position - get_global_mouse_position()
 			grab_prompt.hide()
-			sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+			sprite_2d.material.set_shader_parameter("outline_enabled", false)
 			
 			if first_grab:
-				EventManager.finish_task(EventManager.task_ids.pick_up_cake_slice)
+				await EventManager.finish_task(EventManager.task_ids.pick_up_cake_slice)
 				first_grab = false
 			
 		if is_dragging:
@@ -59,7 +59,7 @@ func _physics_process(_delta: float) -> void:
 
 	if is_dragging:
 		grab_prompt.show()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", true)
+		sprite_2d.material.set_shader_parameter("outline_enabled", true)
 		CakeScene.cake_grabbed = false
 		is_dragging = false
 		if can_drop:
@@ -76,14 +76,14 @@ func _on_mouse_entered() -> void:
 	if !is_dragging and is_grabable:
 		is_hovered = true
 		grab_prompt.show()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", true)
+		sprite_2d.material.set_shader_parameter("outline_enabled", true)
 
 
 func _on_mouse_exited() -> void:
 	if is_grabable:
 		is_hovered = false
 		grab_prompt.hide()
-		sprite_2d.set_instance_shader_parameter("outline_enabled", false)
+		sprite_2d.material.set_shader_parameter("outline_enabled", false)
 
 
 func _on_body_shape_entered(_body_rid: RID, body: Node, body_shape_index: int, _local_shape_index: int) -> void:

@@ -38,9 +38,9 @@ func _ready() -> void:
 	interactable.add_outline(box_1)
 	interactable.add_outline(box_2)
 	interactable.add_outline(box_3)
-	box_1.set_instance_shader_parameter("line_thickness", 10.0)
-	box_2.set_instance_shader_parameter("line_thickness", 10.0)
-	box_3.set_instance_shader_parameter("line_thickness", 10.0)
+	box_1.material.set_shader_parameter("line_thickness", 10.0)
+	box_2.material.set_shader_parameter("line_thickness", 10.0)
+	box_3.material.set_shader_parameter("line_thickness", 10.0)
 	EventManager.task_updated.connect(_on_task_update)
 	EventManager.event_start.connect(_on_event_start)
 	EventManager.event_end.connect(_on_event_end)
@@ -81,6 +81,7 @@ func _on_task_update(task_id: int) -> void:
 	if task_id == EventManager.task_ids.talk_to_ramenpaglu:
 		all_tasks_done = true
 		gift_boxes.show()
+		EventManager.alarm_tick.emit()
 
 func set_character_enabled(enabled: bool) -> void:
 	visible = enabled

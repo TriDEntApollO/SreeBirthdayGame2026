@@ -47,6 +47,9 @@ const music := {
 }
 
 
+# Web browser focus handling
+var _web_focus_callback: JavaScriptObject
+
 # Persistent settings.
 # IMPORTANT: reset() must NOT modify this.
 var tutorial: bool = true
@@ -57,6 +60,7 @@ var map_positions: Dictionary = {}
 var can_move: bool = false
 var collectables_count: int = 0
 var game_cursor_on: bool = false
+var window_unfocused: bool = false
 
 func reset() -> void:
 	# Reset runtime game state.
@@ -94,6 +98,59 @@ func _ready() -> void:
 	can_move = false
 	collectables_count = 0
 	game_cursor_on = false
+	window_unfocused = false
+	
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+	if OS.has_feature("web"):
+		_setup_web_focus()
+
+
+func _setup_web_focus() -> void:
+	_web_focus_callback = JavaScriptBridge.create_callback(
+		_on_web_focus_changed
+	)
+
+	var document := JavaScriptBridge.get_interface("document")
+
+	document.addEventListener("visibilitychange", _web_focus_callback)
+
+
+func _on_web_focus_changed(_args: Array) -> void:
+	var document := JavaScriptBridge.get_interface("document")
+
+	if document.visibilityState == "hidden":
+		if not get_tree().paused:
+			window_unfocused = true
+			Ui._set_focus_audio_paused(true)
+			get_tree().paused = true
+
+	elif document.visibilityState == "visible":
+		if window_unfocused:
+			window_unfocused = false
+			Ui._set_focus_audio_paused(false)
+
+			if not Ui.pause_state:
+				get_tree().paused = false
+
+
+func _notification(what: int) -> void:
+	if OS.has_feature("web"):
+		return
+
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		window_unfocused = true
+		Ui._set_focus_audio_paused(true)
+		get_tree().paused = true
+
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		if window_unfocused:
+			window_unfocused = false
+			Ui._set_focus_audio_paused(false)
+
+			if not Ui.pause_state:
+				get_tree().paused = false
+
 
 func start_game() -> void:
 	await Ui.ui_transition_in()
@@ -103,16 +160,20 @@ func start_game() -> void:
 	get_tree().paused = false
 	await Ui.ui_transition_out()
 
+
 func quit_to_start_menu() -> void:
 	reset()
 	await Ui.ui_transition_in()
 	start_menu_active = true
+	Ui._unpause()
 	get_tree().change_scene_to_packed(START_MENU_SCENE)
 	get_tree().paused = false
 	await Ui.ui_transition_out()
 
+
 func exit_game() -> void:
 	get_tree().quit()
+
 
 func delay(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -130,9 +191,12 @@ func hide_cursor():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func show_cursor():
+func show_cursor(screen_position: Variant = null):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_viewport().warp_mouse(get_viewport().get_visible_rect().size / 2.0)
+	var target_position: Vector2 = get_viewport().get_visible_rect().size / 2.0
+	if screen_position is Vector2:
+		target_position = screen_position
+	get_viewport().warp_mouse(target_position)
 
 
 func add_collectable():

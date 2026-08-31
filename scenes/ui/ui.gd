@@ -20,6 +20,8 @@ extends CanvasLayer
 @onready var plate: TextureRect = $InGame/Inventory/HBoxContainer/Cake/MarginContainer/Plate
 @onready var collectables_count: Label = $InGame/Inventory/HBoxContainer/Collectables/MarginContainer/Count
 @onready var birthday_card: CanvasLayer = $InGame/BirthdayCard
+@onready var perfume: PanelContainer = $InGame/Inventory/HBoxContainer/Perfume
+@onready var makeup: PanelContainer = $InGame/Inventory/HBoxContainer/Makeup
 
 
 @onready var ui_sfx: AudioStreamPlayer2D = $UiSfx
@@ -36,6 +38,8 @@ func reset() -> void:
 	# UI visibility/state
 	inventory.hide()
 	cake_inventory.hide()
+	makeup.hide()
+	perfume.hide()
 	dialogue_balloon.hide()
 	birthday_card.hide()
 	gift_box._reset()
@@ -43,9 +47,9 @@ func reset() -> void:
 	video_player._reset()
 	birthday_card._reset()
 	dialogue_balloon.end_dialogue()
+	#if is_instance_valid(tutorial):
+	tutorial._reset()
 	
-	if is_instance_valid(tutorial):
-		tutorial._reset()
 
 	collectables_count.text = "0"
 	inventory_show_cake(false)
@@ -74,18 +78,26 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			Ui.play_ui_sfx("mouse_click")
+			play_ui_sfx("mouse_click")
 
 
 func _process(_delta: float) -> void:
 	if GameState.start_menu_active:
 		return
+	#if GameState.window_unfocused:
+		#ui_sfx.stream_paused = true
+		#return
+	#ui_sfx.stream_paused = false
 	
 	if GameInputEvent.cancel():
 		if not pause_state:
 			_pause()
 		else:
 			_unpause()
+
+func _set_focus_audio_paused(paused: bool) -> void:
+	ui_sfx.stream_paused = paused
+	pause_menu.set_focus_audio_paused(paused)
 
 func _pause() -> void:
 	game_sfx_player.stream_paused = true
@@ -117,6 +129,13 @@ func inventory_show_cake(_show: bool) -> void:
 	else:
 		cake.hide()
 
+
+func invetory_show_makeup() -> void:
+	makeup.show()
+
+
+func invetory_show_perfume() -> void:
+	perfume.show()
 
 func inventory_show_plate(_show: bool) -> void:
 	if _show:

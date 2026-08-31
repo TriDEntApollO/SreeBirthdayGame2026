@@ -136,6 +136,5 @@ tile_map_data = PackedByteArray("AAAAAAkABAABAAAAAGAAAAoABAAAAAAAAGA=")
 tile_set = ExtResource("1_0lqon")
 
 [node name="Cat" parent="." instance=ExtResource("6_7m2rp")]
-y_sort_enabled = true
-position = Vector2(72, 118)
+position = Vector2(72, 113)
 scale = Vector2(0.5, 0.5)

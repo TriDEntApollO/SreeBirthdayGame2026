@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgart14je63x"]
+[gd_scene load_steps=11 format=3 uid="uid://dgart14je63x"]
 
 [ext_resource type="Script" uid="uid://dhd1a2ktswsni" path="res://dialogue/game_dialgue_balloon.gd" id="1_6bbka"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_cindb"]
@@ -8,6 +8,14 @@
 [ext_resource type="FontFile" uid="uid://c15qbyb6b7r5t" path="res://assets/Fonts/Monocraft.ttc" id="5_03yns"]
 [ext_resource type="FontFile" uid="uid://df1ngeac2gaaq" path="res://assets/Fonts/Abaddon Bold.ttf" id="6_gclfj"]
 [ext_resource type="AudioStream" uid="uid://dkwdjgsv37l66" path="res://assets/SFX/text-bleep.mp3" id="7_xxn24"]
+
+[sub_resource type="Animation" id="Animation_gclfj"]
+resource_name = "RESET"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g70g8"]
+_data = {
+&"RESET": SubResource("Animation_gclfj")
+}
 
 [node name="GameDialogueBalloon" type="CanvasLayer"]
 layer = 10
@@ -92,6 +100,9 @@ visible = false
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_g70g8")
+}
 autoplay = "progress"
 
 [node name="NextButton" type="Button" parent="Balloon/DialogueBox/PanelContainer/MarginContainer/HBoxContainer/Control"]

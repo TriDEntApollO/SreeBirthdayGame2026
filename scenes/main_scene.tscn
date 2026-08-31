@@ -45,20 +45,20 @@ position = Vector2(-4.5, 3)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_c1pb6")
 
-[node name="Omma" parent="HouseScene/Charcters/OmmaAndAppa" instance=ExtResource("5_c16ls")]
-position = Vector2(-21, 15)
+[node name="Omma" parent="HouseScene/Charcters" instance=ExtResource("5_c16ls")]
+position = Vector2(612, 204)
 
-[node name="Appa" parent="HouseScene/Charcters/OmmaAndAppa" instance=ExtResource("6_18nlu")]
-position = Vector2(12, 15)
+[node name="Appa" parent="HouseScene/Charcters" instance=ExtResource("6_18nlu")]
+position = Vector2(645, 204)
 
 [node name="Porkpaglu" parent="HouseScene/Charcters" instance=ExtResource("11_4w45t")]
-position = Vector2(0, 241)
+position = Vector2(1, 226)
 
 [node name="Ramenpaglu" parent="HouseScene/Charcters" instance=ExtResource("12_r6p65")]
-position = Vector2(25, 243)
+position = Vector2(30, 218)
 
 [node name="Upasana" parent="HouseScene/Charcters" instance=ExtResource("13_si52b")]
-position = Vector2(12, 215)
+position = Vector2(12, 204)
 
-[node name="Sree" parent="HouseScene" instance=ExtResource("2_pw63i")]
-position = Vector2(-1, 7)
+[node name="Sree" parent="HouseScene/Charcters" instance=ExtResource("2_pw63i")]
+position = Vector2(-1, -4)

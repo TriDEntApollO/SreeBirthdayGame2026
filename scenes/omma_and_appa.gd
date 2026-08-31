@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var omma: Node2D = $Omma
-@onready var appa: Node2D = $Appa
+@onready var omma: Node2D = $"../Omma"
+@onready var appa: Node2D = $"../Appa"
 @onready var interactable: Interactable = $Interactable
 
 var first_interaction: bool = true
@@ -10,9 +10,11 @@ var dialogue_file_path: String = "res://dialogue/conversations/omma_and_appa.dia
 func _ready() -> void:
 	interactable.interact_once = false
 	interactable.on_interact = _on_interact
-	interactable.add_outline(omma.animated_sprite_2d)
-	interactable.add_outline(appa.animated_sprite_2d)
 	EventManager.task_updated.connect(_on_task_update)
+
+
+func set_outline(outline: Node2D) -> void:
+	interactable.add_outline(outline)
 
 func _on_interact() -> void:
 	GameState.show_cursor()

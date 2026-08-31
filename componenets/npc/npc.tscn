@@ -40,6 +40,7 @@ shape = SubResource("CircleShape2D_a3vgc")
 debug_color = Color(0.60784316, 0.5411765, 0, 0.23137255)
 
 [node name="InteractPrompt" parent="Interactable" instance=ExtResource("3_l5iwh")]
+z_index = 2
 position = Vector2(0, -42)
 scale = Vector2(0.5062501, 0.5062501)
 prompt = "talk with"

@@ -214,21 +214,23 @@ script = ExtResource("1_6xw36")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
+z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, -14)
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_6xw36")
 animation = &"Idle right"
 autoplay = "Idle front"
 frame_progress = 0.4869581
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, 5)
 rotation = 1.5616552
 shape = SubResource("CapsuleShape2D_u6bim")
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_ojbe4")]
 z_index = 4
 z_as_relative = false
+position = Vector2(0, 11)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("2_2fv6u")
@@ -251,5 +253,4 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 speed = 40
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -9)
 zoom = Vector2(4, 4)

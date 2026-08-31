@@ -104,7 +104,7 @@ func add_task() -> void:
 	#print("Added Task: ", task_data[next_task_id].name)
 	var data := task_data[next_task_id]
 
-	data.instance = Ui.add_task(data.name)
+	data.instance = await Ui.add_task(data.name)
 	data.finished = false
 
 	task_updated.emit(next_task_id)

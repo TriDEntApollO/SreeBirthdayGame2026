@@ -20,13 +20,10 @@ func _reset() -> void:
 	hide()
 	tasks_outline.hide()
 	inventory_outline.hide()
+	game_dialogue_balloon.hide()
 	game_dialogue_balloon.end_dialogue()
 	
 func _ready() -> void:
-	if not GameState.tutorial:
-		queue_free()
-		return
-	
 	hide()
 	tasks_outline.hide()
 	inventory_outline.hide()
@@ -40,17 +37,17 @@ func start_tutorial():
 	if not GameState.tutorial:
 		queue_free()
 		return
-	
+
 	show()
+	game_dialogue_balloon.show()
 	game_dialogue_balloon.start(load(dialogue_path), "start", [self])
 
 
 func end_tutorial():
-	hide()
+	_reset()
 	GameState.tutorial = false
 	GameState.game_cursor_on = false
 	GameState.hide_cursor()
-	queue_free()
 
 
 func wait_completion(stage: int):
@@ -86,7 +83,7 @@ func _wait_for_movement(direction: Vector2, required_time: float = 0.3) -> void:
 
 
 func _on_event_start(event_id: int) -> void:
-	if event_id == EventManager.event_ids.start_day_event:
+	if event_id == EventManager.event_ids.start_day_event and GameState.tutorial:
 		await GameState.delay(0.5)
 		start_tutorial()
 	

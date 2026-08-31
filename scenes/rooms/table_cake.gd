@@ -16,9 +16,9 @@ func _ready() -> void:
 func _on_interact() -> void:
 	hide()
 	Ui.inventory_show_cake(true)
-	EventManager.finish_task(EventManager.task_ids.take_cake)
-	EventManager.add_task()
-	EventManager.add_task()
+	await EventManager.finish_task(EventManager.task_ids.take_cake)
+	await EventManager.add_task()
+	await EventManager.add_task()
 
 
 func _on_task_update(task_id: int) -> void:

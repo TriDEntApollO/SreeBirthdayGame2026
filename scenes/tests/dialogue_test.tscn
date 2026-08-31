@@ -91,7 +91,7 @@ carve_navigation_mesh = true
 navigation_polygon = SubResource("NavigationPolygon_q5b77")
 
 [node name="Omma" parent="." instance=ExtResource("6_njma1")]
-position = Vector2(616, 213)
+position = Vector2(616, 204)
 
 [node name="Sree" parent="." instance=ExtResource("7_302wl")]
 position = Vector2(559, 158)

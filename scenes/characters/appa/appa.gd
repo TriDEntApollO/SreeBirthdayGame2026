@@ -2,12 +2,14 @@ extends Node2D
 
 @onready var character: NPC = $NpcComponent
 @onready var interactable: Interactable = $"NpcComponent/Interactable"
-@onready var animated_sprite_2d: AnimatedSprite2D = $NpcComponent/AnimatedSprite2D
+
+var animated_sprite_2d: AnimatedSprite2D
 
 var first_interaction: bool = true
 var dialogue_file_path: String = "res://dialogue/conversations/appa.dialogue"
 
 func _ready() -> void:
+	animated_sprite_2d = $NpcComponent/AnimatedSprite2D
 	character.face_direction("left")
 	character.set_interactale(false)
 	interactable.on_interact = _on_interact

@@ -75,6 +75,7 @@ Omma: Did you put away the cake?
 		do EventManager.add_task()
 		do EventManager.add_task()
 		do EventManager.finish_task(EventManager.task_ids.talk_to_omma_2)
+		do EventManager.alarm_tick.emit()
 		=> END
 		
 - No
@@ -88,5 +89,6 @@ Omma: Did you put away the cake?
 do set_avatar("omma")
 %2 Omma: Enjoy your day with your friends.
 %1 Omma: Remeber to look for the hidden collectables.
+
 
 => END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cmr8l1yviylo2"]
+[gd_scene load_steps=31 format=4 uid="uid://cmr8l1yviylo2"]
 
 [ext_resource type="PackedScene" uid="uid://blo7a5vr8u4gt" path="res://scenes/ui/task.tscn" id="1_aac20"]
 [ext_resource type="Script" uid="uid://ffe24iba8dbn" path="res://scenes/transition.gd" id="1_f5cxw"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dc8qqn3lflxk" path="res://scenes/ui/PauseMenu.tscn" id="4_0dwhk"]
 [ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="4_4kltc"]
 [ext_resource type="FontFile" uid="uid://dr232pnset5ei" path="res://assets/Fonts/monogram.ttf" id="4_hl07w"]
+[ext_resource type="Texture2D" uid="uid://cr0ku2jxdsy7w" path="res://assets/ui/perfume.png" id="7_ygedu"]
+[ext_resource type="Theme" uid="uid://bmqaayioogi3d" path="res://scenes/ui/Prompt.tres" id="8_4w2x3"]
+[ext_resource type="Texture2D" uid="uid://ccboejl2jnloe" path="res://assets/ui/MakeupSet.png" id="8_oopc8"]
 [ext_resource type="PackedScene" uid="uid://cgxn4r4hwouug" path="res://scenes/ui/GiftBox.tscn" id="10_hl07w"]
 [ext_resource type="PackedScene" uid="uid://ba4w7wmjt6yr0" path="res://scenes/ui/collectable_found.tscn" id="11_swkix"]
 [ext_resource type="PackedScene" uid="uid://dbdd5mbrrg5ea" path="res://scenes/ui/video_player.tscn" id="12_hc5d0"]
@@ -381,6 +384,44 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_swkix")
 stretch_mode = 5
 
+[node name="Perfume" type="PanelContainer" parent="InGame/Inventory/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = ExtResource("2_uegxj")
+
+[node name="MarginContainer" type="MarginContainer" parent="InGame/Inventory/HBoxContainer/Perfume"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PerfumeSet" type="TextureRect" parent="InGame/Inventory/HBoxContainer/Perfume/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_ygedu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Makeup" type="PanelContainer" parent="InGame/Inventory/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = ExtResource("2_uegxj")
+
+[node name="MarginContainer" type="MarginContainer" parent="InGame/Inventory/HBoxContainer/Makeup"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MakeupSet" type="TextureRect" parent="InGame/Inventory/HBoxContainer/Makeup/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("8_oopc8")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="GameMusicPlayer" type="AudioStreamPlayer2D" parent="InGame"]
 volume_db = -6.574
 bus = &"SFX"
@@ -406,10 +447,15 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 6
 
 [node name="Task" parent="InGame/TaskContainer/MarginContainer/TaskList" instance=ExtResource("1_aac20")]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("8_4w2x3")
 
 [node name="GameDialogueBalloon" parent="InGame" instance=ExtResource("2_pfayw")]
 layer = 2
+skip = false
 
 [node name="ActionComponent" parent="InGame" instance=ExtResource("2_aac20")]
 position = Vector2(640, 707)
@@ -446,7 +492,7 @@ color = Color(0.11580076, 0.036201365, 0.14615136, 0)
 script = ExtResource("1_f5cxw")
 
 [node name="UiTransitions" type="CanvasLayer" parent="."]
-layer = 12
+layer = 16
 
 [node name="SceneTransition" type="TextureRect" parent="UiTransitions"]
 clip_contents = true

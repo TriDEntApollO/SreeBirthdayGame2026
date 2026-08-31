@@ -22,7 +22,7 @@ func _on_interact() -> void:
 	await Ui.transition.fade_out()
 	
 	GameState.can_move = true
-	EventManager.finish_task(EventManager.task_ids.put_cake_in_fridge)
+	await EventManager.finish_task(EventManager.task_ids.put_cake_in_fridge)
 
 
 func _on_task_update(task_id: int) -> void:

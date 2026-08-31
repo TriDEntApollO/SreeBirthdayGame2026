@@ -17,7 +17,7 @@ func _on_event_start(event_id: int) -> void:
 
 
 func _on_cake_event_interact() -> void:
-	EventManager.finish_task(EventManager.task_ids.start_cake_event)
+	await EventManager.finish_task(EventManager.task_ids.start_cake_event)
 	EventManager.start_event()
 
 
@@ -25,8 +25,8 @@ func _on_walk_in_body_entered(_body: Node2D) -> void:
 	if (EventManager.has_event_started(EventManager.event_ids.pre_dining_event)
 		and not EventManager.has_event_started(EventManager.event_ids.dining_event)
 	):
-		EventManager.finish_task(EventManager.task_ids.go_to_dining)
-		EventManager.add_task()
+		await EventManager.finish_task(EventManager.task_ids.go_to_dining)
+		await EventManager.add_task()
 		EventManager.start_event()
 		await GameState.delay(2.5)
 		cake_event_interactable.is_interactable = true

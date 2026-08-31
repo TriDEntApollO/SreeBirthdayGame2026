@@ -9,7 +9,7 @@ var can_cut: bool = false
 
 func _ready() -> void:
 	cake_cut.hide()
-	cake.set_instance_shader_parameter("line_thickness", 8.0)
+	cake.material.set_shader_parameter("line_thickness", 8.0)
 
 func blow_candle() -> void:
 	flame_and_smoke.play("Smoke")
@@ -21,10 +21,10 @@ func cut() -> void:
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if CakeScene.knife_grabbed:
-		cake.set_instance_shader_parameter("outline_enabled", true)
+		cake.material.set_shader_parameter("outline_enabled", true)
 		cake_action.enable_action()
 
 
 func _on_area_2d_area_exited(_area: Area2D) -> void:
-	cake.set_instance_shader_parameter("outline_enabled", false)
+	cake.material.set_shader_parameter("outline_enabled", false)
 	cake_action.disable_action()

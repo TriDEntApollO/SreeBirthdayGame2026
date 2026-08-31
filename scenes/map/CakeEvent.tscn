@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://0s44medyn1sk"]
+[gd_scene load_steps=97 format=4 uid="uid://0s44medyn1sk"]
 
 [ext_resource type="Script" uid="uid://8ag6v0qpa5g2" path="res://scenes/map/cake_event.gd" id="1_sy166"]
 [ext_resource type="Texture2D" uid="uid://hd0j7qvhggwk" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Wall/Wall.png" id="3_br765"]
@@ -74,6 +74,54 @@ load_path = "res://.godot/imported/Balloons.png-bd0f1fb9edc9845be9ebbe5ef888f0e3
 atlas = SubResource("CompressedTexture2D_6s5mn")
 region = Rect2(133, 8, 22, 48)
 
+[sub_resource type="Shader" id="Shader_4w2tw"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8xen"]
+shader = SubResource("Shader_4w2tw")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nidki"]
 atlas = ExtResource("4_2m7ou")
 region = Rect2(64, 0, 32, 32)
@@ -84,6 +132,54 @@ load_path = "res://.godot/imported/Hats.png-de8a039ddec312cdcd0f5e333e69e46f.cte
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx4j3"]
 atlas = SubResource("CompressedTexture2D_wxmjl")
 region = Rect2(41, 8, 13, 17)
+
+[sub_resource type="Shader" id="Shader_vobo6"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecm46"]
+shader = SubResource("Shader_vobo6")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nkk8"]
 atlas = ExtResource("5_ocjty")
@@ -96,9 +192,105 @@ load_path = "res://.godot/imported/Hats.png-de8a039ddec312cdcd0f5e333e69e46f.cte
 atlas = SubResource("CompressedTexture2D_vbxo1")
 region = Rect2(41, 38, 13, 17)
 
+[sub_resource type="Shader" id="Shader_pt0tw"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrbcq"]
+shader = SubResource("Shader_pt0tw")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmdb3"]
 atlas = ExtResource("6_gai42")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="Shader" id="Shader_ejlpp"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk8re"]
+shader = SubResource("Shader_ejlpp")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxmjl"]
 atlas = ExtResource("20_xkdl2")
@@ -107,6 +299,54 @@ region = Rect2(103, 99, 32, 35)
 [sub_resource type="AtlasTexture" id="AtlasTexture_613ye"]
 atlas = ExtResource("21_u5arv")
 region = Rect2(9, 38, 13, 17)
+
+[sub_resource type="Shader" id="Shader_qw2ea"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqd8o"]
+shader = SubResource("Shader_qw2ea")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xh4am"]
 atlas = ExtResource("22_ot4dg")
@@ -242,6 +482,54 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Shader" id="Shader_k8xen"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vobo6"]
+shader = SubResource("Shader_k8xen")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 8.00000038
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktjax"]
 atlas = ExtResource("12_nrbcq")
 region = Rect2(584, 72, 616, 632)
@@ -256,6 +544,54 @@ region = Rect2(1209, 141, 537, 516)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tu21v"]
 radius = 108.91736
 height = 419.82642
+
+[sub_resource type="Shader" id="Shader_gai42"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4w2tw"]
+shader = SubResource("Shader_gai42")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 8.00000038
+shader_parameter/outline_enabled = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocjty"]
 radius = 69.065186
@@ -574,7 +910,7 @@ texture = SubResource("AtlasTexture_lee0v")
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="RamenPaglu" type="Sprite2D" parent="Characters"]
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_k8xen")
 position = Vector2(632.0001, 294)
 scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_nidki")
@@ -591,7 +927,7 @@ outline = NodePath("..")
 character_name = "RamenPaglu"
 
 [node name="PorkPaglu" type="Sprite2D" parent="Characters"]
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_ecm46")
 position = Vector2(943.0001, 303.00003)
 scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_8nkk8")
@@ -607,7 +943,7 @@ outline = NodePath("..")
 character_name = "PorkPaglu"
 
 [node name="Appa" type="Sprite2D" parent="Characters"]
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_nrbcq")
 position = Vector2(300.00003, 308.00003)
 scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_lmdb3")
@@ -625,7 +961,7 @@ character_name = "Appa"
 
 [node name="Omma" type="Sprite2D" parent="Characters"]
 z_index = 2
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_lk8re")
 position = Vector2(150.00002, 593.00006)
 scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_wxmjl")
@@ -643,7 +979,7 @@ character_name = "Omma"
 
 [node name="Upasana" type="Sprite2D" parent="Characters"]
 z_index = 2
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_fqd8o")
 position = Vector2(1123, 598)
 scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_xh4am")
@@ -652,7 +988,6 @@ texture = SubResource("AtlasTexture_xh4am")
 position = Vector2(0.06666672, -13.266666)
 scale = Vector2(0.80000013, 0.8000001)
 texture = SubResource("AtlasTexture_ofme3")
-offset = Vector2(0, 1)
 
 [node name="Feedable" parent="Characters/Upasana" node_paths=PackedStringArray("outline") groups=["Feedables"] instance=ExtResource("7_gai42")]
 position = Vector2(-2.5999975, -3.5333326)
@@ -719,7 +1054,7 @@ frame = 10
 frame_progress = 1.0
 
 [node name="Cake" type="Sprite2D" parent="Cake"]
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_vobo6")
 position = Vector2(640.00006, 575)
 scale = Vector2(0.50497025, 0.5049703)
 texture = SubResource("AtlasTexture_ktjax")
@@ -756,7 +1091,7 @@ max_contacts_reported = 1
 script = ExtResource("15_2m7ou")
 
 [node name="Sprite2D" type="Sprite2D" parent="CakeSlice"]
-material = ExtResource("16_ocjty")
+material = SubResource("ShaderMaterial_4w2tw")
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("13_ejlpp")
 

@@ -17,7 +17,7 @@ var meows: Array[AudioStream] = [
 
 func _ready() -> void:
 	set_enabled(false)
-	animated_sprite_2d.set_instance_shader_parameter("line_thickness", 2.0)
+	animated_sprite_2d.material.set_shader_parameter("line_thickness", 2.0)
 	interactable.interact_once = false
 	interactable.on_interact = _on_interact
 	interactable.add_outline(animated_sprite_2d)

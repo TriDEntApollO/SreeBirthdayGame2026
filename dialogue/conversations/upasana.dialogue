@@ -18,6 +18,7 @@ do set_avatar("upasana")
 Upasana: Oo, and here is your gift.
 
 do Ui.gift_box.give_gift("makeup")
+do Ui.invetory_show_makeup()
 
 Upasana: There is a set of highlighters, blush and bronzer, 2 blenders... 
 Upasana: A brush set, a set of eye pencils and 2 lipsticks.

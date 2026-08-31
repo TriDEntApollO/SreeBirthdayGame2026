@@ -19,9 +19,10 @@ curved_lines_2d/line_joint_mode=0
 [application]
 
 config/name="Sree Birthday Game 2026"
-run/main_scene="uid://blpu3g8fiolkk"
+run/main_scene="uid://door0df2dwchr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-run/max_fps=60
+run/max_fps=30
+boot_splash/image="uid://6uy0ji7qu841"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -39,7 +40,6 @@ window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="uid://u8omv3qwstn1"
 mouse_cursor/custom_image_hotspot=Vector2(11, 6)
 
@@ -50,6 +50,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Build/": "green",
 "res://assets/": "purple",
 "res://componenets/": "orange",
 "res://dialogue/": "red",
@@ -65,6 +66,12 @@ theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
+ui_cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
 walk_up={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
@@ -113,8 +120,11 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/om
 [layer_names]
 
 2d_physics/layer_1="Wall"
+2d_navigation/layer_1="Bedroom"
 2d_physics/layer_2="Furniture"
+2d_navigation/layer_2="MasterBedroom"
 2d_physics/layer_3="Interactable"
+2d_navigation/layer_3="LivingRoom"
 2d_physics/layer_4="Knife"
 2d_physics/layer_5="Sree"
 2d_physics/layer_6="Cake"

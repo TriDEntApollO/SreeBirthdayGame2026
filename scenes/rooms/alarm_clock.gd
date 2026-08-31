@@ -31,9 +31,9 @@ func _on_interact() -> void:
 	block_door.collision_layer = 0
 	interactable.is_interactable = false
 	EventManager.end_event(EventManager.event_ids.start_day_event)
-	EventManager.finish_task(EventManager.task_ids.stop_alarm)
-	EventManager.add_task()
-	EventManager.add_task()
+	await EventManager.finish_task(EventManager.task_ids.stop_alarm)
+	await EventManager.add_task()
+	await EventManager.add_task()
 
 
 func _on_task_update(task_id: int) -> void:

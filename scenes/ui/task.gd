@@ -1,8 +1,9 @@
 class_name Task
-extends PanelContainer
+extends Control
 
 # UI elements
-@onready var task_label: Label = $MarginContainer/HBoxContainer/TaskLabel
+@onready var task_panel: PanelContainer = $PanelContainer
+@onready var task_label: Label = $PanelContainer/MarginContainer/HBoxContainer/TaskLabel
 @onready var task_sfx: AudioStreamPlayer2D = $TaskSFX
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -11,11 +12,11 @@ extends PanelContainer
 
 
 func _ready() -> void:
-	hide()
+	task_panel.hide()
 	
 func start_task():
 	task_label.text = task_name
-	show()
+	task_panel.show()
 	task_sfx.stream = GameState.sfx["task_create"]
 	task_sfx.play()
 	animation_player.play("Create")
@@ -26,4 +27,5 @@ func end_task():
 	task_sfx.play()
 	animation_player.play("Finish")
 	await animation_player.animation_finished
-	hide()
+	task_panel.hide()
+	queue_free()

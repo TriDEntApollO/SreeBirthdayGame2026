@@ -1,14 +1,61 @@
-[gd_scene load_steps=15 format=4 uid="uid://cb2v31dl57c8u"]
+[gd_scene load_steps=16 format=4 uid="uid://cb2v31dl57c8u"]
 
 [ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_3w07q"]
 [ext_resource type="TileSet" uid="uid://jiswldymii3t" path="res://tileset/furniture_tileset.tres" id="2_2812u"]
-[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="3_n5en3"]
 [ext_resource type="Texture2D" uid="uid://dndgg327cn2oj" path="res://assets/interiors/S Frisk - Midnight Lilac Tileset/Decor/Counter Decor.png" id="3_sqdrw"]
 [ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="4_2812u"]
 [ext_resource type="Script" uid="uid://xlp7eredppto" path="res://scenes/rooms/kitchen_sink.gd" id="5_581re"]
 [ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="6_581re"]
 [ext_resource type="Texture2D" uid="uid://vuofmmnxn6pt" path="res://assets/interiors/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="6_njvo0"]
 [ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="9_m75iv"]
+
+[sub_resource type="Shader" id="Shader_n5en3"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m75iv"]
+shader = SubResource("Shader_n5en3")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2812u"]
 atlas = ExtResource("3_sqdrw")
@@ -79,7 +126,7 @@ tile_map_data = PackedByteArray("AAD//wAACgABAAIAAAD//wEACgABAAIAAAD//wIACgABAAI
 tile_set = ExtResource("1_3w07q")
 
 [node name="Sink" type="Sprite2D" parent="."]
-material = ExtResource("3_n5en3")
+material = SubResource("ShaderMaterial_m75iv")
 position = Vector2(52.000004, 57)
 scale = Vector2(0.875, 0.875)
 texture = SubResource("AtlasTexture_2812u")

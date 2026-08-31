@@ -27,6 +27,7 @@ do set_avatar("porkpaglu")
 PorkPaglu: Anyways, here is my staple gift, a perfume because I can't think of anything better.
 
 do Ui.gift_box.give_gift("perfume")
+do Ui.invetory_show_perfume()
 
 do set_avatar("sree")
 You: Very beautiful and cute scent, thank you!

@@ -7,18 +7,14 @@ extends Control
 @onready var fs_label: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FullScreen/FsLabel
 @onready var tut_label: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Tutorial/TutLabel
 
-func _ready() -> void:
-	hide()
-	fs_button.toggled.connect(_fullscreen)
-	tut_button.toggled.connect(_tutorial)
-	close.pressed.connect(hide_settings)
-	
+
+func _update_states() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		fs_label.text = "Fullscreen"
 		fs_button.set_pressed_no_signal(true)
 	else:
 		fs_label.text = "Windowed"
-		fs_button.set_pressed_no_signal(true)
+		fs_button.set_pressed_no_signal(false)
 	
 	if GameState.tutorial:
 		tut_label.text = "Tutorial (Enabled)"
@@ -28,7 +24,17 @@ func _ready() -> void:
 		tut_button.set_pressed_no_signal(false)
 
 
+func _ready() -> void:
+	hide()
+	fs_button.toggled.connect(_fullscreen)
+	tut_button.toggled.connect(_tutorial)
+	close.pressed.connect(hide_settings)
+	
+	_update_states()
+
+
 func show_settings() -> void:
+	_update_states()
 	show()
 
 

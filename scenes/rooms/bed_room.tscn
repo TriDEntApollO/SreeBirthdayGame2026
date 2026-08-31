@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://rjxls6pxk8sh"]
+[gd_scene load_steps=31 format=4 uid="uid://rjxls6pxk8sh"]
 
 [ext_resource type="Script" uid="uid://cdv7yo5nn3qad" path="res://scenes/rooms/bed_room.gd" id="1_0vhsj"]
 [ext_resource type="TileSet" uid="uid://dke4k5wumc5c4" path="res://tileset/rooms_tileset.tres" id="1_8r8lq"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ldtcx6crhkro" path="res://componenets/Collectable/collectable.tscn" id="4_hywd6"]
 [ext_resource type="Texture2D" uid="uid://c8jof2un7nh4c" path="res://assets/interiors/Clock.png" id="6_f5ehd"]
 [ext_resource type="Script" uid="uid://cmms6ctko8gxo" path="res://scenes/rooms/alarm_clock.gd" id="7_0vhsj"]
-[ext_resource type="Material" uid="uid://dnboikl8cmbgt" path="res://shaders/outline.tres" id="7_44f0h"]
 [ext_resource type="Texture2D" uid="uid://cl8a67m6wv38g" path="res://assets/cats/Sree-sleep.png" id="7_l2itn"]
 [ext_resource type="PackedScene" uid="uid://bsm1sieb33o26" path="res://componenets/interactable/interactable.tscn" id="9_wf6t4"]
 [ext_resource type="PackedScene" uid="uid://dk3pfd2ukls1a" path="res://componenets/interactable/interact_prompt.tscn" id="11_44f0h"]
@@ -39,6 +38,54 @@ region = Rect2(16, 32, 16, 16)
 atlas = ExtResource("4_3tp8k")
 region = Rect2(16, 48, 16, 16)
 
+[sub_resource type="Shader" id="Shader_yyg4t"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+uniform bool outline_enabled = false;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+	vec2(0, -1), vec2(0, 1),
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	float alpha = COLOR.a;
+	vec4 texture_color = texture(TEXTURE, UV);
+
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+
+	for (int i = 0; i < 8; i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+
+	outline = min(outline, 1.0);
+
+	// Pixels outside the sprite but next to it.
+	float outline_mask = (1.0 - texture_color.a) * outline;
+	outline_mask *= float(outline_enabled);
+
+	if (outline_mask > 0.0) {
+		COLOR = line_color;
+	}
+
+	// Draw the sprite.
+	COLOR = texture_color;
+	COLOR.a = alpha;
+
+	// Draw the outline independently.
+	COLOR = mix(COLOR, line_color, outline_mask);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hywd6"]
+shader = SubResource("Shader_yyg4t")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2itn"]
 atlas = ExtResource("6_f5ehd")
 region = Rect2(0, 0, 32, 32)
@@ -55,6 +102,14 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("6_f5ehd")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrbrg"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8i2n"]
+atlas = ExtResource("6_f5ehd")
+region = Rect2(32, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_f5ehd"]
 animations = [{
 "frames": [{
@@ -69,6 +124,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4tt0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrbrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8i2n")
 }],
 "loop": false,
 "name": &"default",
@@ -131,8 +192,8 @@ tile_set = ExtResource("2_smlgm")
 
 [node name="Collectable1" parent="RoomTilemap/Decor" instance=ExtResource("4_hywd6")]
 z_as_relative = true
-position = Vector2(180, 54.000004)
-rotation = -1.1213804
+position = Vector2(178, 54)
+rotation = -1.3089969
 
 [node name="Furnitures" type="TileMapLayer" parent="RoomTilemap/Decor"]
 tile_map_data = PackedByteArray("AAADAAMAAQAIAAYAABACAAgAAwAcAAkAAGABAAgAAwAMAAkAAGADAAgAAgAEAAAAAGAIAAIAAwAWAAgAAAA=")
@@ -186,7 +247,7 @@ position = Vector2(49, 65)
 texture = ExtResource("7_l2itn")
 
 [node name="AlarmClock" type="AnimatedSprite2D" parent="."]
-material = ExtResource("7_44f0h")
+material = SubResource("ShaderMaterial_hywd6")
 position = Vector2(139, 32)
 scale = Vector2(0.8437501, 0.8437501)
 sprite_frames = SubResource("SpriteFrames_f5ehd")

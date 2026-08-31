@@ -1,0 +1,217 @@
+[gd_scene load_steps=11 format=3 uid="uid://door0df2dwchr"]
+
+[ext_resource type="Texture2D" uid="uid://6uy0ji7qu841" path="res://SplashImage.png" id="1_ja2tl"]
+[ext_resource type="Script" uid="uid://db4kxytpi1ot5" path="res://scenes/web_pre_scene.gd" id="1_uotya"]
+[ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="2_uotya"]
+[ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="4_w7g44"]
+[ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="5_f43rj"]
+[ext_resource type="Script" uid="uid://b4oi56fjerol5" path="res://scenes/ui/menu_button.gd" id="6_3ceab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmryk"]
+atlas = ExtResource("4_w7g44")
+region = Rect2(15, 2, 160, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_laqdp"]
+texture = SubResource("AtlasTexture_rmryk")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 160, 44)
+
+[sub_resource type="InputEventAction" id="InputEventAction_qtotc"]
+action = &"interact"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_pt5eh"]
+events = [SubResource("InputEventAction_qtotc")]
+
+[node name="WebPreScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uotya")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ja2tl")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -128.0
+offset_right = 116.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_uotya")
+text = " Load Game "
+script = ExtResource("6_3ceab")
+
+[node name="MobileWarning" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MobileWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="MobileWarning"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -128.5
+offset_right = 260.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_uotya")
+theme_override_styles/panel = SubResource("StyleBoxTexture_laqdp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MobileWarning/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MobileWarning/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MobileWarning/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uotya")
+theme_override_fonts/font = ExtResource("5_f43rj")
+theme_override_font_sizes/font_size = 40
+text = "This Game is made to be played on
+Laptop and Desktop. Please open
+this website in a suitable machine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="MobileWarning/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 26
+shortcut = SubResource("Shortcut_pt5eh")
+text = " Okay "
+script = ExtResource("6_3ceab")
+
+[node name="Preferable" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Preferable"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="Preferable"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -128.5
+offset_right = 260.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_uotya")
+theme_override_styles/panel = SubResource("StyleBoxTexture_laqdp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Preferable/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Preferable/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Preferable/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uotya")
+theme_override_fonts/font = ExtResource("5_f43rj")
+theme_override_font_sizes/font_size = 40
+text = "It is HIGHLY Preffered to download the
+executable file and run/play the game 
+natively on your computer for the best
+experience. As the browser version can have
+some features not working. 
+
+Download Password is 'SreeBday2026'"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preferable/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Download" type="Button" parent="Preferable/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 26
+shortcut = SubResource("Shortcut_pt5eh")
+text = " Download File "
+script = ExtResource("6_3ceab")
+
+[node name="Continue" type="Button" parent="Preferable/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 26
+shortcut = SubResource("Shortcut_pt5eh")
+text = " Continue Anyways "
+script = ExtResource("6_3ceab")

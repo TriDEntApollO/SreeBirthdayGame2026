@@ -1,3 +1,4 @@
+class_name UiMenuButton
 extends Button
 
 @export var rotation_amount: float = 4.0

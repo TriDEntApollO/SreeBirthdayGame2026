@@ -7,7 +7,7 @@ enum ConfirmationAction {
 }
 
 var confirmation_action: ConfirmationAction = ConfirmationAction.NONE
-
+var music_started: bool = false
 
 @onready var resume: Button = $Control/Menu/VBoxContainer/Resume
 @onready var restart: Button = $Control/Menu/VBoxContainer/Restart
@@ -26,14 +26,15 @@ var confirmation_action: ConfirmationAction = ConfirmationAction.NONE
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var menu_start_sfx: AudioStreamPlayer2D = $MenuStartSFX
+@onready var pause_menu_music: AudioStreamPlayer2D = $PauseMenuMusic
 
 func _ready() -> void:
 	hide()
 	confirmation.hide()
 	controls_view.hide()
 	get_tree().paused = false
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	resume.pressed.connect(_on_resume_pressed)
 	restart.pressed.connect(_on_restart_pressed)
 	controls.pressed.connect(_on_controls_pressed)
@@ -46,7 +47,20 @@ func _ready() -> void:
 	no.pressed.connect(_on_confirmation_no_pressed)
 
 
+func set_focus_audio_paused(paused: bool) -> void:
+	menu_start_sfx.stream_paused = paused
+	pause_menu_music.stream_paused = paused
+
+
 func pause() -> void:
+	if get_tree().paused:
+		return
+	
+	if not music_started:
+		music_started = true
+		pause_menu_music.play()
+	else:
+		pause_menu_music.stream_paused = false
 	GameState.show_cursor()
 	get_tree().paused = true
 	show()
@@ -58,6 +72,7 @@ func unpause() -> void:
 	animation_player.play("Close")
 	await animation_player.animation_finished
 	animation_player.play("RESET")
+	pause_menu_music.stream_paused = true
 	
 	confirmation.hide()
 	controls_view.hide()
@@ -115,9 +130,11 @@ func _on_confirmation_no_pressed() -> void:
 
 
 func _restart() -> void:
-	unpause()
+	await Ui.ui_transition_in()
+	await unpause()
 	GameState.reset()
 	get_tree().reload_current_scene()
+	await Ui.ui_transition_out()
 
 
 func _quit() -> void:

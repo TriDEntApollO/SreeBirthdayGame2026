@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://blpu3g8fiolkk"]
+[gd_scene load_steps=76 format=3 uid="uid://blpu3g8fiolkk"]
 
 [ext_resource type="Script" uid="uid://ch5235d64bsp4" path="res://scenes/start_menu.gd" id="1_apowk"]
 [ext_resource type="Texture2D" uid="uid://b2gtfmktwsq17" path="res://assets/ui/StartMenuBg.png" id="2_apowk"]
@@ -17,10 +17,13 @@
 [ext_resource type="AudioStream" uid="uid://bbobd6m3hgxx7" path="res://assets/music/start_menu.ogg" id="11_mroui"]
 [ext_resource type="Texture2D" uid="uid://c062ufwfo7cpv" path="res://assets/ui/StartMenuButtons.png" id="15_mroui"]
 [ext_resource type="Theme" uid="uid://beuw7637pid6w" path="res://scenes/ui/pause_ui.tres" id="15_trkcg"]
-[ext_resource type="Script" uid="uid://b4oi56fjerol5" path="res://scenes/ui/menu_button.gd" id="16_0lulb"]
+[ext_resource type="Script" uid="uid://vert1fvn1jep" path="res://scenes/ui/start_menu_button.gd" id="16_0lulb"]
 [ext_resource type="Texture2D" uid="uid://dlx2qr7wv05aq" path="res://assets/ui/Dialogue.png" id="16_fbjtm"]
 [ext_resource type="FontFile" uid="uid://bqnk6y3sk2qdt" path="res://assets/Fonts/m6x11plus.ttf" id="17_hntex"]
+[ext_resource type="Texture2D" uid="uid://cscneo2crs7l6" path="res://assets/ui/free.png" id="18_0lulb"]
 [ext_resource type="FontFile" uid="uid://bjvnijhp4qcxq" path="res://assets/Fonts/SuperFrog-Bubble.ttf" id="18_fbjtm"]
+[ext_resource type="Script" uid="uid://b4oi56fjerol5" path="res://scenes/ui/menu_button.gd" id="22_3rgym"]
+[ext_resource type="AudioStream" uid="uid://cnu778v7e1yb4" path="res://assets/SFX/menu_open.ogg" id="23_2o8dr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbjtm"]
 atlas = ExtResource("3_vnuwp")
@@ -225,34 +228,53 @@ Button/styles/hover = SubResource("StyleBoxTexture_ki3ti")
 Button/styles/normal = SubResource("StyleBoxTexture_dwaxl")
 Button/styles/pressed = SubResource("StyleBoxTexture_ja48i")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki3ti"]
+atlas = ExtResource("18_0lulb")
+region = Rect2(66, 90, 43, 32)
+
+[sub_resource type="InputEventAction" id="InputEventAction_2o8dr"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_3rgym"]
+events = [SubResource("InputEventAction_2o8dr")]
+
 [sub_resource type="LabelSettings" id="LabelSettings_hntex"]
 line_spacing = 28.25
 font = ExtResource("18_fbjtm")
 font_size = 155
-font_color = Color(0.9019608, 0.7882353, 0.7647059, 1)
+font_color = Color(1, 0.8666667, 0.79607844, 1)
 outline_size = 30
 outline_color = Color(0.5529412, 0.32941177, 0.5372549, 1)
-shadow_size = 76
-shadow_color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+shadow_size = 121
+shadow_color = Color(1, 0.89411765, 1, 1)
 shadow_offset = Vector2(0.61, 6.645)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(0, 6)
+stacked_shadow_0/color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+stacked_shadow_0/outline_size = 76
 
-[sub_resource type="LabelSettings" id="LabelSettings_mroui"]
+[sub_resource type="LabelSettings" id="LabelSettings_2o8dr"]
 line_spacing = 28.25
 font = ExtResource("18_fbjtm")
-font_size = 175
-font_color = Color(0.9019608, 0.7882353, 0.7647059, 1)
+font_size = 185
+font_color = Color(1, 0.8666667, 0.79607844, 1)
 outline_size = 30
 outline_color = Color(0.5529412, 0.32941177, 0.5372549, 1)
-shadow_size = 76
-shadow_color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+shadow_size = 121
+shadow_color = Color(1, 0.89411765, 1, 1)
 shadow_offset = Vector2(0.61, 6.645)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(0, 6)
+stacked_shadow_0/color = Color(0.7019608, 0.49803922, 0.6313726, 1)
+stacked_shadow_0/outline_size = 76
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjk0l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwuek"]
 atlas = ExtResource("16_fbjtm")
 region = Rect2(15, 2, 160, 44)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mroui"]
-texture = SubResource("AtlasTexture_bjk0l")
+texture = SubResource("AtlasTexture_iwuek")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
@@ -448,7 +470,6 @@ texture = SubResource("AtlasTexture_trkcg")
 stretch_mode = 5
 
 [node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer/Bg"]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(156.00002, 614.00006)
 scale = Vector2(4.929689, 4.929689)
@@ -481,6 +502,11 @@ theme = SubResource("Theme_sq3oh")
 text = "Start Day"
 script = ExtResource("16_0lulb")
 
+[node name="Cat" type="Sprite2D" parent="CanvasLayer/Buttons/Start"]
+position = Vector2(16.916626, 59)
+scale = Vector2(3.46875, 3.46875)
+texture = SubResource("AtlasTexture_ki3ti")
+
 [node name="Settings" type="Button" parent="CanvasLayer/Buttons"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -489,13 +515,24 @@ theme = SubResource("Theme_sq3oh")
 text = "Settings"
 script = ExtResource("16_0lulb")
 
+[node name="Cat" type="Sprite2D" parent="CanvasLayer/Buttons/Settings"]
+position = Vector2(16.916626, 59)
+scale = Vector2(3.46875, 3.46875)
+texture = SubResource("AtlasTexture_ki3ti")
+
 [node name="Quit" type="Button" parent="CanvasLayer/Buttons"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_sq3oh")
+shortcut = SubResource("Shortcut_3rgym")
 text = "Good Bye"
 script = ExtResource("16_0lulb")
+
+[node name="Cat" type="Sprite2D" parent="CanvasLayer/Buttons/Quit"]
+position = Vector2(16.916626, 59)
+scale = Vector2(3.46875, 3.46875)
+texture = SubResource("AtlasTexture_ki3ti")
 
 [node name="Title" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -533,7 +570,7 @@ offset_bottom = 211.9412
 rotation = 0.058333986
 scale = Vector2(0.9858766, 0.9858766)
 text = "Game"
-label_settings = SubResource("LabelSettings_mroui")
+label_settings = SubResource("LabelSettings_2o8dr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -613,6 +650,7 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 12
 shortcut = SubResource("Shortcut_0lulb")
 text = " Yes "
+script = ExtResource("22_3rgym")
 
 [node name="No" type="Button" parent="CanvasLayer/Confirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 35)
@@ -622,8 +660,69 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 12
 shortcut = SubResource("Shortcut_2o8dr")
 text = " No "
+script = ExtResource("22_3rgym")
+
+[node name="ThankYou" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ThankYou"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.1254902, 0.34509805, 0.61960787)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/ThankYou"]
+modulate = Color(1.1801987, 1.1801987, 1.1801987, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.25
+offset_top = -128.0
+offset_right = 39.75
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_trkcg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_mroui")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ThankYou/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/ThankYou/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("15_trkcg")
+theme_override_fonts/font = ExtResource("17_hntex")
+theme_override_font_sizes/font_size = 40
+text = "Thank You For Playing
+You Can Close The 
+Browser Tab"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartMenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_mroui")
 volume_db = 16.0
 bus = &"Music"
+
+[node name="MenuStartSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_2o8dr")
+autoplay = true

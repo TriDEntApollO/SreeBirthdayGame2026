@@ -42,7 +42,7 @@ You: Fine..., I'll go brush my teeth.
 ~ brushed_teeth
 do set_avatar("omma")
 Omma: Good, now... 
-Omma: Guess what we have got you for your Brithday present.
+Omma: Guess what we have got you for your Birthday present.
 - I don't know
 	do set_avatar("sree")
 	You: I don't know..
@@ -66,10 +66,12 @@ do EventManager.start_event()
 do set_avatar("sree")
 You: Omg! Thank You sooooo much!!! I love it
 do set_avatar("omma")
-Omma: Enjoy your time with her.
-Omma: When you are ready come to the dining, we will be waiting.
+Omma: You can play with her all you want
+Omma: When you are done, come to the dining, we will be waiting.
 do set_avatar("sree")
 You: Okay, I will.
+do set_avatar("omma")
+Omma: Enjoy your time with her.
 
 set interactable.interact_once = true
 do EventManager.alarm_tick.emit()

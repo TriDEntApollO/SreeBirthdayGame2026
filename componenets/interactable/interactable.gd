@@ -21,17 +21,20 @@ func _ready() -> void:
 
 
 func add_outline(node: Node2D) -> void:
+	if node == null:
+		push_error("Outline Node cannol be 'null'")
+		return
 	outlines.append(node)
 
 func focus() -> void:
 	for outline in outlines:
-		outline.set_instance_shader_parameter("outline_enabled", true)
+		outline.material.set_shader_parameter("outline_enabled", true)
 	
 func unfocus() -> void:
 	if prompt:
 		prompt.hide()
 	for outline in outlines:
-		outline.set_instance_shader_parameter("outline_enabled", false)
+		outline.material.set_shader_parameter("outline_enabled", false)
 
 func interact() -> void:
 	is_interactable = false

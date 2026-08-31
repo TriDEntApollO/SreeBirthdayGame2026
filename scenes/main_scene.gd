@@ -1,17 +1,20 @@
 extends Node2D
 
-
-@onready var sree: Sree = $HouseScene/Sree
+@onready var sree: Sree = $HouseScene/Charcters/Sree
 @onready var house_scene: Node2D = $HouseScene
 @onready var living_room: Node2D = $HouseScene/MainMap.living_room
 @onready var transition: ColorRect = Ui.transition
-@onready var npcs = [
-	$HouseScene/Charcters/OmmaAndAppa/Omma,
-	$HouseScene/Charcters/OmmaAndAppa/Appa,
-	$HouseScene/Charcters/Porkpaglu, 
-	$HouseScene/Charcters/Ramenpaglu, 
-	$HouseScene/Charcters/Upasana
-]
+
+# Characters
+@onready var omma: Node2D = $HouseScene/Charcters/Omma
+@onready var appa: Node2D = $HouseScene/Charcters/Appa
+@onready var porkpaglu: Node2D = $HouseScene/Charcters/Porkpaglu
+@onready var ramenpaglu: Node2D = $HouseScene/Charcters/Ramenpaglu
+@onready var upasana: Node2D = $HouseScene/Charcters/Upasana
+
+@onready var omma_and_appa: Node2D = $HouseScene/Charcters/OmmaAndAppa
+
+var npcs: Array
 
 var cake_scene_instance: CakeScene
 var cake_event_scene = preload("res://scenes/map/CakeEvent.tscn")
@@ -22,6 +25,9 @@ func _ready() -> void:
 	sree.set_interact(false)
 	GameState.can_move = false
 	GameState.hide_cursor()
+	npcs = [omma, appa, porkpaglu, ramenpaglu, upasana]
+	omma_and_appa.set_outline(omma.animated_sprite_2d)
+	omma_and_appa.set_outline(appa.animated_sprite_2d)
 	
 	for npc in npcs:
 		living_room.cake_event_interactable.add_outline(npc.animated_sprite_2d)
@@ -49,7 +55,7 @@ func wake_up() -> void:
 	Ui.inventory.show()
 	sree.set_interact(true)
 	GameState.can_move = true
-	EventManager.add_task()
+	await EventManager.add_task()
 	EventManager.start_event()
 
 
@@ -87,8 +93,8 @@ func end_cake_event() -> void:
 	sree.set_interact(true)
 	
 	
-	EventManager.add_task()
-	EventManager.add_task()
+	await EventManager.add_task()
+	await EventManager.add_task()
 	
 
 func _on_event_start(event_id: int) -> void:

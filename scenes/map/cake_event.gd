@@ -42,9 +42,9 @@ func _ready() -> void:
 func initiate_event() -> void:
 	birthday_music.play()
 	await GameState.delay(1.5)
-	EventManager.add_task()
 	Ui.dialogue_balloon.start(dialogue_file, "blow", [self])
 	await DialogueManager.dialogue_ended
+	await EventManager.add_task()
 	await GameState.delay(0.5)
 	cake_action.set_action("Blow Candle", blow_candle)
 
@@ -56,16 +56,17 @@ func blow_candle() -> void:
 	await cake_event_sfx.finished
 	
 	cake.blow_candle()
-	cake.can_cut = true
-	knife.is_grabable = true
 	confetti.pop()
 	await get_tree().create_timer(0.5).timeout
 	cake_action.set_action("Cut Cake", cut_cake)
 	cake_action.disable_action()
-	EventManager.finish_task(EventManager.task_ids.blow_candles)
-	EventManager.add_task()
-	EventManager.add_task()
+	await EventManager.finish_task(EventManager.task_ids.blow_candles)
 	Ui.dialogue_balloon.start(dialogue_file, "cut")
+	await DialogueManager.dialogue_ended
+	await EventManager.add_task()
+	await EventManager.add_task()
+	cake.can_cut = true
+	knife.is_grabable = true
 
 
 func cut_cake() -> void:
@@ -78,26 +79,27 @@ func cut_cake() -> void:
 	cake.cut()
 	cake_slice.show()
 	knife.reset()
-	cake_slice.is_grabable = true
-	for feedable in get_tree().get_nodes_in_group("Feedables"):
-		feedable.is_feedable = true
 	
 	await GameState.delay(0.5)
 	await transition.fade_out()
 	
-	EventManager.finish_task(EventManager.task_ids.cut_cake)
-	EventManager.add_task()
-	EventManager.add_task()
+	await EventManager.finish_task(EventManager.task_ids.cut_cake)
+	await EventManager.add_task()
+	await EventManager.add_task()
+	
+	cake_slice.is_grabable = true
+	for feedable in get_tree().get_nodes_in_group("Feedables"):
+		feedable.is_feedable = true
 
 func finished_feed_event() -> void:
 	var tween := create_tween()
 	tween.tween_property(birthday_music, "volume_db", -30.0, 1.5)
 	
-	EventManager.finish_task(EventManager.task_ids.feed_everyone)
-	cake_event_sfx.stream = GameState.sfx["interact"]
-	cake_event_sfx.play()
 	GameState.delay(0.3)
 	cake_slice.hide()
+	await EventManager.finish_task(EventManager.task_ids.feed_everyone)
+	cake_event_sfx.stream = GameState.sfx["interact"]
+	cake_event_sfx.play()
 	cake_slice.is_grabable = false
 	EventManager.end_event(EventManager.event_ids.cake_event)
 	GameState.game_cursor_on = true
